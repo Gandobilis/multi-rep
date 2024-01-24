@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        "store-red": "#950E1D",
+        "store-pink": "#FBACB5" 
+      },
+      textColor: {
+        "pink": "#FF96A2",
+        "red": "#950E1D"
+      }
+    },
   },
   plugins: [],
 }
