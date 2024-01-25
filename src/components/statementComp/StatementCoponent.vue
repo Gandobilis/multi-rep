@@ -86,7 +86,7 @@ onMounted(() => {
             <h5>ყველა განცხადება(3)</h5>
           </div>
         </div>
-        <div class="mb-16">
+        <div class="mb-12">
           <div class="bg-[#950E1D] flex gap-2 px-20 py-1 rounded mb-9">
             <component :is="Statementinfo[0].Statement.numbersvg" />
             <h4 class="text-[#FFFFFF]">551-22-23-33</h4>
