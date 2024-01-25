@@ -11,7 +11,9 @@ export default {
             'meta': '#6F6F6F',
             'star': '#FFE600',
             'price': '#177B15',
-            'error': '#FF0000'
+            'error': '#FF0000',
+            'report1':'#C9C9C9',
+            'report2':'#DBDBDB'
         }
     }
 }
