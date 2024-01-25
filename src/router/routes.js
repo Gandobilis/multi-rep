@@ -36,8 +36,15 @@ const routes = [
     {
         path: '/',
         component: MainLayout,
-        children: []
-    }
+        children: [
+            {
+                path:'/report',
+                name:'/Report',
+                component: () => import('../layouts/Report.vue')
+            }
+        ]
+    },
+    
 ]
 
 export default routes
