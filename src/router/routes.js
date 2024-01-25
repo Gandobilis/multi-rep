@@ -36,7 +36,13 @@ const routes = [
     {
         path: '/',
         component: MainLayout,
-        children: []
+        children: [
+            {
+                path: '/courses',
+                name: 'CoursesView',
+                component: () => import('../views/CoursesView.vue')
+            }
+        ]
     }
 ]
 
