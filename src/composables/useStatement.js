@@ -7,6 +7,8 @@ import time from "../assets/Icons/Time.vue"
 import view from "../assets/Icons/Views.vue"
 import number from "../assets/Icons/Number.vue"
 import email from "../assets/Icons/Email.vue"
+import save from "../assets/Icons/Save.vue"
+import close from "../assets/Icons/Close.vue"
 
 export default (function useStatement() {
     const Statementinfo = ref([
@@ -19,6 +21,8 @@ export default (function useStatement() {
                 viewsvg: markRaw(view),
                 numbersvg: markRaw(number),
                 emailsvg: markRaw(email),
+                savesvg: markRaw(save),
+                closesvg: markRaw(close),
             },
         },
         
