@@ -36,7 +36,13 @@ const routes = [
     {
         path: '/',
         component: MainLayout,
-        children: []
+        children: [
+            {
+                path: 'chilavoi',
+                name: 'Chilavoit',
+                component: () => import('../layouts/chilavoi.vue')
+            },
+        ]
     }
 ]
 
