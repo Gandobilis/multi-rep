@@ -45,7 +45,12 @@ const routes = [
                 path: '/recover-password-step-three',
                 name: 'RecoverPasswordStepThree',
                 component: () => import('../views/auth/recover-password/RecoverPasswordStepThreeView.vue')
-            }
+            }, 
+            {
+                path: '/search',
+                name: 'Search',
+                component: () => import('../views/search/Search.vue')
+            },
         ]
     },
     {
