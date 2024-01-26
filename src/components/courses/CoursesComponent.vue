@@ -1,22 +1,22 @@
 <script setup>
 import courses from '../composables/courses'
-import DropdownMenu from '../courses/DropdownMenu.vue'
 import { ref } from "vue";
 
-const { title, price, image, } = courses()
+const courses = useCourses()
 
-
-const favourite = ref(false)
-const favouriteIcone = () => {
-    favourite.value = !favourite.value
+const favouriteIcone = (index) => {
+  courses.value[index].isFavourite = !courses.value[index].isFavourite
 }
-
 </script>
 <template>
     <div class="flex flex-col space-y-24 px-16">
         <div class="flex justify-between mt-14">
             <h1 class="text-5xl">განცხადებები</h1>
-            <DropdownMenu/>
+            <div class="flex flex-row space-x-1">
+                <p class="mt-3">დალაგება:</p>
+                <button>პოპულარული</button>
+                <img src="../../icone/choiBox.svg" alt="">
+            </div>
         </div>
         <div class="grid grid-cols-3 gap-x-6 gap-y-5">
             <div class="flex flex-col justify-around rounded-xl border border-black " v-for="images in image"
