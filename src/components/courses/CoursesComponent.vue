@@ -1,6 +1,5 @@
 <script setup>
-import courses from '../composables/courses'
-import { ref } from "vue";
+import useCourses from '../composables/useCourses'
 
 const courses = useCourses()
 
