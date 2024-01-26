@@ -3,6 +3,7 @@ import mainLogo from '../assests/icons/auth/main-logo.vue'
 import heart from '../assests/icons/auth/heart.vue'
 import search from '../assests/icons/auth/search.vue'
 import man from '../assests/icons/auth/man.vue'
+import exit from '../assests/icons/auth/exit.vue'
 </script>
 <template>
     <div class="flex pt-10 px-20 justify-between">
