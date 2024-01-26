@@ -1,4 +1,5 @@
-<script setup>
+<script setup
+
 </script>
 <template>
   <div class="flex items-center justify-center h-screen">
@@ -14,7 +15,7 @@
         <div class="w-[876.02px] mt-[110px]  border border-report1 "></div>
         <div class="w-[339px] h-8 mt-[15px] ml-[30px] text-black text-2xl font-normal font-['Noto Sans Georgian']">აირჩიეთ რეპორტის მიზეზი</div>
        
-        <div class="w-[192.42px] h-10 ml-[30px] mt-[23px] px-5 py-2.5 bg-red-800 rounded-[5px] shadow justify-center items-center gap-2.5 inline-flex">
+        <div class="w-[192.42px] h-10 ml-[30px] mt-[23px] px-5 py-2.5 bg-red-800 rounded-[5px] border border-report2 justify-center items-center gap-2.5 inline-flex">
     <div class="text-white text-base font-normal font-['BPG Glaho'] tracking-wider">შევიწროვება</div>
     <img
     src="../logo/vector-plus.svg"/>
@@ -59,14 +60,26 @@
     <img
     src="../logo/vector-plus.svg"/>
 </div>
-<button class="w-[282.72px] mt-[30px] ml-[30.1px] h-10 px-5 py-2.5 rounded-[5px] border border-report2 justify-center items-center gap-2.5 inline-flex">
+
+
+    <button class="w-[282.72px] mt-[30px]  ml-[30.1px] h-10 px-5 py-2.5 hover:bg-primary rounded-[5px] border border-report2 justify-center items-center gap-2.5 inline-flex">
     <div class="text-black text-base font-normal font-['BPG Glaho'] tracking-wider ">ბავშვის ექსპლუატაცია</div>
-    <img
-    src="../logo/vector-plus.svg"/>
+     
+     <img
+    
+    src="../logo/Vector(1).svg"
+    
+  /> 
 </button>
+
+
+
+
+ 
+
         <div class="w-[876.02px] mt-[50px]  border border-report1 "></div>
-        <button className="w-[200px] h-[35px] ml-[647px] mt-[30px] bg-secondary-bg rounded-[5px] justify-center items-center  inline-flex">
-    <div className="text-secondary-text text-base font-normal font-['Noto Sans Georgian']">რეპორტი</div>
+        <button class="w-[200px] h-[35px] ml-[647px] mt-[30px] hover:bg-primary bg-secondary-bg rounded-[5px] justify-center items-center  inline-flex">
+    <div class="text-secondary-text text-base font-normal font-['Noto Sans Georgian']">რეპორტი</div>
 </button>
   </form>
 </div>
