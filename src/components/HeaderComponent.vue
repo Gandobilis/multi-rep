@@ -10,11 +10,7 @@ import man from '../assests/icons/auth/man.vue'
             <mainLogo class="mr-4" />
             <h1 class="text-primary text-2xl font-medium tracking-wide">E-LEARNING</h1>
         </div>
-<<<<<<< HEAD
         <div class="flex  pl-[450px]">
-=======
-        <div class="flex  pl-[470px]">
->>>>>>> 36eef4c5df7f485e3b440821789ce9c9d82dba8f
             <p class="mr-10 text-xl">მთავარი</p>
             <p class="mr-20 text-xl">ლიდერბორდი</p>
             <heart />
