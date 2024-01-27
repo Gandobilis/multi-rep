@@ -27,7 +27,7 @@ const authorize = () => {
 };
 </script>
 <template>
-  <form method="post" @submit.prevent="authorize" class="w-[243px]">
+  <form method="post" @submit.prevent="authorize" class="w-[243px] mx-auto">
     <h1 class="text-[32px] mb-[50px] font-semibold">ავტორიზაცია</h1>
     <div class="relative w-full mb-[50px]">
       <input

@@ -4,6 +4,6 @@ import LeftSideComponent from "../components/layouts/auth/LeftSideComponent.vue"
 <template>
   <main class="grid grid-cols-2 h-screen">
     <LeftSideComponent/>
-    <router-view class="flex flex-col items-center justify-center mx-auto"/>
+    <router-view class="flex flex-col items-center justify-center"/>
   </main>
 </template>
