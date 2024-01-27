@@ -19,7 +19,6 @@ const manualClick = (inputType) => {
 
 const handleFileUpload = (inputType, event) => {
   const file = event.target.files[0];
-  console.log(file.name)
   if (inputType === 'cv') {
     cvFile.value = file;
   } else {
