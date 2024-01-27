@@ -1,7 +1,7 @@
 import AuthLayout from "../layouts/AuthLayout.vue";
 import MainLayout from "../layouts/MainLayout.vue";
 
-const lazyLoad = (path) => () => import(`../views/${path}.vue`);
+const lazyLoad = (path) => () => import(`/src/views/${path}.vue`);
 
 const routes = [
     {
