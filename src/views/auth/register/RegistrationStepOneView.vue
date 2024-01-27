@@ -49,7 +49,7 @@ const userType = ref('')
           class="text-sm">მასწავლებელი</label>
       </div>
     </div>
-    <router-link to=""
+    <router-link to="auth/registration-step-two"
                  class="mt-2.5 text-center py-[6.5px] rounded-[5px] hover:shadow-2xl text-white bg-primary w-full">
       შემდეგი
     </router-link>
