@@ -51,9 +51,10 @@ const handleFileUpload = (inputType, event) => {
           type="text"/>
       <label class="absolute -top-3.5 left-2.5 px-1 bg-white">პროფესია</label>
     </div>
-    <div class="pt-[7px] pb-1.5 px-2.5 flex justify-between items-center w-full border border-black rounded-[5px]">
+    <div @click="manualClick('cv')"
+         class="hover:cursor-pointer pt-[7px] pb-1.5 px-2.5 flex justify-between items-center w-full border border-black rounded-[5px]">
       <p v-text="cvFile ? cvFile.name : 'c.v'" class="text-nowrap overflow-x-hidden"/>
-      <img @click="manualClick('cv')" class="hover:cursor-pointer ml-2.5"
+      <img class="ml-2.5"
            src="../../../assets/auth/file-upload-icon.svg" alt="file upload icon">
       <input
           ref="cvRef"
@@ -61,9 +62,10 @@ const handleFileUpload = (inputType, event) => {
           class="sr-only"
           type="file">
     </div>
-    <div class="pt-[7px] pb-1.5 px-2.5 flex justify-between items-center w-full border border-black rounded-[5px]">
+    <div @click="manualClick('photo')"
+         class="hover:cursor-pointer pt-[7px] pb-1.5 px-2.5 flex justify-between items-center w-full border border-black rounded-[5px]">
       <p v-text="photoFile ? photoFile.name : 'პროფ. ფოტო'" class="text-nowrap overflow-x-hidden"/>
-      <img @click="manualClick('photo')" class="hover:cursor-pointer ml-2.5"
+      <img class="ml-2.5"
            src="../../../assets/auth/file-upload-icon.svg" alt="file upload icon">
       <input
           ref="photoRef"
