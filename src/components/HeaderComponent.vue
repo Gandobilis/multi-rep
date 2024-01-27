@@ -4,6 +4,9 @@ import heart from '../assests/icons/auth/heart.vue'
 import search from '../assests/icons/auth/search.vue'
 import man from '../assests/icons/auth/man.vue'
 import exit from '../assests/icons/auth/exit.vue'
+
+
+
 </script>
 <template>
     <div class="flex pt-10 px-20 justify-between">
@@ -12,12 +15,15 @@ import exit from '../assests/icons/auth/exit.vue'
             <h1 class="text-primary text-2xl font-medium ">E-LEARNING</h1>
         </div>
         <div class="flex">
-            <p class="mr-10 text-xl relative hover:text-red-500 hover:border-b-2 hover:border-red-500">მთავარი</p>
-            <p class="mr-20 text-xl relative hover:text-red-500 hover:border-b-2 hover:border-red-500">ლიდერბორდი</p>
+            <button
+                class="mr-10 text-xl relative focus:outline-none hover:text-red-500 hover:border-b-2 hover:border-red-500"
+                onclick="handleClick('first')">მთავარი</button>
+            <button
+                class="mr-20 text-xl relative focus:outline-none hover:text-red-500 hover:border-b-2 hover:border-red-500"
+                onclick="handleClick('second')">ლიდერბორდი</button>
             <heart />
             <man class="mx-20" />
             <search />
         </div>
     </div>
-    <hr class="border-t border-gray-300 my-8 w-full" />
-</template>
+<hr class="border-t border-gray-300 my-8 w-full" /></template>
