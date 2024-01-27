@@ -1,6 +1,6 @@
 <script setup>
 import useCourses from '../../composables/useCourses.js'
-import DropdownMenu from './DropdownMenu.vue'
+import Filter from './Filter.vue';
 
 const courses = useCourses()
 
@@ -12,7 +12,7 @@ const favouriteIcone = (index) => {
    <div class="flex flex-col space-y-24 px-16">
     <div class="flex justify-between mt-14">
       <h1 class="text-5xl">განცხადებები</h1>
-      <DropdownMenu/>
+      <Filter/>
     </div>
     <div class="grid grid-cols-3 gap-x-6 gap-y-5 relative">
       <div class="flex flex-col justify-around rounded-xl border border-black " v-for="(course, index) in courses"
