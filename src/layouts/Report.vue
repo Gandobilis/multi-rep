@@ -1,5 +1,7 @@
 <script setup>
 
+
+
 const reportTypes = [
   ['შევიწროვება',
     'არასწორი ინფორმაცია',
@@ -9,7 +11,7 @@ const reportTypes = [
     'სპამი',
     'ძალადობა'],
   ['უკანონო მომსახურება',
-    'ცილისწამებ',
+    'ცილისწამება',
     'ბავშვის ექსპლუატაცია']
 ];
 const items= [
@@ -18,6 +20,7 @@ const items= [
 const reasons=[
   " აირჩიეთ რეპორტის მიზეზი",
 ];
+
 
 </script>
 <template>
@@ -38,18 +41,20 @@ const reasons=[
       {{ reason }}</div>
     
 <!-- მიზეზები -->
-      <v-card class="flex flex-col px-[30px] gap-y-[30px] pt-[23px] tracking-[1.6px]">
+      <div class="flex flex-col px-[30px] gap-y-[30px] pt-[23px] tracking-[1.6px]">
         <div  v-for="(row, index) in reportTypes" :key="index" class="w-full flex justify-between">
           <div  v-for="(item, itemIndex) in row" :key="itemIndex"
                class="flex gap-x-[10px] py-[10px] px-5 border whitespace-nowrap border-report2 rounded-[5px] hover:bg-primary hover:text-white hover:cursor-pointer">
             <p v-text="item"/>
-           
+            
             <img src="../logo/vector-plus.svg" :alt="item"
-             class=""
+              
              />
           </div>
         </div>
-      </v-card>
+      </div>
+   
+
       <div class="w-[876.02px] mt-[50px]  border border-report1 "></div>
 
       <button
