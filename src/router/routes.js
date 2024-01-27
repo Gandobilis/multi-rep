@@ -8,7 +8,11 @@ const routes = [
         path: '/auth',
         component: AuthLayout,
         children: [
-            {path: 'login', name: 'Login', component: lazyLoad('auth/login/LoginView')},
+            {
+                path: 'login',
+                name: 'Login',
+                component: lazyLoad('auth/login/LoginView')
+            },
             {
                 path: 'registration-step-one',
                 name: 'RegistrationStepOne',
