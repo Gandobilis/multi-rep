@@ -41,10 +41,12 @@ const userType = ref('')
     </div>
     <div class="w-full rounded-[5px] gap-y-[18px] flex flex-col items-start border border-black pl-2.5 py-[13px]">
       <div class="flex items-center gap-x-2.5">
-        <input type="radio" name="type" class="checked:accent-primary"><label class="text-sm">მოსწავლე</label>
+        <input v-model="userType" checked type="radio" value="student" name="type" class="checked:accent-primary"><label
+          class="text-sm">მოსწავლე</label>
       </div>
       <div class="flex items-center gap-x-2.5">
-        <input type="radio" name="type" class="checked:accent-primary"><label class="text-sm">მასწავლებელი</label>
+        <input v-model="userType" type="radio" name="type" value="teacher" class="checked:accent-primary"><label
+          class="text-sm">მასწავლებელი</label>
       </div>
     </div>
     <router-link to=""
