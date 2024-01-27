@@ -33,7 +33,7 @@ const togglePassword = () => {
 
 </script>
 <template>
-  <form method="post" @submit.prevent>
+  <form method="post" @submit.prevent class="w-[243px]">
     <h1 class="text-[32px] mb-[50px] font-semibold">ავტორიზაცია</h1>
     <div class="relative w-full mb-[50px]">
       <input
