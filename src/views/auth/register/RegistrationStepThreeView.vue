@@ -25,14 +25,6 @@ const handleFileUpload = (inputType, event) => {
     photoFile.value = file;
   }
 };
-
-const printData = () => {
-  console.log("city:", city.value);
-  console.log("district:", district.value);
-  console.log("profession:", profession.value);
-  console.log("cvFile:", cvFile.value);
-  console.log("photoFile:", photoFile.value);
-}
 </script>
 
 <template>
@@ -79,7 +71,7 @@ const printData = () => {
           class="sr-only"
           type="file">
     </div>
-    <router-link @click="printData" to="/auth/registration-step-three"
+    <router-link to="/auth/registration-step-four"
                  class="mt-2.5 text-center py-[6.5px] rounded-[5px] hover:shadow-2xl text-white bg-primary w-full">
       შემდეგი
     </router-link>
