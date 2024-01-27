@@ -33,7 +33,7 @@ const authorize = () => {
       <input
           v-model="email"
           class="placeholder-black focus:outline-primary border-black border rounded-[5px] w-full pt-[7px] pb-1.5 px-2.5"
-          type="email"/>
+          type="text"/>
       <label
           class="absolute -top-3.5 left-2.5 px-1 bg-white">ელ. ფოსტა</label>
     </div>
