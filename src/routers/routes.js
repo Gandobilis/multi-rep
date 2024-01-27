@@ -33,6 +33,11 @@ const routes = [
         path: '/verification',
         name: 'verification',
         component: () => import('../views/Verification.vue')
+    },
+    {
+        path: '/liderBoard',
+        name: 'liderBoard',
+        component: () => import('../views/LiderBoard.vue')
     }
 ]
 
