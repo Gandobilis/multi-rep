@@ -35,7 +35,7 @@ const register = () => {
     <img @click="goBack" class="cursor-pointer absolute top-10 left-3" src="../../../assets/auth/back-arrow.svg"
          alt="back arrow"/>
     <form method="post" @submit.prevent="register" class="w-[243px] flex flex-col items-center gap-y-[50px]">
-      <h1 class="text-[32px] font-semibold text-center">ახალი პაროლი</h1>
+      <h1 class="text-[32px] font-semibold text-center whitespace-nowrap">ახალი პაროლი</h1>
       <div class="relative w-full">
         <img @click="togglePassword('password')" class="absolute w-5 h-5 top-2.5 right-2.5 hover:cursor-pointer"
              :src="show ? '/src/assets/auth/hide-password-icon.svg' : '/src/assets/auth/show-password-icon.svg'" alt="">

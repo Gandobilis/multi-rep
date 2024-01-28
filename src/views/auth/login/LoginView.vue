@@ -46,7 +46,9 @@ const authorize = () => {
           :type="show ? 'text' : 'password'">
       <label class="absolute -top-3.5 left-2.5 px-1 bg-white">პაროლი</label>
     </div>
-    <router-link class="flex w-full justify-end  text-primary text-xs mb-5" to="">დაგავიწყდა?</router-link>
+    <router-link class="flex w-full justify-end  text-primary text-xs mb-5" to="/auth/recover-password-step-one">
+      დაგავიწყდა?
+    </router-link>
     <button class="bg-primary text-white py-[6.5px] rounded w-full hover:shadow-2xl mb-[15px]">შესვლა</button>
     <h3 class="flex justify-center mb-[15px]"> ან</h3>
     <router-link to="/auth/registration-step-one"
