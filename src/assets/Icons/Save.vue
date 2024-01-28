@@ -1,0 +1,6 @@
+<template>
+    <svg width="62" height="50" viewBox="0 0 62 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M51.9651 12.3502L22.815 41.5L10 28.6851L13.8502 24.8348L22.815 33.7997L48.1147 8.5L51.9651 12.3502Z" fill="#177B15"/>
+</svg>
+
+</template>

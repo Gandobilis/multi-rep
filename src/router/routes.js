@@ -54,7 +54,11 @@ const routes = [
         path: '/',
         component: MainLayout,
         children: [
-
+            {
+                path: 'statement',
+                name: 'Statement',
+                component: () => import('../views/Pages/StatementPage.vue'),
+            },
         ]
     }
 ];
