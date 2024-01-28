@@ -80,9 +80,10 @@ onMounted(() => console.log(inputRefs.value))
               :key="index"
               :value="digit"
               ref="inputRefs"
-              @input="handleInput(index, $event.target.value)"
+              @input="handleInput(index, $event.target.value.slice(-1))"
               @keydown="handleKeyDown($event, index)"
               @paste="handlePaste($event, index)"
+              maxlength="1"
               class="border-[1px] border-black w-[58.6px] h-[60px] rounded-md text-center focus:outline-primary"
           />
         </div>
