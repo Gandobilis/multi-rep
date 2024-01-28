@@ -1,11 +1,12 @@
 <script setup>
-import Footer from '../components/Footer.vue'
-import Header from '../components/Header.vue'
+import HeaderComponent from "../components/layouts/main/HeaderComponent.vue";
+import FooterComponent from "../components/layouts/main/FooterComponent.vue";
 </script>
+
 <template>
-    <Header />
-    <main class="container mx-auto">
-        <slot />
-    </main>
-    <Footer />
+  <header-component/>
+  <main>
+    <router-view/>
+  </main>
+  <footer-component/>
 </template>
