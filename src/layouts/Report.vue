@@ -1,6 +1,4 @@
 <script setup>
-
-
 import {ref} from "vue";
 
 const reportTypes = [
@@ -20,7 +18,7 @@ const items = [
 ];
 
 const _hoverIndex = ref('')
-const _clickIndex = ref('')
+
 const hoveredIndex = (i, j) => {
   _hoverIndex.value = i.toString() + j.toString()
 }
@@ -42,7 +40,7 @@ const reasons = [
   <div class="flex items-center justify-center h-screen">
     <form class="w-[877px] h-[515px] bg-white rounded-[10px] border border-report1">
       <div v-for="(item) in items"
-           class=" absolute text-5xl font-normal mt-[30px] ml-[30px] font-['Noto Sans Georgian'] uppercase"
+           class=" absolute text-5xl  mt-[30px] ml-[30px] uppercase"
            v-text="item"/>
       <div class="relative">
         <img
