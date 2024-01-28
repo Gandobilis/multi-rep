@@ -107,7 +107,7 @@ onMounted(() => {
           >
             <li class="hover:cursor-pointer">
             <span
-                class="text-primary [&>svg]:h-12 [&>svg]:w-12"
+                class="[&>svg]:h-12 [&>svg]:w-12"
                 data-te-rating-icon-ref
             >
               <svg
@@ -127,7 +127,7 @@ onMounted(() => {
             </li>
             <li class="hover:cursor-pointer">
             <span
-                class="text-primary [&>svg]:h-12 [&>svg]:w-12"
+                class="[&>svg]:h-12 [&>svg]:w-12"
                 data-te-rating-icon-ref
             >
               <svg
@@ -147,7 +147,7 @@ onMounted(() => {
             </li>
             <li class="hover:cursor-pointer">
             <span
-                class="text-primary [&>svg]:h-12 [&>svg]:w-12"
+                class="[&>svg]:h-12 [&>svg]:w-12"
                 data-te-rating-icon-ref
             >
               <svg
@@ -167,7 +167,7 @@ onMounted(() => {
             </li>
             <li class="hover:cursor-pointer">
             <span
-                class="text-primary [&>svg]:h-12 [&>svg]:w-12"
+                class="[&>svg]:h-12 [&>svg]:w-12"
                 data-te-rating-icon-ref
             >
               <svg
@@ -187,7 +187,7 @@ onMounted(() => {
             </li>
             <li class="hover:cursor-pointer">
             <span
-                class="text-primary [&>svg]:h-12 [&>svg]:w-12"
+                class="[&>svg]:h-12 [&>svg]:w-12"
                 data-te-rating-icon-ref
             >
               <svg
