@@ -1,5 +1,7 @@
-import AuthLayout from "../layouts/AuthLayout.vue"
-import MainLayout from "../layouts/MainLayout.vue"
+import AuthLayout from "../layouts/AuthLayout.vue";
+import MainLayout from "../layouts/MainLayout.vue";
+
+const lazyLoad = (path) => () => import(`/src/views/${path}.vue`);
 
 const routes = [
     {
@@ -7,46 +9,45 @@ const routes = [
         component: AuthLayout,
         children: [
             {
-                path: '/login',
+                path: 'login',
                 name: 'Login',
-                component: () => import('../views/auth/login/LoginView.vue')
+                component: lazyLoad('auth/login/LoginView')
             },
             {
-                path: '/registration-step-one',
+                path: 'registration-step-one',
                 name: 'RegistrationStepOne',
-                component: () => import('../views/auth/register/RegistrationStepOneView.vue')
+                component: lazyLoad('auth/register/RegistrationStepOneView')
             },
             {
-                path: '/registration-step-two',
+                path: 'registration-step-two',
                 name: 'RegistrationStepTwo',
-                component: () => import('../views/auth/register/RegistrationStepTwoView.vue')
+                component: lazyLoad('auth/register/RegistrationStepTwoView')
             },
             {
-                path: '/registration-step-three',
+                path: 'registration-step-three',
                 name: 'RegistrationStepThree',
-                component: () => import('../views/auth/register/RegistrationStepThreeView.vue')
+                component: lazyLoad('auth/register/RegistrationStepThreeView')
             },
             {
-                path: '/registration-step-four',
+                path: 'registration-step-four',
                 name: 'RegistrationStepFour',
-                component: () => import('../views/auth/register/RegistrationStepFourView.vue')
+                component: lazyLoad('auth/register/RegistrationStepFourView')
             },
             {
-                path: '/recover-password-step-one',
+                path: 'recover-password-step-one',
                 name: 'RecoverPasswordStepOne',
-                component: () => import('../views/auth/recover-password/RecoverPasswordStepOneView.vue')
+                component: lazyLoad('auth/recover-password/RecoverPasswordStepOneView')
             },
             {
-                path: '/recover-password-step-two',
+                path: 'recover-password-step-two',
                 name: 'RecoverPasswordStepTwo',
-                component: () => import('../views/auth/recover-password/RecoverPasswordStepTwoView.vue')
+                component: lazyLoad('auth/recover-password/RecoverPasswordStepTwoView')
             },
             {
-                path: '/recover-password-step-three',
+                path: 'recover-password-step-three',
                 name: 'RecoverPasswordStepThree',
-                component: () => import('../views/auth/recover-password/RecoverPasswordStepThreeView.vue')
-            }, 
-           
+                component: lazyLoad('auth/recover-password/RecoverPasswordStepThreeView')
+            }
         ]
     },
     {
@@ -60,6 +61,6 @@ const routes = [
             },
         ]
     }
-]
+];
 
-export default routes
+export default routes;
