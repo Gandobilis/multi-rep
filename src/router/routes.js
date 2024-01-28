@@ -54,11 +54,7 @@ const routes = [
         path: '/',
         component: MainLayout,
         children: [
-            {
-                path: '/search',
-                name: 'Search',
-                component: () => import('../views/search/Search.vue')
-            },
+
         ]
     }
 ];
