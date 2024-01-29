@@ -1,10 +1,7 @@
-import AuthLayout from '@/layouts/AuthLayout.vue';
-import MainLayout from '@/layouts/MainLayout.vue';
-
-const routes = [
+export default [
     {
         path: '/auth',
-        component: AuthLayout,
+        component: () => import('@/layouts/AuthLayout.vue'),
         children: [
             {
                 path: 'login',
@@ -50,7 +47,7 @@ const routes = [
     },
     {
         path: '/',
-        component: MainLayout,
+        component: () => import('@/layouts/MainLayout.vue'),
         children: [
             {
                 path: 'statement',
@@ -60,5 +57,3 @@ const routes = [
         ],
     },
 ];
-
-export default routes;
