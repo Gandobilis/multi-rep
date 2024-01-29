@@ -58,7 +58,23 @@ export default [
                 path: '/courses',
                 name: 'CoursesView',
                 component: () => import('../views/CoursesView.vue')
+            },
+            {
+                path: '/report',
+                name: '/Report',
+                component: () => import('../views/auth/Report.vue')
+            },
+            {
+                path: '/addpost',
+                name: '/AddPost',
+                component: () => import('../views/auth/AddPost.vue')
+            },
+            {
+                path: '/leaderboard',
+                name: '/Leaderboard',
+                component: () => import('@/views/LiderBoard.vue')
             }
         ],
     },
 ];
+
