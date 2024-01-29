@@ -54,6 +54,11 @@ export default [
                 name: 'Statement',
                 component: () => import('@/views/pages/StatementPage.vue'),
             },
+            {
+                path: '/courses',
+                name: 'CoursesView',
+                component: () => import('../views/CoursesView.vue')
+            }
         ],
     },
 ];
