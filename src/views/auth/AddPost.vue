@@ -1,10 +1,5 @@
 <script setup>
-import {ref, onMounted} from 'vue';
 
-const heads = ref('სათაური')
-onMounted(() => {
-  heads.value.focus()
-});
 </script>
 <template>
   <div class="flex items-center justify-center h-screen">
@@ -19,24 +14,37 @@ onMounted(() => {
       </div>
       <div class="w-[876.02px] mt-[110px]  border border-report1 "></div>
       <div class="flex flex-col justify-center  items-center">
-        <input ref="heads" class="mt-[30px] w-[300px] h-[35px]  rounded-[5px] border border-black input-field"
-               placeholder="სათაური"/>
-        <input ref="abouts" class="w-[300px] h-[150px] mt-[30px] rounded-[5px] border border-black"
+        <input  class="mt-[30px] w-[300px] h-[35px] placeholder-black rounded-[5px] border border-black input-field  "
+              placeholder="სათაური " />
+        <input  class="w-[300px] placeholder-black h-[150px] break-all mt-[30px] rounded-[5px] border border-black"
                placeholder="აღწერა"/>
         <div class="mt-[30px] w-[300px] h-[70px] rounded-[5px] border border-black">
           <div class="flex items-center mb-4">
             <input type="radio" value="" name="default-radio" class="ml-[10px] mt-[13px] w-2.5 h-2.5 text-blue-600">
-            <label for="default-radio-1" class="text-black ml-[10px] text-xs mt-[13px] ">ზოგადი</label>
+            <label for="default-radio-1" class="text-black ml-[10px]  text-xs mt-[13px] ">ზოგადი</label>
           </div>
           <div class="flex items-center">
             <input type="radio" value="" name="default-radio" class="  ml-[10px] mb-[13px] w-2.5 h-2.5 text-blue-600  ">
             <label for="default-radio-2" class="mb-[13px] ml-[10px] text-black text-xs ">კურსი</label>
           </div>
         </div>
-        <div class="flex flex-cols">
-          <p class="w-[190px] h-[35px] rounded-[5px] border border-black">ხანგრძლივობა</p>
-          <p class="w-[90px]  h-[35px]  rounded-[5px] border border-black">xzcsc</p>
+        <div class="flex mt-[30px]">
+        <div class="w-[196px] h-[35px]  rounded-[5px] border border-black" >
+          <p class="ml-[10px] mt-[7px]">ხანგრძლივობა</p>
         </div>
+        <div class="relative">
+  <div class="flex items-center w-[99px] h-[35px] ml-[5px] rounded-[5px] border border-black">
+    
+    <p class=" ml-[10px] mt-[7px]">თვე</p>
+    
+    
+    <img src="/src/logo/dropdownarrow.svg" class="ml-[34px] mt-[14px]" />
+  </div>
+</div>
+
+  
+</div>
+
       </div>
     </form>
   </div>
