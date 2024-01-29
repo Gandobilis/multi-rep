@@ -41,13 +41,12 @@
           <div class="flex items-center">
             <input
               type="radio"
-              value=""
-              name="default-radio"
+              
               class="ml-[10px] mb-[13px] w-2.5 h-2.5"
             />
             <label
-              for="default-radio-2"
-              class="mb-[13px] ml-[10px] text-black text-xs"
+              
+              class=" mb-[13px] ml-[10px] text-black text-xs"
               >კურსი</label
             >
           </div>
@@ -112,6 +111,7 @@
             >
           </div>
         </div>
+        <div class="w-[300px] h-[35px] px-[64.50px] py-[6.50px] bg-rose-300 rounded-[5px] justify-center items-center gap-2.5 inline-flex"></div>
       </div>
     </form>
   </div>
