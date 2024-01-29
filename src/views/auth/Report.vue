@@ -74,6 +74,8 @@ const reasons = [
 
       <div class="w-[876.02px] mt-[50px]  border border-report1 "></div>
 
+
+
       <button
           class="px-[60.5px] py-[6.5px] ml-[647px] mt-[30px] text-secondary-text bg-secondary-bg rounded-[5px]">
         რეპორტი

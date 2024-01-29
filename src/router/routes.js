@@ -40,8 +40,13 @@ const routes = [
             {
                 path:'/report',
                 name:'/Report',
-                component: () => import('../layouts/Report.vue')
-            }
+                component: () => import('../views/auth/Report.vue')
+            },
+            {
+                path:'/addpost',
+                name:'/AddPost',
+                component: () => import('../views/auth/AddPost.vue')
+            },
         ]
     },
     
