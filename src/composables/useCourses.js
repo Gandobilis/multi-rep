@@ -4,43 +4,71 @@ import fotograp from '../image/fotograp.png'
 import uiUx from '../image/uiUx.png'
 import {ref} from "vue";
 
+function getRandomRating() {
+    return Math.floor(Math.random() * 5) + 1;
+}
+
+function getRandomDate() {
+    const today = new Date();
+    const lastYear = today.getFullYear() - 1;
+    const randomMonth = Math.floor(Math.random() * 12);
+    const randomDay = Math.floor(Math.random() * 28) + 1;
+    return new Date(lastYear, randomMonth, randomDay);
+}
+
 export default function useCourses() {
-    return ref([
+    const chosenAttributeIndex = ref(0);
+
+    const courses = ref([
         {
-            price: '300 ₾',
+            price: 300,
             title: 'ჯავას ახალი კურსი',
             image: java,
-            isFavourite: false
+            isFavourite: false,
+            rating: getRandomRating(),
+            publishingDate: getRandomDate()
         },
         {
-            price: '300 ₾',
+            price: 400,
             title: 'ჯავას ახალი კურსი',
             image: python,
-            isFavourite: false
+            isFavourite: false,
+            rating: getRandomRating(),
+            publishingDate: getRandomDate()
         },
         {
-            price: '300 ₾',
+            price: 600,
             title: 'ჯავას ახალი კურსი',
             image: fotograp,
-            isFavourite: false
+            isFavourite: false,
+            rating: getRandomRating(),
+            publishingDate: getRandomDate()
         },
         {
-            price: '300 ₾',
+            price: 500,
             title: 'ჯავას ახალი კურსი',
             image: uiUx,
-            isFavourite: false
+            isFavourite: false,
+            rating: getRandomRating(),
+            publishingDate: getRandomDate()
         },
         {
-            price: '300 ₾',
+            price: 1000,
             title: 'ჯავას ახალი კურსი',
             image: uiUx,
-            isFavourite: false
+            isFavourite: false,
+            rating: getRandomRating(),
+            publishingDate: getRandomDate()
         },
         {
-            price: '300 ₾',
+            price: 50,
             title: 'ჯავას ახალი კურსი',
             image: uiUx,
-            isFavourite: false
+            isFavourite: false,
+            rating: getRandomRating(),
+            publishingDate: getRandomDate()
         }
-    ])
+    ]);
+
+    return {courses, chosenAttributeIndex}
 }
