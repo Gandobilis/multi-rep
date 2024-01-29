@@ -7,6 +7,21 @@ import {ref} from 'vue';
 
 const activeTab = ref('first');
 
+const favourites = ref(5)
+const dropdowns = ref([false, false, false])
+
+const handleDropdown = (index) => {
+  if (dropdowns.value.some(d => d)) {
+    if (dropdowns.value.indexOf(true) !== index) {
+      dropdowns.value[index] = true
+    }
+    dropdowns.value[dropdowns.value.indexOf(true)] = false
+  } else {
+    dropdowns.value[index] = true
+  }
+  console.log(dropdowns.value)
+}
+
 const handleClick = (tab) => {
   activeTab.value = tab;
 };
@@ -30,9 +45,9 @@ const handleClick = (tab) => {
             borderBottom: activeTab === 'second' ? '2px solid #950E1D' : 'none'
         }">ლიდერბორდი
       </button>
-      <heart/>
-      <man class="mx-20"/>
-      <search/>
+      <heart :show="dropdowns[0]" :favourites="favourites" @handleDropdown="handleDropdown"/>
+      <man :show="dropdowns[1]" class="mx-20" @handleDropdown="handleDropdown"/>
+      <search :show="dropdowns[2]" @handleDropdown="handleDropdown"/>
     </div>
   </div>
   <hr class="border-t border-gray-300 my-10 w-full"/>
