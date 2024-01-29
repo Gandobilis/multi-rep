@@ -11,7 +11,7 @@ const show = ref(false)
         <p class="">დალაგება:</p>
         <div class="flex flex-row space-x-1" @click="show = !show">
           <button>პოპულარული</button>
-          <img class="hover:cursor-pointer" src="../../icone/choiBox.svg" alt="">
+          <img class="hover:cursor-pointer hover:rotate-180" src="../../icone/choiBox.svg" alt="" >
         </div>
       </div>
       <!-- filter menu -->
