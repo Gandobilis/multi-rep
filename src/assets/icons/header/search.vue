@@ -14,4 +14,4 @@ const toggleSearch = () => {
       <img :src="search ? 'src/assets/icons/header/Vector2.svg' : ''" class="px-4 mr-5 bg-red-800 " />
     </div>
   </div>
-</template>   
+</template>

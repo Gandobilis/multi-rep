@@ -1,8 +1,37 @@
+<script setup>
+import { ref } from 'vue';
+
+const isDropdownOpen = ref(false);
+
+const toggleDropdown = () => {
+  isDropdownOpen.value = !isDropdownOpen.value;
+};
+</script>
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="35" viewBox="0 0 28 35" fill="none">
-        <path
-            d="M21.1667 8.33333C21.1667 12.3834 17.8833 15.6667 13.8333 15.6667C9.78324 15.6667 6.5 12.3834 6.5 8.33333C6.5 4.28324 9.78324 1 13.8333 1C17.8833 1 21.1667 4.28324 21.1667 8.33333Z"
-            stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M13.8333 21.167C6.74568 21.167 1 26.9127 1 34.0003H26.6667C26.6667 26.9127 20.921 21.167 13.8333 21.167Z"
-            stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-</svg></template>
+  <div class="relative">
+    <button @click="toggleDropdown">
+      <img class="hover:cursor-pointer" :src="man ? 'src/assets/icons/header/man.svg' : 'src/assets/icons/header/man.svg'"
+        alt="search icon" />
+    </button>
+    <!-- Dropdown content -->
+    <div v-if="isDropdownOpen" class="absolute mt-2 right-0 w-28 bg-white rounded-lg shadow-lg border border-gray-300">
+      <div class="flex items-start">
+        <div class="flex flex-col items-start">
+          <img class="hover:cursor-pointer py-2 px-2"
+            :src="man ? 'src/assets/icons/header/little-man.svg' : 'src/assets/icons/header/little-man.svg'"
+            alt="little-man" />
+          <img class="hover:cursor-pointer py-4 px-2"
+            :src="man ? 'src/assets/icons/header/little-log-out.svg' : 'src/assets/icons/header/little-log-out.svg'"
+            alt="little-log-out" />
+        </div>
+        <div class="flex flex-col items-start py-2">
+    <p class="h-8 cursor-pointer font-medium">ნახვა</p>
+    <p class="text-red-800 cursor-pointer font-medium">გასვლა</p>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+</template>
+
