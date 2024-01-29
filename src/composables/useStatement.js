@@ -1,14 +1,14 @@
-import { ref } from "vue";
-import { markRaw } from 'vue';
-import javaimg from "../assets/Images/Java.png"
-import Profileimg from "../assets/Images/Profile.png"
-import date from "../assets/Icons/Date.vue"
-import time from "../assets/Icons/Time.vue"
-import view from "../assets/Icons/Views.vue"
-import number from "../assets/Icons/Number.vue"
-import email from "../assets/Icons/Email.vue"
-import save from "../assets/Icons/Save.vue"
-import close from "../assets/Icons/Close.vue"
+import {ref} from "vue";
+import {markRaw} from 'vue';
+import javaimg from "../assets/images/Java.png"
+import Profileimg from "../assets/images/Profile.png"
+import date from "../assets/icons/Date.vue"
+import time from "../assets/icons/Time.vue"
+import view from "../assets/icons/Views.vue"
+import number from "../assets/icons/Number.vue"
+import email from "../assets/icons/Email.vue"
+import save from "../assets/icons/Save.vue"
+import close from "../assets/icons/Close.vue"
 
 export default (function useStatement() {
     const Statementinfo = ref([
@@ -25,11 +25,11 @@ export default (function useStatement() {
                 closesvg: markRaw(close),
             },
         },
-        
+
     ]);
 
 
-    let instance = { Statementinfo,  };
+    let instance = {Statementinfo,};
 
     return () => {
         return instance;

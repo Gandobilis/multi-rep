@@ -32,13 +32,13 @@ const register = () => {
 
 <template>
   <div class="relative">
-    <img @click="goBack" class="cursor-pointer absolute top-10 left-3" src="../../../assets/auth/back-arrow.svg"
+    <img @click="goBack" class="cursor-pointer absolute top-10 left-3" src="../../../assets/icons/auth/back-arrow.svg"
          alt="back arrow"/>
     <form method="post" @submit.prevent="register" class="w-[243px] flex flex-col items-center gap-y-[50px]">
       <h1 class="text-[32px] font-semibold text-center">რეგისტრაცია</h1>
       <div class="relative w-full">
         <img @click="togglePassword('password')" class="absolute w-5 h-5 top-2.5 right-2.5 hover:cursor-pointer"
-             :src="show ? '/src/assets/auth/hide-password-icon.svg' : '/src/assets/auth/show-password-icon.svg'" alt="">
+             :src="show ? '/src/assets/icons/auth/hide-password-icon.svg' : '/src/assets/icons/auth/show-password-icon.svg'" alt="">
         <input
             v-model="password"
             class="placeholder-black focus:outline-primary border-black border rounded-[5px] w-full pt-[7px] pb-1.5 px-2.5"
@@ -47,7 +47,7 @@ const register = () => {
       </div>
       <div class="relative w-full">
         <img @click="togglePassword('repeat')" class="absolute w-5 h-5 top-2.5 right-2.5 hover:cursor-pointer"
-             :src="showRepeated ? '/src/assets/auth/hide-password-icon.svg' : '/src/assets/auth/show-password-icon.svg'"
+             :src="showRepeated ? '/src/assets/icons/auth/hide-password-icon.svg' : '/src/assets/icons/auth/show-password-icon.svg'"
              alt="">
         <input
             v-model="repeatPassword"
@@ -56,7 +56,7 @@ const register = () => {
         <label class="absolute -top-3.5 left-2.5 px-1 bg-white">გაიმეორეთ</label>
       </div>
       <div v-if="error" class="flex items-center w-full justify-start gap-x-2 -my-[35.5px]">
-        <img src="../../../assets/auth/error.svg" alt="alert error icon">
+        <img src="../../../assets/icons/auth/error.svg" alt="alert error icon">
         <span class="text-sm text-error">პაროლები არ ემთხვევა</span>
       </div>
       <button

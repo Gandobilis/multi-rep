@@ -36,7 +36,7 @@ const goBack = () => {
 
 <template>
   <div class="relative">
-    <img @click="goBack" class="cursor-pointer absolute top-10 left-3" src="../../../assets/auth/back-arrow.svg"
+    <img @click="goBack" class="cursor-pointer absolute top-10 left-3" src="../../../assets/icons/auth/back-arrow.svg"
          alt="back arrow"/>
     <form method="post" @submit.prevent class="w-[243px] flex flex-col items-center gap-y-[50px]">
       <h1 class="text-[32px] font-semibold">რეგისტრაცია</h1>
@@ -65,7 +65,7 @@ const goBack = () => {
            class="hover:cursor-pointer pt-[7px] pb-1.5 px-2.5 flex justify-between items-center w-full border border-black rounded-[5px]">
         <p v-text="cvFile ? cvFile.name : 'c.v'" class="text-nowrap overflow-x-hidden"/>
         <img class="ml-2.5"
-             src="../../../assets/auth/file-upload-icon.svg" alt="file upload icon">
+             src="../../../assets/icons/auth/file-upload-icon.svg" alt="file upload icon">
         <input
             ref="cvRef"
             @change="handleFileUpload('cv', $event)"
@@ -76,7 +76,7 @@ const goBack = () => {
            class="hover:cursor-pointer pt-[7px] pb-1.5 px-2.5 flex justify-between items-center w-full border border-black rounded-[5px]">
         <p v-text="photoFile ? photoFile.name : 'პროფ. ფოტო'" class="text-nowrap overflow-x-hidden"/>
         <img class="ml-2.5"
-             src="../../../assets/auth/file-upload-icon.svg" alt="file upload icon">
+             src="../../../assets/icons/auth/file-upload-icon.svg" alt="file upload icon">
         <input
             ref="photoRef"
             @change="handleFileUpload('photo', $event)"

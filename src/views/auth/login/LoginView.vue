@@ -39,7 +39,7 @@ const authorize = () => {
     </div>
     <div class="relative w-full mb-5">
       <img @click="togglePassword" class="absolute w-5 h-5 top-2.5 right-2.5 hover:cursor-pointer"
-           :src="show ? '/src/assets/auth/hide-password-icon.svg' : '/src/assets/auth/show-password-icon.svg'" alt="">
+           :src="show ? '/src/assets/icons/auth/hide-password-icon.svg' : '/src/assets/icons/auth/show-password-icon.svg'" alt="">
       <input
           v-model="password"
           class="placeholder-black focus:outline-primary border-black border rounded-[5px] w-full pt-[7px] pb-1.5 px-2.5"

@@ -57,7 +57,7 @@ const routes = [
             {
                 path: 'statement',
                 name: 'Statement',
-                component: () => import('../views/Pages/StatementPage.vue'),
+                component: () => import('@/views/pages/StatementPage.vue'),
             },
         ]
     }

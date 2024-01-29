@@ -17,7 +17,7 @@ const goBack = () => {
 
 <template>
   <div class="relative">
-    <img @click="goBack" class="cursor-pointer absolute top-10 left-3" src="../../../assets/auth/back-arrow.svg"
+    <img @click="goBack" class="cursor-pointer absolute top-10 left-3" src="../../../assets/icons/auth/back-arrow.svg"
          alt="back arrow"/>
     <form method="post" @submit.prevent class="w-[243px] flex flex-col items-center gap-y-[50px]">
       <h1 class="text-[32px] font-semibold">რეგისტრაცია</h1>
