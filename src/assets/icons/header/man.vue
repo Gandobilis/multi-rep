@@ -25,11 +25,9 @@ const toggleDropdown = () => {
             alt="little-log-out" />
         </div>
         <div class="flex flex-col items-start py-2">
-    <p class="h-8 cursor-pointer font-medium">ნახვა</p>
-    <p class="text-red-800 cursor-pointer font-medium">გასვლა</p>
-</div>
-
-
+          <p class="h-8 cursor-pointer font-medium">ნახვა</p>
+          <p class="text-red-800 cursor-pointer font-medium">გასვლა</p>
+        </div>
       </div>
     </div>
   </div>
