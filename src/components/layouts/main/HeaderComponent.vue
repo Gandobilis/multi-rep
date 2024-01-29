@@ -1,8 +1,8 @@
 <script setup>
-import mainLogo from '@/assets/icons/main-logo.vue';
-import heart from '@/assets/icons/heart.vue';
-import search from '@/assets/icons/search.vue';
-import man from '@/assets/icons/man.vue';
+import mainLogo from '@/assets/icons/header/main-logo.vue';
+import heart from '@/assets/icons/header/heart.vue';
+import search from '@/assets/icons/header/search.vue';
+import man from '@/assets/icons/header/man.vue';
 import {ref} from 'vue';
 
 const activeTab = ref('first');
