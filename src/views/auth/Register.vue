@@ -12,8 +12,10 @@ const {
 
 <template>
   <div class="relative">
-    <img @click="" class="cursor-pointer absolute top-10 left-3" src="../../assets/icons/auth/back-arrow.svg"
-         alt="back arrow"/>
+    <router-link to="/auth/login">
+      <img class="cursor-pointer absolute top-10 left-3" src="@/assets/icons/auth/back-arrow.svg"
+           alt="back arrow"/>
+    </router-link>
     <form method="post" @submit.prevent="register" class="w-[243px] flex flex-col items-center gap-y-[50px]">
       <h1 class="text-[32px] font-semibold">რეგისტრაცია</h1>
       <template v-for="(field, index) in formFields" :key="index">

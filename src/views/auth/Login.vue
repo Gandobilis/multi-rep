@@ -25,7 +25,7 @@ const {
       <div class="flex items-center gap-x-1.5">
         <input type="checkbox" v-model="remember"><label class="text-sm mb-0.5">დამახსოვრება</label>
       </div>
-      <router-link class="flex w-full justify-end  text-primary text-xs" to="/auth/recover-password-step-one">
+      <router-link class="flex w-full justify-end  text-primary text-xs" to="/auth/recover">
         დაგავიწყდა?
       </router-link>
     </div>

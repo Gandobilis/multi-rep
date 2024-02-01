@@ -27,8 +27,7 @@ export default function useRegister() {
 
     const register = async () => {
         axios.post('users/auth/register', formData.value).then((res) => {
-            console.log(res)
-            // router.push('/')
+            router.push('/')
         }).catch((err) => {
             console.log(err)
             error.value = 'შეამოწმეთ მონაცემები';

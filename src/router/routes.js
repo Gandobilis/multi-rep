@@ -12,13 +12,19 @@ export default [
                 path: 'register',
                 name: 'Register',
                 component: () => import('@/views/auth/Register.vue'),
-            }
+            },
+            {
+                path: 'recover',
+                name: 'Recover',
+                component: () => import('@/views/auth/Recover.vue')
+            },
         ],
     },
     {
         path: '/',
         component: () => import('@/layouts/MainLayout.vue'),
-        children: [],
+        children: [
+        ],
     },
 ];
 
