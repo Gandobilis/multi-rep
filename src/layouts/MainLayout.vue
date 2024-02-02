@@ -6,7 +6,7 @@ import FooterComponent from "../components/layouts/main/FooterComponent.vue";
   <header-component class="px-12 py-8"/>
   <hr/>
   <div class="container mx-auto">
-    <main class="py-8">
+    <main class="py-12">
       <router-view/>
     </main>
   </div>
