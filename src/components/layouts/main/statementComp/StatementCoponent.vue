@@ -14,7 +14,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="grid grid-cols-2 px-20">
+  <div class="2xl:grid 2xl:grid-cols-2 grid grid-cols-1 px-20 justify-between">
     <div class="">
       <img class="" :src="Statementinfo[0].Statement.img" alt="" />
     </div>
