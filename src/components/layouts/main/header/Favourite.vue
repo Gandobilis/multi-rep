@@ -20,7 +20,7 @@ const statements = ref([
           class="-top-2.5 -right-2.5 absolute w-6 h-6 rounded-full flex items-center justify-center"
           v-text="favourites"/>
     </div>
-    <div class="absolute z-10 border border-gray-400 rounded-md top-12 right-0" :class="show ? 'block' : 'hidden'">
+    <div class="absolute bg-white z-10 border border-gray-400 rounded-md top-12 right-0" :class="show ? 'block' : 'hidden'">
       <p class="whitespace-nowrap text-sm font-bold p-3">შენახული განცხადები</p>
       <div class="flex flex-col border-t border-t-gray-400 p-3 gap-y-2">
         <router-link
