@@ -16,7 +16,10 @@ const users = ref(Array(5).fill({
 <template>
   <div class="mt-14 flex flex-col gap-y-4">
     <template v-for="(user, index) in users" :key="index">
-      <Rating :user="user"/>
+      <Rating :user="user" :class="index === 0 ? 'bg-yellow-400'
+    : index === 1 ? 'bg-gray-400'
+    : index === 2 ? 'bg-orange-400'
+: 'bg-white'"/>
     </template>
   </div>
 </template>
