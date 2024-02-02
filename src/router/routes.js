@@ -25,14 +25,14 @@ export default [
         component: () => import('@/layouts/MainLayout.vue'),
         children: [
             {
-                path: 'statements',
-                name: 'Statement',
-                component: () => import('@/views/Statements.vue')
+                path: '',
+                name: 'Courses',
+                component: () => import('@/views/main/CoursesView.vue')
             },
             {
                 path: 'leaderboard',
                 name: 'Leaderboard',
-                component: () => import('@/views/Leaderboard.vue')
+                component: () => import('@/views/main/Leaderboard.vue')
             },
         ],
     },
