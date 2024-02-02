@@ -34,6 +34,11 @@ export default [
                 name: 'Leaderboard',
                 component: () => import('@/views/main/Leaderboard.vue')
             },
+                {
+                    path: 'statement',
+                    name: 'Statement',
+                    component: () => import('../views/main/statementPage.vue'),
+                },
         ],
     },
 ];
