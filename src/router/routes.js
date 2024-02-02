@@ -24,6 +24,11 @@ export default [
         path: '/',
         component: () => import('@/layouts/MainLayout.vue'),
         children: [
+            {
+                path: 'leaderboard',
+                name: 'Leaderboard',
+                component: () => import('@/views/Leaderboard.vue')
+            },
         ],
     },
 ];
