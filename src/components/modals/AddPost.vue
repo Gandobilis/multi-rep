@@ -1,12 +1,16 @@
 <script setup>
 import Dropdown from "@/components/modals/Dropdown.vue"
 import {ref} from "vue"
+import AnimatedInput from "@/components/layouts/auth/AnimatedInput.vue";
 
 const title = ref('')
 const description = ref('')
-const price = ref('თვე')
-const time = ref('თვე')
-const date = ref('თვე')
+const priceUnit = ref('თვე')
+const price = ref('')
+const timeUnit = ref('თვე')
+const time = ref('')
+const dateUnit = ref('თვე')
+const date = ref('')
 const isOnline = ref(true)
 const city = ref('')
 
@@ -24,6 +28,19 @@ const toggleDropdown = (index) => {
 const closeDropdown = (index) => {
   showDropdowns.value[index] = false
 }
+
+const handleAddPost = () => {
+  console.log('Title:', title.value)
+  console.log('Description:', description.value)
+  console.log('Price Unit:', priceUnit.value)
+  console.log('Price:', price.value)
+  console.log('Time Unit:', timeUnit.value)
+  console.log('Time:', time.value)
+  console.log('Date Unit:', dateUnit.value)
+  console.log('Date:', date.value)
+  console.log('Is Online:', isOnline.value)
+  console.log('City:', city.value)
+}
 </script>
 
 <template>
@@ -34,23 +51,23 @@ const closeDropdown = (index) => {
       <img class="cursor-pointer" src="@/assets/icons/modals/close.svg" alt="close icon"/>
     </div>
     <form
-        @submit.prevent
+        @submit.prevent="handleAddPost"
         class="flex w-3/5 flex-col gap-y-8"
     >
-      <input
+      <animated-input
           v-model="title"
-          class="rounded-md border-2 border-black font-medium placeholder-black p-2.5"
           placeholder="სათაური"
       />
-      <textarea
+      <animated-input
           v-model="description"
-          class="rounded-md border-2 border-black font-medium placeholder-black p-2.5"
           placeholder="აღწერა"
       />
-      <Dropdown :show="showDropdowns[0]" @closeDropDown="closeDropdown(0)" @toggleDropdown="toggleDropdown(0)"
-                v-model="price" label="ფასი ₾"/>
-      <Dropdown :show="showDropdowns[1]" @closeDropDown="closeDropdown(1)" @toggleDropdown="toggleDropdown(1)"
-                v-model="time" label="დრო"/>
+      <Dropdown :options="['თვე', 'ერთჯერადი']" :show="showDropdowns[0]" @closeDropDown="closeDropdown(0)"
+                @toggleDropdown="toggleDropdown(0)"
+                v-model:unit="priceUnit" v-model:value="price" label="ფასი ₾"/>
+      <Dropdown :options="['დღე', 'კვირა', 'თვე', 'წელი']" :show="showDropdowns[1]" @closeDropDown="closeDropdown(1)"
+                @toggleDropdown="toggleDropdown(1)"
+                v-model:unit="timeUnit" v-model:value="time" label="დრო"/>
       <div
           class="flex items-center justify-between"
       >
@@ -91,13 +108,14 @@ const closeDropdown = (index) => {
           />
         </div>
       </div>
-      <input
+      <animated-input
+          v-show="!isOnline"
           v-model="city"
-          placeholder="თბილისი"
-          class="rounded-md border-2 border-black font-medium placeholder-black p-2.5"
+          placeholder="ქალაქი"
       />
-      <Dropdown :show="showDropdowns[2]" @closeDropDown="closeDropdown(2)" @toggleDropdown="toggleDropdown(2)"
-                v-model="date" label="ვადა"/>
+      <Dropdown :options="['დღე', 'კვირა', 'თვე', 'წელი']" :show="showDropdowns[2]" @closeDropDown="closeDropdown(2)"
+                @toggleDropdown="toggleDropdown(2)"
+                v-model:unit="dateUnit" v-model:value="date" label="პოსტის ვადა"/>
       <button
           type="submit"
           class="rounded-md py-3 font-medium text-white bg-primary hover:shadow-2xl"
