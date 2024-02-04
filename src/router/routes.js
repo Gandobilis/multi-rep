@@ -34,6 +34,11 @@ export default [
                 name: 'Leaderboard',
                 component: () => import('@/views/main/Leaderboard.vue')
             },
+            {
+                path: '/modal',
+                name: 'Modal',
+                component: () => import('@/components/modals/AddPost.vue')
+            }
         ],
     },
 ];
