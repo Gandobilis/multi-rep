@@ -1,0 +1,8 @@
+<script setup>
+import StatementCoponent from "../../components/layouts/main/statementComp/StatementCoponent.vue";
+</script>
+<template>
+        <div class="container mx-auto">
+        <StatementCoponent />
+      </div>
+</template>
