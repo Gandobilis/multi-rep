@@ -1,6 +1,6 @@
 <script setup>
-import Ratings from "@/components/layouts/main/leaderboard/Ratings.vue";
-import Titles from "@/components/layouts/main/leaderboard/Titles.vue";
+import Ratings from "/src/components/leaderboard/Ratings.vue";
+import Titles from "/src/components/leaderboard/Titles.vue";
 </script>
 
 <template>

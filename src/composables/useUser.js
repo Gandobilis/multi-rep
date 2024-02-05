@@ -2,7 +2,6 @@ import {ref} from "vue";
 import UserIcon from '/src/assets/icons/user/UserIcon.vue';
 import ChangePasswordIcon from '/src/assets/icons/user/ChangePassword.vue';
 import EditUserIcon from '/src/assets/icons/user/EditUser.vue';
-import ExitIcon from '/src/assets/icons/user/Logout.vue';
 import MyListingsIcon from '/src/assets/icons/user/MyListings.vue';
 import MyPageIcon from '/src/assets/icons/user/MyPage.vue';
 import NotificationIcon from '/src/assets/icons/user/Notification.vue';
@@ -48,12 +47,7 @@ const useUser = () => {
             icon: ChangePasswordIcon,
             title: 'პაროლის შეცვლა',
             path: '/user/change-password',
-        },
-        {
-            icon: ExitIcon,
-            title: 'გასვლა',
-            path: '',
-        },
+        }
     ]);
 
     return {data, links};

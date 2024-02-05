@@ -1,9 +1,14 @@
 <script setup>
 import useUser from "../../composables/useUser.js";
 import {ref} from "vue";
+import {useRouter} from "vue-router";
+import Logout from "../../assets/icons/user/Logout.vue";
 
 const {links} = useUser();
+const router = useRouter();
 const currIndex = ref(0);
+
+console.log(router.currentRoute.value.path)
 </script>
 
 <template>
@@ -11,11 +16,14 @@ const currIndex = ref(0);
     <RouterLink @click="currIndex = index" class="flex justify-start items-center gap-x-5" :to="link.path"
                 v-for="(link, index) in links"
                 :key="index">
-      <component :is="link.icon" :fill=""/>
+      <component :is="link.icon" :fill="router.currentRoute.value.path === link.path ? '#950E1D' : 'black'"/>
       <p :class="{
-            'text-[#FF001C]': index === 6,
-            'text-primary': currIndex === index && index !== 6
+            'text-primary': currIndex === index
           }" v-text="link.title"/>
+    </RouterLink>
+    <RouterLink to="/user" class="flex justify-start items-center gap-x-5">
+      <Logout/>
+      <p v-text="'გასვლა'" class="text-[#FF001C]"/>
     </RouterLink>
   </div>
 </template>
