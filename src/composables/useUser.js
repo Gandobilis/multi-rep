@@ -1,12 +1,12 @@
 import {ref} from "vue";
-import UserIcon from '/src/assets/icons/profile/user-icon.svg';
-import ChangePasswordIcon from '/src/assets/icons/profile/change-password.svg';
-import EditUserIcon from '/src/assets/icons/profile/edit-user.svg';
-import ExitIcon from '/src/assets/icons/profile/exit.svg';
-import MyListingsIcon from '/src/assets/icons/profile/my-listings.svg';
-import MyPageIcon from '/src/assets/icons/profile/my-page.svg';
-import NotificationIcon from '/src/assets/icons/profile/notification.svg';
-import SavedListingsIcon from '/src/assets/icons/profile/saved-listings.svg';
+import UserIcon from '/src/assets/icons/user/UserIcon.vue';
+import ChangePasswordIcon from '/src/assets/icons/user/ChangePassword.vue';
+import EditUserIcon from '/src/assets/icons/user/EditUser.vue';
+import ExitIcon from '/src/assets/icons/user/Logout.vue';
+import MyListingsIcon from '/src/assets/icons/user/MyListings.vue';
+import MyPageIcon from '/src/assets/icons/user/MyPage.vue';
+import NotificationIcon from '/src/assets/icons/user/Notification.vue';
+import SavedListingsIcon from '/src/assets/icons/user/SavedListings.vue';
 
 const useUser = () => {
     const data = ref({
@@ -22,32 +22,32 @@ const useUser = () => {
         {
             icon: MyPageIcon,
             title: 'ჩემი გვერდი',
-            path: '',
+            path: '/user',
         },
         {
             icon: SavedListingsIcon,
             title: 'შენახული განცხადებები',
-            path: 'saved-listings',
+            path: '/user/saved-listings',
         },
         {
             icon: NotificationIcon,
             title: 'შეტყობინებები',
-            path: 'notifications',
+            path: '/user/notifications',
         },
         {
             icon: MyListingsIcon,
             title: 'ჩემი განცხადებები',
-            path: 'my-listings',
+            path: '/user/my-listings',
         },
         {
             icon: EditUserIcon,
             title: 'ანგარიშის რედაქტირება',
-            path: 'edit-account',
+            path: '/user/edit-account',
         },
         {
             icon: ChangePasswordIcon,
             title: 'პაროლის შეცვლა',
-            path: 'change-password',
+            path: '/user/change-password',
         },
         {
             icon: ExitIcon,
