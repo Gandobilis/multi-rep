@@ -7,8 +7,6 @@ import Logout from "../../assets/icons/user/Logout.vue";
 const {links} = useUser();
 const router = useRouter();
 const currIndex = ref(0);
-
-console.log(router.currentRoute.value.path)
 </script>
 
 <template>

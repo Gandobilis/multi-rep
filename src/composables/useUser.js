@@ -1,4 +1,4 @@
-import {ref} from "vue";
+import {markRaw, ref} from "vue";
 import UserIcon from '/src/assets/icons/user/UserIcon.vue';
 import ChangePasswordIcon from '/src/assets/icons/user/ChangePassword.vue';
 import EditUserIcon from '/src/assets/icons/user/EditUser.vue';
@@ -9,7 +9,7 @@ import SavedListingsIcon from '/src/assets/icons/user/SavedListings.vue';
 
 const useUser = () => {
     const data = ref({
-        image: UserIcon,
+        image: markRaw(UserIcon),
         username: 'გიორგი გიორგაძე',
         id: '123456',
         email: 'baratashvilivaxo@gmail.com',
@@ -25,40 +25,51 @@ const useUser = () => {
         rating: 4.9
     })
 
+    const savedListings = ref(Array(5).fill({
+        image: '/src/assets/images/listing.svg',
+        title: 'ჯავას ახალი კურსი',
+        rating: 4.9,
+        price: 300,
+        time_type: 'თვიურად',
+        publish_date: '7 იან. 16:31',
+        author: 'გიორგი გიორგაძე',
+        phone: '(+995) 599-111-222',
+    }));
+
     const links = ref([
         {
-            icon: MyPageIcon,
+            icon: markRaw(MyPageIcon),
             title: 'ჩემი გვერდი',
             path: '/user',
         },
         {
-            icon: SavedListingsIcon,
+            icon: markRaw(SavedListingsIcon),
             title: 'შენახული განცხადებები',
             path: '/user/saved-listings',
         },
         {
-            icon: NotificationIcon,
+            icon: markRaw(NotificationIcon),
             title: 'შეტყობინებები',
             path: '/user/notifications',
         },
         {
-            icon: MyListingsIcon,
+            icon: markRaw(MyListingsIcon),
             title: 'ჩემი განცხადებები',
             path: '/user/my-listings',
         },
         {
-            icon: EditUserIcon,
+            icon: markRaw(EditUserIcon),
             title: 'ანგარიშის რედაქტირება',
             path: '/user/edit-account',
         },
         {
-            icon: ChangePasswordIcon,
+            icon: markRaw(ChangePasswordIcon),
             title: 'პაროლის შეცვლა',
             path: '/user/change-password',
         }
     ]);
 
-    return {data, myPage, links};
+    return {data, myPage, savedListings, links};
 };
 
 export default useUser;
