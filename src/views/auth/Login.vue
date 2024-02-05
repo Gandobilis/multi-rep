@@ -1,14 +1,8 @@
 <script setup>
-import useLogin from "@/composables/useLogin";
-import AnimatedInput from "@/components/layouts/auth/AnimatedInput.vue";
+import useLogin from "@/composables/useLogin"
+import AnimatedInput from "@/components/layouts/auth/AnimatedInput.vue"
 
-const {
-  email,
-  password,
-  remember,
-  error,
-  login
-} = useLogin()
+const {email, password, remember, error, login} = useLogin()
 </script>
 <template>
   <form method="post" @submit.prevent="login" class="w-[243px] mx-auto">

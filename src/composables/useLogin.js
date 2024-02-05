@@ -1,14 +1,14 @@
-import {ref} from "vue";
-import axios from "@/interceptors/axios";
-import cookies from 'vue-cookies';
-import {useRouter} from "vue-router";
+import {ref} from "vue"
+import axios from "@/interceptors/axios"
+import cookies from 'vue-cookies'
+import {useRouter} from "vue-router"
 
 export default function useLogin() {
-    const router = useRouter();
-    const email = ref();
-    const password = ref();
-    const remember = ref();
-    const error = ref();
+    const router = useRouter()
+    const email = ref()
+    const password = ref()
+    const remember = ref()
+    const error = ref()
 
     const login = async () => {
         axios.post('users/auth/login', {
@@ -19,25 +19,19 @@ export default function useLogin() {
                 httpOnly: true,
                 secure: true,
                 sameSite: 'strict',
-                expires: '1d',
-            });
+                expires: '1d'
+            })
             cookies.set('user_id', res.data.user_id, {
                 httpOnly: true,
                 secure: true,
                 sameSite: 'strict',
-                expires: '1d',
-            });
+                expires: '1d'
+            })
             router.push('/')
         }).catch((err) => {
-            error.value = err.response.data.error;
-        });
-    };
+            error.value = err.response.data.error
+        })
+    }
 
-    return {
-        email,
-        password,
-        remember,
-        error,
-        login,
-    };
-};
+    return {email, password, remember, error, login}
+}

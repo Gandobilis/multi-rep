@@ -40,13 +40,13 @@ defineProps({
   },
 });
 
-const showPassword = ref(false);
-const value = defineModel();
-const focused = ref(false);
+const showPassword = ref(false)
+const value = defineModel()
+const focused = ref(false)
 
 const togglePasswordVisibility = () => {
-  showPassword.value = !showPassword.value;
-};
+  showPassword.value = !showPassword.value
+}
 </script>
 
 <style scoped>

@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from "vue";
-import SearchIcon from "@/assets/icons/header/SearchIcon.vue";
+import SearchIcon from "/src/assets/icons/header/SearchIcon.vue";
 
 const show = ref(false)
 </script>

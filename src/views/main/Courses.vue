@@ -1,6 +1,6 @@
 <script setup>
-import Courses from "@/components/layouts/main/courses/Courses.vue";
-import Filter from "@/components/layouts/main/courses/Filter.vue";
+import Courses from "/src/components/courses/Courses.vue";
+import Filter from "/src/components/courses/Filter.vue";
 </script>
 
 <template>

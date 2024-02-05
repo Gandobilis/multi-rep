@@ -1,5 +1,5 @@
 <script setup>
-import LeftSideComponent from "../components/layouts/auth/LeftSideComponent.vue";
+import LeftSideComponent from "../components/auth/LeftSideComponent.vue";
 </script>
 <template>
   <main class="grid grid-cols-2 h-screen">

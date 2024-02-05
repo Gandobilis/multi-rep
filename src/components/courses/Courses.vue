@@ -1,6 +1,6 @@
 <script setup>
-import useCourses from "@/composables/useCourses.js";
-import Course from "@/components/layouts/main/courses/Course.vue";
+import useCourses from "/src/composables/useCourses.js";
+import Course from "/src/components/courses/Course.vue";
 
 const {courses} = useCourses()
 </script>

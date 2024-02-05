@@ -1,6 +1,6 @@
 <script setup>
-import HeaderComponent from "../components/layouts/main/header/HeaderComponent.vue";
-import FooterComponent from "../components/layouts/main/FooterComponent.vue";
+import HeaderComponent from "../components/header/HeaderComponent.vue";
+import FooterComponent from "../components/footer/FooterComponent.vue";
 </script>
 <template>
   <header-component class="px-12 py-8"/>

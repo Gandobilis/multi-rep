@@ -1,44 +1,39 @@
 export default [
     {
         path: '/auth',
-        component: () => import('@/layouts/AuthLayout.vue'),
+        component: () => import('/src/layouts/AuthLayout.vue'),
         children: [
             {
                 path: 'login',
                 name: 'Login',
-                component: () => import('@/views/auth/Login.vue'),
+                component: () => import('/src/views/auth/Login.vue'),
             },
             {
                 path: 'register',
                 name: 'Register',
-                component: () => import('@/views/auth/Register.vue'),
+                component: () => import('/src/views/auth/Register.vue'),
             },
             {
                 path: 'recover',
                 name: 'Recover',
-                component: () => import('@/views/auth/Recover.vue')
+                component: () => import('/src/views/auth/Recover.vue')
             },
         ],
     },
     {
         path: '/',
-        component: () => import('@/layouts/MainLayout.vue'),
+        component: () => import('/src/layouts/MainLayout.vue'),
         children: [
             {
                 path: '',
                 name: 'Courses',
-                component: () => import('@/views/main/CoursesView.vue')
+                component: () => import('/src/views/main/Courses.vue')
             },
             {
                 path: 'leaderboard',
                 name: 'Leaderboard',
-                component: () => import('@/views/main/Leaderboard.vue')
+                component: () => import('/src/views/main/Leaderboard.vue')
             },
-            {
-                path: '/modal',
-                name: 'Modal',
-                component: () => import('@/components/modals/AddPost.vue')
-            }
         ],
     },
 ];

@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from "vue";
-import HeartIcon from "@/assets/icons/header/HeartIcon.vue";
+import HeartIcon from "/src/assets/icons/header/HeartIcon.vue";
 
 const show = ref(false)
 const favourites = ref(1);
