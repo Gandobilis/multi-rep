@@ -34,11 +34,6 @@ export default [
                 name: 'Leaderboard',
                 component: () => import('/src/views/main/Leaderboard.vue')
             },
-            {
-                path: '/profile',
-                name: 'Profile',
-                component: () => import('/src/views/main/Profile.vue')
-            }
         ],
     },
 ];
