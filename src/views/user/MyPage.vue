@@ -10,7 +10,11 @@ const {myPage} = useUser();
 
     <p class="text-2xl font-semibold" v-text="myPage.username"/>
 
-    <p class="w-1/2 text-center" v-text="myPage.bio"/>
+    <div class="w-1/2 flex items-center gap-x-5">
+      <p class="text-center" v-text="myPage.bio"/>
+
+      <img class="cursor-pointer" src="/src/assets/icons/user/edit.svg" alt="edit icon">
+    </div>
 
     <div class="flex items-center gap-x-3">
       <img class="cursor-pointer" :src="myPage.cv" alt="user cv">
