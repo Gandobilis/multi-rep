@@ -5,17 +5,14 @@ export default [
         children: [
             {
                 path: 'login',
-                name: 'Login',
                 component: () => import('/src/views/auth/Login.vue'),
             },
             {
                 path: 'register',
-                name: 'Register',
                 component: () => import('/src/views/auth/Register.vue'),
             },
             {
                 path: 'recover',
-                name: 'Recover',
                 component: () => import('/src/views/auth/Recover.vue')
             },
         ],
@@ -26,28 +23,53 @@ export default [
         children: [
             {
                 path: '',
-                name: 'Courses',
                 component: () => import('/src/views/main/Courses.vue')
             },
             {
                 path: 'leaderboard',
-                name: 'Leaderboard',
                 component: () => import('/src/views/main/Leaderboard.vue')
             },
             {
                 path: 'leaderboard',
-                name: 'Leaderboard',
                 component: () => import('/src/views/main/Leaderboard.vue')
             },
             {
                 path: 'statement',
-                name: 'Statement',
                 component: () => import('../views/main/statementPage.vue'),
             },
             {
                 path: 'searchresults',
-                name: 'SearchResults',
                 component: () => import('../views/main/SearchResultsPage.vue'),
+            },
+        ],
+    },
+    {
+        path: '/user',
+        component: () => import('/src/layouts/UserLayout.vue'),
+        children: [
+            {
+                path: '',
+                component: () => import('/src/views/user/MyPage.vue'),
+            },
+            {
+                path: 'saved-listings',
+                component: () => import('/src/views/user/SavedListings.vue'),
+            },
+            {
+                path: 'notifications',
+                component: () => import('/src/views/user/Notifications.vue'),
+            },
+            {
+                path: 'my-listings',
+                component: () => import('/src/views/user/MyListings.vue'),
+            },
+            {
+                path: 'edit-account',
+                component: () => import('/src/views/user/EditAccount.vue'),
+            },
+            {
+                path: 'change-password',
+                component: () => import('/src/views/user/ChangePassword.vue'),
             },
         ],
     },

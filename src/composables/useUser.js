@@ -8,7 +8,7 @@ import MyPageIcon from '/src/assets/icons/profile/my-page.svg';
 import NotificationIcon from '/src/assets/icons/profile/notification.svg';
 import SavedListingsIcon from '/src/assets/icons/profile/saved-listings.svg';
 
-const useProfile = () => {
+const useUser = () => {
     const data = ref({
         image: UserIcon,
         username: 'გიორგი გიორგაძე',
@@ -27,27 +27,27 @@ const useProfile = () => {
         {
             icon: SavedListingsIcon,
             title: 'შენახული განცხადებები',
-            path: '',
+            path: 'saved-listings',
         },
         {
             icon: NotificationIcon,
             title: 'შეტყობინებები',
-            path: '',
+            path: 'notifications',
         },
         {
             icon: MyListingsIcon,
             title: 'ჩემი განცხადებები',
-            path: '',
+            path: 'my-listings',
         },
         {
             icon: EditUserIcon,
             title: 'ანგარიშის რედაქტირება',
-            path: '',
+            path: 'edit-account',
         },
         {
             icon: ChangePasswordIcon,
             title: 'პაროლის შეცვლა',
-            path: '',
+            path: 'change-password',
         },
         {
             icon: ExitIcon,
@@ -59,4 +59,4 @@ const useProfile = () => {
     return {data, links};
 };
 
-export default useProfile;
+export default useUser;
