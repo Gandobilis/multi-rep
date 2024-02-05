@@ -1,5 +1,5 @@
 <script setup>
-import useStatement from "@/composables/useStatement";
+import useStatement from "../../composables/useStatement";
 import { onMounted } from "vue";
 import rating from "./rating.vue";
 

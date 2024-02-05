@@ -1,5 +1,5 @@
 <script setup>
-import useSearchResults from "@/composables/useSearchResults";
+import useSearchResults from "../../composables/useSearchResults";
 import LeftSide from "./LeftSide.vue";
 import RightSide from "./RightSide.vue"
 

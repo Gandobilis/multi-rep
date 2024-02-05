@@ -1,5 +1,5 @@
 <script setup>
-import SearchResults from '../../components/layouts/main/SearchResults/SearchResults.vue';
+import SearchResults from '../../components/searchresults/SearchResults.vue';
 </script>
 <template>
     <div class="container px-12">

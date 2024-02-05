@@ -1,5 +1,5 @@
 <script setup>
-import useSearchResults from "@/composables/useSearchResults";
+import useSearchResults from "../../composables/useSearchResults";
 
 const { SearchResultsInfo } = useSearchResults();
 </script>
