@@ -1,7 +1,7 @@
 import { ref } from "vue";
 import { markRaw } from 'vue';
-import javaimg from "../assets/Images/Java.png"
-import Profileimg from "../assets/Images/Profile.png"
+import javaimg from "../assets/images/Java.png"
+import Profileimg from "../assets/images/Profile.png"
 import date from "../assets/Icons/statement/Date.vue"
 import time from "../assets/Icons/statement/Time.vue"
 import view from "../assets/Icons/statement/Views.vue"

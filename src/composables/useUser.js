@@ -17,6 +17,14 @@ const useUser = () => {
         profession: 'ჯავა დეველოპერი, მენტორი'
     });
 
+    const myPage = ref({
+        image: '/src/assets/images/user.svg',
+        username: 'გიორგი გიორგაძე',
+        bio: 'გამარჯობა, მე ვარ გიორგი გიორგაძე, ჯავა სენიორ დეველოპერი და მიხარია, რომ აქ ვარ',
+        cv: '/src/assets/images/cv.svg',
+        rating: 4.9
+    })
+
     const links = ref([
         {
             icon: MyPageIcon,
@@ -50,7 +58,7 @@ const useUser = () => {
         }
     ]);
 
-    return {data, links};
+    return {data, myPage, links};
 };
 
 export default useUser;
