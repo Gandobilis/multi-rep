@@ -1,4 +1,4 @@
-import {markRaw, ref} from "vue";
+import {computed, markRaw, ref} from "vue";
 import UserIcon from '/src/assets/icons/user/UserIcon.vue';
 import ChangePasswordIcon from '/src/assets/icons/user/ChangePassword.vue';
 import EditUserIcon from '/src/assets/icons/user/EditUser.vue';
@@ -30,11 +30,78 @@ const useUser = () => {
         title: 'ჯავას ახალი კურსი',
         rating: 4.9,
         price: 300,
-        time_type: 'თვიურად',
+        time_unit: 'თვიურად',
         publish_date: '7 იან. 16:31',
         author: 'გიორგი გიორგაძე',
         phone: '(+995) 599-111-222',
     }));
+
+    const myListings = ref([
+        {
+            image: '/src/assets/images/listing.svg',
+            title: 'ჯავას ახალი კურსი',
+            rating: 4.9,
+            price: 300,
+            time_unit: 'თვიურად',
+            publish_date: '7 იან. 16:31',
+            active: true,
+            author: 'გიორგი გიორგაძე',
+            phone: '(+995) 599-111-222',
+        },
+        {
+            image: '/src/assets/images/listing.svg',
+            title: 'ჯავას ახალი კურსი',
+            rating: 4.9,
+            price: 300,
+            time_unit: 'თვიურად',
+            publish_date: '7 იან. 16:31',
+            active: false,
+            author: 'გიორგი გიორგაძე',
+            phone: '(+995) 599-111-222',
+        },
+        {
+            image: '/src/assets/images/listing.svg',
+            title: 'ჯავას ახალი კურსი',
+            rating: 4.9,
+            price: 300,
+            time_unit: 'თვიურად',
+            publish_date: '7 იან. 16:31',
+            active: true,
+            author: 'გიორგი გიორგაძე',
+            phone: '(+995) 599-111-222',
+        },
+        {
+            image: '/src/assets/images/listing.svg',
+            title: 'ჯავას ახალი კურსი',
+            rating: 4.9,
+            price: 300,
+            time_unit: 'თვიურად',
+            publish_date: '7 იან. 16:31',
+            active: false,
+            author: 'გიორგი გიორგაძე',
+            phone: '(+995) 599-111-222',
+        }
+    ]);
+
+    const filters = ref([
+        '', 'ყველა', 'აქტიური', 'ვადაგასული', ''
+    ]);
+
+    let filterType = ref('ყველა');
+
+    const filteredItems = computed(() => {
+        if (filterType.value === 'აქტიური') {
+            return myListings.value.filter(item => item.active);
+        } else if (filterType.value === 'ვადაგასული') {
+            return myListings.value.filter(item => !item.active);
+        } else {
+            return myListings.value;
+        }
+    });
+
+    const filterItems = (type) => {
+        filterType.value = type;
+    }
 
     const editAccount = ref({
         first_name: 'გიორგი',
@@ -77,7 +144,7 @@ const useUser = () => {
         }
     ]);
 
-    return {data, myPage, savedListings, editAccount, links};
+    return {data, myPage, savedListings, filters, filterType, filterItems, filteredItems, editAccount, links};
 };
 
 export default useUser;
