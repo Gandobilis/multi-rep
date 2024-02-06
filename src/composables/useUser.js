@@ -83,24 +83,24 @@ const useUser = () => {
         }
     ]);
 
-    const filters = ref([
+    const listingFilters = ref([
         '', 'ყველა', 'აქტიური', 'ვადაგასული', ''
     ]);
 
-    let filterType = ref('ყველა');
+    let listingFilterType = ref('ყველა');
 
-    const filteredItems = computed(() => {
-        if (filterType.value === 'აქტიური') {
+    const filteredListings = computed(() => {
+        if (listingFilterType.value === 'აქტიური') {
             return myListings.value.filter(item => item.active);
-        } else if (filterType.value === 'ვადაგასული') {
+        } else if (listingFilterType.value === 'ვადაგასული') {
             return myListings.value.filter(item => !item.active);
         } else {
             return myListings.value;
         }
     });
 
-    const filterItems = (type) => {
-        filterType.value = type;
+    const filterListings = (type) => {
+        listingFilterType.value = type;
     }
 
     const editAccount = ref({
@@ -144,7 +144,17 @@ const useUser = () => {
         }
     ]);
 
-    return {data, myPage, savedListings, filters, filterType, filterItems, filteredItems, editAccount, links};
+    return {
+        data,
+        myPage,
+        savedListings,
+        listingFilters,
+        listingFilterType,
+        filteredListings,
+        filterListings,
+        editAccount,
+        links
+    };
 };
 
 export default useUser;
