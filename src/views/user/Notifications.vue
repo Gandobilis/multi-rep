@@ -4,48 +4,10 @@ import {computed, ref} from "vue";
 
 const notifications = ref([
   {
-    image: '/src/assets/images/listing.svg',
-    title: 'ჯავას ახალი კურსი',
-    rating: 4.9,
-    price: 300,
-    time_unit: 'თვიურად',
-    publish_date: '7 იან. 16:31',
-    active: true,
-    author: 'გიორგი გიორგაძე',
-    phone: '(+995) 599-111-222',
+    type: 'general'
   },
   {
-    image: '/src/assets/images/listing.svg',
-    title: 'ჯავას ახალი კურსი',
-    rating: 4.9,
-    price: 300,
-    time_unit: 'თვიურად',
-    publish_date: '7 იან. 16:31',
-    active: false,
-    author: 'გიორგი გიორგაძე',
-    phone: '(+995) 599-111-222',
-  },
-  {
-    image: '/src/assets/images/listing.svg',
-    title: 'ჯავას ახალი კურსი',
-    rating: 4.9,
-    price: 300,
-    time_unit: 'თვიურად',
-    publish_date: '7 იან. 16:31',
-    active: true,
-    author: 'გიორგი გიორგაძე',
-    phone: '(+995) 599-111-222',
-  },
-  {
-    image: '/src/assets/images/listing.svg',
-    title: 'ჯავას ახალი კურსი',
-    rating: 4.9,
-    price: 300,
-    time_unit: 'თვიურად',
-    publish_date: '7 იან. 16:31',
-    active: false,
-    author: 'გიორგი გიორგაძე',
-    phone: '(+995) 599-111-222',
+    type: 'history'
   }
 ]);
 
@@ -55,11 +17,11 @@ const notificationFilters = ref([
 
 let notificationFilterType = ref('ყველა');
 
-const filteredListings = computed(() => {
+const filteredNotifications = computed(() => {
   if (notificationFilterType.value === 'ზოგადი') {
-    return notifications.value.filter(item => item.active);
+    return notifications.value.filter(item => item.type === 'general');
   } else if (notificationFilterType.value === 'გადახდების ისტორია') {
-    return notifications.value.filter(item => !item.active);
+    return notifications.value.filter(item => item.type === 'history');
   } else {
     return notifications.value;
   }
@@ -81,4 +43,6 @@ const filterListings = (type) => {
          v-for="(filter, index) in notificationFilters" :key="index" v-text="filter"/>
     </div>
   </div>
+
+  <div/>
 </template>
