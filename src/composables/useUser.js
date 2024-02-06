@@ -36,6 +36,14 @@ const useUser = () => {
         phone: '(+995) 599-111-222',
     }));
 
+    const editAccount = ref({
+        first_name: 'გიორგი',
+        last_name: 'გიორგაძე',
+        phone: '599-111-222',
+        city: 'თბილისი',
+        profession: 'ჯავა დეველოპერი'
+    });
+
     const links = ref([
         {
             icon: markRaw(MyPageIcon),
@@ -69,7 +77,7 @@ const useUser = () => {
         }
     ]);
 
-    return {data, myPage, savedListings, links};
+    return {data, myPage, savedListings, editAccount, links};
 };
 
 export default useUser;
