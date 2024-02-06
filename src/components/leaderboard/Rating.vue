@@ -1,5 +1,5 @@
 <script setup>
-import star from "@/assets/icons/leaderboard/star-icon.svg";
+import star from "/src/assets/icons/leaderboard/star-icon.svg";
 
 defineProps({
   user: {

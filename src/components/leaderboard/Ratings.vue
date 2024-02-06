@@ -1,7 +1,7 @@
 <script setup>
 import {ref} from "vue";
-import Rating from "@/components/layouts/main/leaderboard/Rating.vue";
-import icon from "@/assets/icons/leaderboard/user-icon.svg";
+import Rating from "/src/components/leaderboard/Rating.vue";
+import icon from "/src/assets/icons/leaderboard/user-icon.svg";
 
 const users = ref(Array(5).fill({
   icon,
