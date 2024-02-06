@@ -32,7 +32,7 @@ import {ref} from "vue";
 defineProps({
   placeholder: {
     type: String,
-    required: true,
+    default: '',
   },
   showPasswordToggle: {
     type: Boolean,
