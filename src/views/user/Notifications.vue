@@ -80,40 +80,5 @@ const filterListings = (type) => {
          @click="filterListings(filter)"
          v-for="(filter, index) in notificationFilters" :key="index" v-text="filter"/>
     </div>
-
-    <div class="flex items-center gap-x-5" v-for="(listing, index) in filteredListings" :key="index">
-      <img :src="listing.image" alt="listing image">
-
-      <div class="flex w-full flex-col gap-y-3">
-        <p class="text-2xl font-medium" v-text="listing.title"/>
-
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-x-2">
-            <img src="/src/assets/icons/user/rating.svg" alt="rating icon">
-
-            <p><span v-text="listing.rating"/>/5.0</p>
-          </div>
-
-          <p class="font-semibold text-price" v-text="`${listing.price} ₾`"/>
-
-          <p class="text-meta" v-text="listing.time_unit"/>
-
-          <p class="text-meta" v-text="listing.publish_date"/>
-
-          <div v-if="!listing.active" class="flex items-center gap-x-2">
-            <p class="font-medium text-[#FF001C]" v-text="'ვადაგასული'"/>
-
-            <RouterLink to="/user/my-listings" class="font-medium text-[#177B15]"
-                        v-text="'გახანგრძლივება'"/>
-          </div>
-
-          <div v-else class="flex items-center gap-x-2">
-            <p v-text="listing.author"/>
-
-            <p class="text-xs" v-text="listing.phone"/>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>

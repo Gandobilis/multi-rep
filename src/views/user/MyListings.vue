@@ -1,7 +1,12 @@
 <script setup>
 import useUser from "../../composables/useUser.js";
 
-const {filterType, filterItems, filters, filteredItems} = useUser();
+const {
+  listingFilters,
+  listingFilterType,
+  filteredListings,
+  filterListings
+} = useUser();
 </script>
 
 <template>
@@ -9,13 +14,13 @@ const {filterType, filterItems, filters, filteredItems} = useUser();
 
   <div class="flex flex-col gap-y-11 px-5 py-10">
     <div class="flex w-full justify-between">
-      <p :class="{'text-primary': filterType === filter}"
+      <p :class="{'text-primary': listingFilterType === filter}"
          class="font-medium cursor-pointer"
-         @click="filterItems(filter)"
-         v-for="(filter, index) in filters" :key="index" v-text="filter"/>
+         @click="filterListings(filter)"
+         v-for="(filter, index) in listingFilters" :key="index" v-text="filter"/>
     </div>
 
-    <div class="flex items-center gap-x-5" v-for="(listing, index) in filteredItems" :key="index">
+    <div class="flex items-center gap-x-5" v-for="(listing, index) in filteredListings" :key="index">
       <img :src="listing.image" alt="listing image">
 
       <div class="flex w-full flex-col gap-y-3">
