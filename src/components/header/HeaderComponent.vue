@@ -9,10 +9,10 @@ import Notifications from "./Notifications.vue"
 const is_teacher = ref(true)
 </script>
 <template>
-  <nav class="flex justify-between items-center">
-    <router-link to="/" class="cursor-pointer flex items-center gap-x-3">
+  <nav class="flex items-center justify-between">
+    <router-link to="/" class="flex cursor-pointer items-center gap-x-3">
       <img src="../../assets/icons/header/multi-rep-icon.svg" alt="multi rep logo">
-      <h1 class="text-primary text-2xl">E-LEARNING</h1>
+      <h1 class="text-2xl text-primary">E-LEARNING</h1>
     </router-link>
 
     <div class="flex items-center gap-x-24">
