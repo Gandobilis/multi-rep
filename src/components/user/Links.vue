@@ -2,9 +2,18 @@
 import useUser from "../../composables/useUser.js";
 import {useRouter} from "vue-router";
 import Logout from "../../assets/icons/user/Logout.vue";
+import {onMounted, ref} from "vue";
+
+const is_teacher = ref(true) // შეცვალეთ რენდერინგის სანახავად
 
 const {links} = useUser();
 const router = useRouter();
+
+onMounted(() => {
+  if (!is_teacher.value) {
+    links.value = links.value.filter((_, index) => index !== 2 && index !== 3);
+  }
+})
 </script>
 
 <template>
