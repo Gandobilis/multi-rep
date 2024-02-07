@@ -1,7 +1,7 @@
-import {ref} from 'vue';
+import {ref} from 'vue'
 
 const useAddPost = () => {
-    const show = ref(true); // ნაგულისხმევად false უნდა დაყენდეს
+    const show = ref(true) // ნაგულისხმევად false უნდა დაყენდეს
 
     const data = ref({
         title: '',
@@ -14,26 +14,26 @@ const useAddPost = () => {
         date_unit: 'თვე',
         is_online: true,
         city: '',
-    });
+    })
 
     const options = ref([
         ['თვე', 'ერთჯერადი'],
         ['დღე', 'კვირა', 'თვე', 'წელი'],
         ['დღე', 'კვირა', 'თვე', 'წელი'],
-    ]);
-    const dropdowns = ref([false, false, false]);
+    ])
+    const dropdowns = ref([false, false, false])
 
     const toggle = (index) => {
         dropdowns.value = dropdowns.value.map((isOpen, i) =>
             i === index ? !isOpen : false
-        );
-    };
+        )
+    }
 
     const close = (index) => {
-        dropdowns.value[index] = false;
-    };
+        dropdowns.value[index] = false
+    }
 
-    return {show, data, dropdowns, options, toggle, close};
-};
+    return {show, data, dropdowns, options, toggle, close}
+}
 
-export default useAddPost;
+export default useAddPost
