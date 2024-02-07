@@ -25,12 +25,12 @@ const {reportTypes, _hoverIndex, hoveredIndex, _clickedIndex, clearIndex, clicke
              @mouseover="hoveredIndex(index, itemIndex)"
              @mouseout="clearIndex"
              @click="clickedIndex(index, itemIndex)"
-             :class="{'bg-primary text-white': (row.toString() + item.toString()) === _clickedIndex}"
+             :class="{'bg-primary text-white': (index.toString() + itemIndex.toString()) === _clickedIndex}"
              class="flex items-center whitespace-nowrap rounded-md border px-5 gap-x-2.5 py-2.5 hover:bg-primary hover:cursor-pointer hover:text-white">
           <p v-text="item"/>
 
           <plus-icon
-              :stroke="row.toString() + item.toString() === _hoverIndex || row.toString() + item.toString() === _clickedIndex ? 'white' : 'black'"
+              :stroke="index.toString() + itemIndex.toString() === _hoverIndex || index.toString() + itemIndex.toString() === _clickedIndex ? 'white' : 'black'"
               :alt="item"
           />
         </div>
