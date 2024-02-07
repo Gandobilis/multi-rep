@@ -41,6 +41,10 @@ export default [
                 path: 'searchresults',
                 component: () => import('../views/main/SearchResultsPage.vue'),
             },
+            {
+                path: 'report',
+                component: () => import('/src/components/modals/Report.vue'),
+            }
         ],
     },
     {
@@ -70,8 +74,8 @@ export default [
             {
                 path: 'change-password',
                 component: () => import('/src/views/user/ChangePassword.vue'),
-            },
+            }
         ],
     },
-];
+]
 

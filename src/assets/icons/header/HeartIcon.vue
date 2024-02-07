@@ -2,9 +2,9 @@
 defineProps({
   stroke: {
     type: String,
-    required: true,
-  },
-});
+    required: true
+  }
+})
 </script>
 
 <template>
