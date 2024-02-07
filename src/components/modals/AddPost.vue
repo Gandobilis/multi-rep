@@ -1,18 +1,20 @@
 <script setup>
-import useAddPost from "/src/composables/useAddPost.js";
+import useAddPost from "/src/composables/useAddPost.js"
 import Dropdown from "/src/components/modals/Dropdown.vue"
-import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
+import AnimatedInput from "/src/components/auth/AnimatedInput.vue"
 
-const {show, data, dropdowns, options, toggle, close} = useAddPost()
+const emit = defineEmits(['closeModal'])
+
+const {data, dropdowns, options, toggle, close} = useAddPost()
 </script>
 
 <template>
   <div
-      v-if="show"
-      class="absolute right-0 left-0 z-10 m-auto flex w-1/3 flex-col items-center gap-y-12 px-5 pt-5 pb-10 shadow-2xl">
+      class="bg-white absolute right-0 left-0 z-10 m-auto flex w-1/3 flex-col items-center gap-y-12 px-5 pt-5 pb-10 shadow-2xl">
     <div class="flex w-full items-center justify-between">
       <p class="text-2xl font-semibold" v-text="'დაამატეთ პოსტი'"/>
-      <img class="cursor-pointer" src="/src/assets/icons/modals/close.svg" alt="close icon" @click="show = false"/>
+      <img class="cursor-pointer" src="/src/assets/icons/modals/close.svg" alt="close icon"
+           @click="emit('closeModal')"/>
     </div>
 
     <form

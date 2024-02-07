@@ -23,7 +23,7 @@ export default [
         children: [
             {
                 path: '',
-                component: () => import('/src/views/main/Courses.vue')
+                component: () => import('/src/views/main/Listings.vue')
             },
             {
                 path: 'leaderboard',

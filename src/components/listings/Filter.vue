@@ -1,15 +1,15 @@
 <script setup>
-import {ref} from "vue";
+import {ref} from "vue"
 
-const show = ref(false);
+const show = ref(false)
 
 const sortAttributes = ref([
   'პოპულარული',
   'ახლანდელი',
-  'ფასი',
-]);
+  'ფასი'
+])
 
-const attrIndex = ref(0);
+const attrIndex = ref(0)
 </script>
 <template>
   <div class="relative">

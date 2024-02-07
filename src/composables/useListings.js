@@ -1,7 +1,7 @@
 import {ref} from "vue";
 import icon from '/src/assets/icons/courses/statement-icon.svg';
 
-export default function useCourses() {
+export default function useListings() {
     const courses = ref(Array(9).fill({
         icon,
         title: 'ჯავას ახალი კურსი',

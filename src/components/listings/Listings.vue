@@ -1,8 +1,8 @@
 <script setup>
-import useCourses from "/src/composables/useCourses.js";
-import Course from "/src/components/courses/Course.vue";
+import useListings from "/src/composables/useListings.js";
+import Course from "/src/components/listings/Listing.vue";
 
-const {courses} = useCourses()
+const {courses} = useListings()
 </script>
 
 <template>

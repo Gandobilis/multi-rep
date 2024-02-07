@@ -2,9 +2,9 @@
 defineProps({
   data: {
     type: Object,
-    required: true,
-  },
-});
+    required: true
+  }
+})
 </script>
 
 <template>

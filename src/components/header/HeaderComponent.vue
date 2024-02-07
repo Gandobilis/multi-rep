@@ -6,7 +6,7 @@ import Search from "/src/components/header/Search.vue"
 import {ref} from "vue"
 import Notifications from "./Notifications.vue"
 
-const is_teacher = ref(true)
+const is_teacher = ref(false)
 </script>
 <template>
   <nav class="flex items-center justify-between">
