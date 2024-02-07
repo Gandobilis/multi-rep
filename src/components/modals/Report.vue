@@ -3,8 +3,6 @@ import useReport from "../../composables/useReport.js"
 import PlusIcon from "../../assets/icons/modals/PlusIcon.vue";
 
 const {reportTypes, _hoverIndex, hoveredIndex, _clickedIndex, clearIndex, clickedIndex, report} = useReport()
-
-
 </script>
 
 <template>
