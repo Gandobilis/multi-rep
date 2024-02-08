@@ -1,3 +1,26 @@
+<script setup>
+import {ref} from "vue";
+
+defineProps({
+  placeholder: {
+    type: String,
+    default: "",
+  },
+  showPasswordToggle: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const showPassword = ref(false);
+const value = defineModel();
+const focused = ref(false);
+
+const togglePasswordVisibility = () => {
+  showPassword.value = !showPassword.value;
+};
+</script>
+
 <template>
   <div class="relative w-full">
     <input
@@ -25,29 +48,6 @@
     />
   </div>
 </template>
-
-<script setup>
-import {ref} from "vue";
-
-defineProps({
-  placeholder: {
-    type: String,
-    default: '',
-  },
-  showPasswordToggle: {
-    type: Boolean,
-    default: false,
-  },
-});
-
-const showPassword = ref(false)
-const value = defineModel()
-const focused = ref(false)
-
-const togglePasswordVisibility = () => {
-  showPassword.value = !showPassword.value
-}
-</script>
 
 <style scoped>
 .v-enter-active,

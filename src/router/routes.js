@@ -1,21 +1,21 @@
-export default [
+const routes = [
     {
         path: '/auth',
         component: () => import('/src/layouts/AuthLayout.vue'),
         children: [
             {
                 path: 'login',
-                component: () => import('/src/views/auth/Login.vue')
+                component: () => import('/src/views/auth/Login.vue'),
             },
             {
                 path: 'register',
-                component: () => import('/src/views/auth/Register.vue')
+                component: () => import('/src/views/auth/Register.vue'),
             },
             {
                 path: 'recover',
-                component: () => import('/src/views/auth/Recover.vue')
-            }
-        ]
+                component: () => import('/src/views/auth/Recover.vue'),
+            },
+        ],
     },
     {
         path: '/',
@@ -23,24 +23,24 @@ export default [
         children: [
             {
                 path: '',
-                component: () => import('/src/views/main/Listings.vue')
+                component: () => import('/src/views/main/Listings.vue'),
             },
             {
                 path: 'leaderboard',
-                component: () => import('/src/views/main/Leaderboard.vue')
+                component: () => import('/src/views/main/Leaderboard.vue'),
             },
             {
                 path: 'user/listings/:user_id',
-                component: () => import('/src/views/main/UserListings.vue')
+                component: () => import('/src/views/main/UserListings.vue'),
             },
             {
                 path: 'user/listings/:user_id/:listing_id',
-                component: () => import('../views/main/UserListing.vue')
+                component: () => import('/src/views/main/UserListing.vue'),
             },
             {
                 path: 'search/:keyword',
-                component: () => import('../views/main/SearchResults.vue')
-            }
+                component: () => import('/src/views/main/SearchResults.vue'),
+            },
         ],
     },
     {
@@ -49,29 +49,30 @@ export default [
         children: [
             {
                 path: '',
-                component: () => import('/src/views/user/MyPage.vue')
+                component: () => import('/src/views/user/MyPage.vue'),
             },
             {
                 path: 'saved-listings',
-                component: () => import('/src/views/user/SavedListings.vue')
+                component: () => import('/src/views/user/SavedListings.vue'),
             },
             {
                 path: 'notifications',
-                component: () => import('/src/views/user/Notifications.vue')
+                component: () => import('/src/views/user/Notifications.vue'),
             },
             {
                 path: 'my-listings',
-                component: () => import('/src/views/user/MyListings.vue')
+                component: () => import('/src/views/user/MyListings.vue'),
             },
             {
                 path: 'edit-account',
-                component: () => import('/src/views/user/EditAccount.vue')
+                component: () => import('/src/views/user/EditAccount.vue'),
             },
             {
                 path: 'change-password',
-                component: () => import('/src/views/user/ChangePassword.vue')
-            }
-        ]
-    }
-]
+                component: () => import('/src/views/user/ChangePassword.vue'),
+            },
+        ],
+    },
+];
 
+export default routes;
