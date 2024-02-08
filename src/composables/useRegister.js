@@ -2,6 +2,8 @@ import {ref} from "vue";
 import {useRouter} from "vue-router";
 import axios from "/src/interceptors/axios/index";
 import {useRegisterStore} from '/src/stores/registerStore.js';
+import cookies from "vue-cookies";
+import useHelpers from "../helpers";
 
 export default function useRegister() {
     const router = useRouter();
@@ -66,12 +68,30 @@ export default function useRegister() {
 
     const register = async () => {
         step3()
-        // axios.post('users/auth/register', store.getData()).then((res) => {
-        //     router.push('/')
-        // }).catch((err) => {
-        //     console.log(err)
-        //     error.value = 'შეამოწმეთ მონაცემები';
-        // });
+        try {
+            await axios.post('users/auth/register', store.data);
+            const {mapObjectKeys} = useHelpers()
+            const _data = mapObjectKeys(store.data, ['email', 'password']);
+            const {data} = await axios.post('users/auth/login', _data)
+
+            cookies.set("access_token", data.access, {
+                httpOnly: true,
+                secure: true,
+                sameSite: "strict",
+                expires: "1d",
+            });
+
+            cookies.set("user_id", data.user_id, {
+                httpOnly: true,
+                secure: true,
+                sameSite: "strict",
+                expires: "1d",
+            });
+
+            await router.push("/");
+        } catch (err) {
+            error.value = err.response.data.error;
+        }
     };
 
     return {

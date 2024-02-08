@@ -28,8 +28,7 @@ export default function useLogin() {
         const _data = mapObjectKeys(data.value, ["email", "password"]);
 
         try {
-            const res = await axios.post("users/auth/login", _data);
-            const data = res.data;
+            const {data} = await axios.post("users/auth/login", _data);
 
             cookies.set("access_token", data.access, {
                 httpOnly: true,
