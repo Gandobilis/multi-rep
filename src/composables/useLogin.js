@@ -20,7 +20,7 @@ export default function useLogin() {
     const login = async () => {
         const _data = mapObjectKeys(data.value, ['email', 'password'])
 
-        axios.post('users/auth/login', _data).then((res) => {
+        axios.post('users/auth/login', _data).then(res => {
             const data = res.data
 
             cookies.set('access_token', data.access, {
@@ -32,9 +32,7 @@ export default function useLogin() {
             })
 
             router.push('/')
-        }).catch((err) => {
-            error.value = err.res.data.error
-        })
+        }).catch(err => error.value = err.res.data.error)
     }
 
     return {data, getRememberIcon, toggleRemember, login}
