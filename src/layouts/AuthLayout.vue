@@ -6,6 +6,6 @@ import LeftSide from "/src/components/auth/LeftSide.vue"
   <main class="grid h-screen grid-cols-2">
     <left-side/>
 
-    <router-view class="flex flex-col items-center justify-center"/>
+    <router-view class="mx-auto flex flex-col items-center justify-center w-2/5"/>
   </main>
 </template>
