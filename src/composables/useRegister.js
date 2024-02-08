@@ -3,11 +3,10 @@ import {useRouter} from "vue-router";
 import axios from "/src/interceptors/axios/index";
 import {useRegisterStore} from '/src/stores/registerStore.js';
 
-const store = useRegisterStore();
-
 export default function useRegister() {
     const router = useRouter();
     const error = ref();
+    const store = useRegisterStore();
 
     const step1Models = [
         {placeholder: "სახელი", model: "first_name"},

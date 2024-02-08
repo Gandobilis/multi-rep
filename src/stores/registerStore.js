@@ -15,9 +15,7 @@ export const useRegisterStore = defineStore('register', {
         },
     }),
     getters: {
-        getData: {
-            getData: (state) => state.data
-        },
+        getData: (state) => state.data,
     },
     actions: {
         setData(payload) {
@@ -27,3 +25,4 @@ export const useRegisterStore = defineStore('register', {
         },
     },
 });
+
