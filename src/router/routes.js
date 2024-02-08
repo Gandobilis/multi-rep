@@ -23,6 +23,10 @@ const routes = [
                 path: 'recover',
                 component: () => import('/src/views/auth/Recover.vue'),
             },
+            {
+                path: 'recover2',
+                component: () => import('/src/views/auth/Recover2.vue'),
+            },
         ],
     },
     {

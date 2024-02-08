@@ -32,7 +32,7 @@ const {
         <span class="text-sm text-error" v-text="error"/>
       </div>
 
-      <button class="mt-10 w-full rounded-md font-medium text-white bg-primary py-3.5 hover:shadow-xl">შემდეგი</button>
+      <button class="mt-10 w-full rounded-md font-medium text-white bg-primary py-3.5 hover:shadow-xl">რეგისტრაცია</button>
     </form>
   </div>
 </template>

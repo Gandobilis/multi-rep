@@ -1,31 +1,34 @@
 <script setup>
 import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
-import useRecover from "/src/composables/useRecover.js";
+import useRecover from "../../composables/useRecover.js";
 
-const {email, success, error, recover} = useRecover()
+const {email, success, error, recover} = useRecover();
 </script>
 
 <template>
   <div class="relative">
-    <router-link to="/auth/login">
-      <img class="cursor-pointer absolute top-10 left-3" src="/src/assets/icons/auth/back-arrow.svg"
-           alt="back arrow"/>
+    <router-link to="/auth/auth" class="cursor-pointer absolute top-10 -left-2/3">
+      <img src="/src/assets/icons/auth/back-arrow.svg" alt="back arrow"/>
     </router-link>
-    <form method="post" @submit.prevent="recover" class="w-[243px] flex flex-col items-center gap-y-[50px]">
-      <h1 class="text-[32px] font-semibold whitespace-nowrap">პაროლის აღდგენა</h1>
-      <animated-input placeholder="ელ. ფოსტა" v-model="email"/>
-      <div v-if="success" class="flex items-center w-full justify-start gap-x-2 -my-9">
+
+    <form method="post" @submit.prevent="recover" class="flex flex-col items-center">
+      <h1 class="mb-12 text-3xl font-semibold">პაროლის აღდგენა</h1>
+
+      <div class="w-full space-y-10">
+        <animated-input placeholder="ელ. ფოსტა" v-model="email"/>
+      </div>
+
+      <div v-if="success" class="flex items-center w-full justify-start gap-x-2 mt-8">
         <span class="text-sm text-price" v-text="success"/>
       </div>
-      <div v-if="error" class="flex items-center w-full justify-start gap-x-2 -my-9">
+
+      <div v-if="error" class="flex items-center w-full justify-start gap-x-2 mt-8">
         <img src="../../assets/icons/auth/error.svg" alt="alert error icon">
+
         <span class="text-sm text-error" v-text="error"/>
       </div>
 
-      <button type="submit"
-              class="mt-2.5 text-center py-[6.5px] rounded-[5px] hover:shadow-2xl text-white bg-primary w-full">
-        გაგზავნა
-      </button>
+      <button class="mt-10 w-full rounded-md font-medium text-white bg-primary py-3.5 hover:shadow-xl">შემდეგი</button>
     </form>
   </div>
 </template>
