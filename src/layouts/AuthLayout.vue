@@ -1,6 +1,7 @@
 <script setup>
 import LeftSide from "/src/components/auth/LeftSide.vue"
 </script>
+
 <template>
   <main class="grid grid-cols-2 h-screen">
     <left-side/>
