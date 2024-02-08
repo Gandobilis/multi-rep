@@ -27,7 +27,7 @@ const togglePasswordVisibility = () => {
         v-model="value"
         :placeholder="!focused ? placeholder : ''"
         :type="(!showPassword && showPasswordToggle) ? 'password' : 'text'"
-        class="w-full border-2 border-black font-medium placeholder-black rounded-lg p-2.5 hover:border-primary hover:cursor-pointer focus:outline-primary focus:cursor-auto"
+        class="w-full border-2 border-black font-medium placeholder-black rounded-lg p-3 hover:border-primary hover:cursor-pointer focus:outline-primary focus:cursor-auto"
         @focusin="focused = true"
         @focusout="focused = false"
     />

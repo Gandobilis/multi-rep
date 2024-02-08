@@ -1,6 +1,6 @@
 <script setup>
-import AnimatedInput from "@/components/layouts/auth/AnimatedInput.vue";
-import useRecover from "@/composables/useRecover.js";
+import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
+import useRecover from "/src/composables/useRecover.js";
 
 const {email, success, error, recover} = useRecover()
 </script>
@@ -8,7 +8,7 @@ const {email, success, error, recover} = useRecover()
 <template>
   <div class="relative">
     <router-link to="/auth/login">
-      <img class="cursor-pointer absolute top-10 left-3" src="@/assets/icons/auth/back-arrow.svg"
+      <img class="cursor-pointer absolute top-10 left-3" src="/src/assets/icons/auth/back-arrow.svg"
            alt="back arrow"/>
     </router-link>
     <form method="post" @submit.prevent="recover" class="w-[243px] flex flex-col items-center gap-y-[50px]">

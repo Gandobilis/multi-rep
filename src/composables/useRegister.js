@@ -1,6 +1,6 @@
 import {ref} from "vue";
 import {useRouter} from "vue-router";
-import axios from "@/interceptors/axios/index";
+import axios from "/src/interceptors/axios/index";
 
 
 export default function useRegister() {
@@ -10,7 +10,7 @@ export default function useRegister() {
     const formFields = [
         {placeholder: "სახელი", model: "first_name"},
         {placeholder: "გვარი", model: "last_name"},
-        {placeholder: "ემაილი", model: "email"},
+        {placeholder: "ტელეფონი", model: "email"},
         {placeholder: "პაროლი", model: "password", showToggle: true},
         {placeholder: "გაიმეორეთ", model: "password2", showToggle: true},
         {model: "is_teacher"},
@@ -19,10 +19,11 @@ export default function useRegister() {
     const formData = ref({
         first_name: null,
         last_name: null,
+        phone_number: null,
         email: null,
+        is_teacher: false,
         password: null,
-        password2: null,
-        is_teacher: false
+        password2: null
     });
 
     const register = async () => {
