@@ -47,9 +47,10 @@ export default function useLogin() {
 
             await router.push("/");
         } catch (err) {
+            console.log(err)
             error.value = err.response.data.error;
         }
     };
 
-    return {data, getRememberIcon, toggleRemember, login};
+    return {data, error, getRememberIcon, toggleRemember, login};
 }

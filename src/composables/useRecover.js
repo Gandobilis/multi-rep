@@ -1,5 +1,5 @@
 import {ref} from "vue";
-import axios from "@/interceptors/axios";
+import axios from "/src/interceptors/axios";
 
 export default function useRecover() {
     const email = ref()
