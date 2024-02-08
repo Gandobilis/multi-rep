@@ -12,6 +12,14 @@ const routes = [
                 component: () => import('/src/views/auth/Register.vue'),
             },
             {
+                path: 'register2',
+                component: () => import('/src/views/auth/Register2.vue'),
+            },
+            {
+                path: 'register3',
+                component: () => import('/src/views/auth/Register3.vue'),
+            },
+            {
                 path: 'recover',
                 component: () => import('/src/views/auth/Recover.vue'),
             },

@@ -44,19 +44,24 @@ export default function useRegister() {
         password2: null,
     });
 
-    const step1 = () => {
+    const step1 = async () => {
         store.setData(step1Data.value)
-        console.log(store.getData)
+
+        if (store.data.is_teacher) {
+            await router.push('/auth/register2');
+        } else {
+            await router.push('/auth/register3');
+        }
     }
 
-    const step2 = () => {
+    const step2 = async () => {
         store.setData(step2Data.value)
-        console.log(store.getData)
+
+        await router.push('/auth/register3')
     }
 
     const step3 = () => {
         store.setData(step3Data.value)
-        console.log(store.getData)
     }
 
     const register = async () => {
