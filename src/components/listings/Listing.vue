@@ -10,7 +10,7 @@ const user_id = 0
 </script>
 
 <template>
-  <router-link :to="`user/listings/${user_id}/${data.id}`" class="rounded-lg border border-gray-400">
+  <router-link :to="`/user/listings/${user_id}/${data.id}`" class="rounded-lg border border-gray-400">
     <img :src="data.icon" alt="course icon" class="w-full"/>
     <div class="mt-4 mb-2 flex justify-between items-start px-2">
       <p v-text="data.title" class="font-bold"/>

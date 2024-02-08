@@ -1,9 +1,10 @@
 <script setup>
-import LeftSideComponent from "../components/auth/LeftSideComponent.vue";
+import LeftSide from "/src/components/auth/LeftSide.vue"
 </script>
 <template>
   <main class="grid grid-cols-2 h-screen">
-    <LeftSideComponent/>
+    <left-side/>
+
     <router-view class="flex flex-col items-center justify-center"/>
   </main>
 </template>

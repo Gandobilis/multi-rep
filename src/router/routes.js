@@ -38,8 +38,8 @@ export default [
                 component: () => import('../views/main/UserListing.vue')
             },
             {
-                path: 'searchresults',
-                component: () => import('../views/main/SearchResultsPage.vue')
+                path: 'search/:keyword',
+                component: () => import('../views/main/SearchResults.vue')
             }
         ],
     },
