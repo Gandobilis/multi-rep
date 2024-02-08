@@ -1,12 +1,21 @@
 <script setup>
 import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
-import useRecover from "../../composables/useRecover.js";
+import useRecover from "/src/composables/useRecover.js";
+import {onMounted} from "vue";
+import {useRoute} from "vue-router";
+
+const route = useRoute();
 
 const {
   password,
   error,
-  recover2
+  token_id,
+  recover2,
 } = useRecover();
+
+onMounted(() => {
+  token_id.value = route.params.token_id;
+});
 </script>
 
 <template>

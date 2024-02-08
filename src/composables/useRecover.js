@@ -6,6 +6,7 @@ export default function useRecover() {
     const error = ref(null)
     const success = ref(null)
     const password = ref(null)
+    const token_id = ref(null)
 
     const recover = async () => {
         error.value = null
@@ -18,7 +19,9 @@ export default function useRecover() {
     };
 
     const recover2 = async () => {
-        console.log(password.value)
+        axios.post(`password_reset/set_new_password/token_id=${token_id}`, {'password': password.value}).then(res => {
+        }).catch(err => {
+        })
     }
 
     return {
@@ -26,6 +29,7 @@ export default function useRecover() {
         success,
         error,
         password,
+        token_id,
         recover,
         recover2
     };

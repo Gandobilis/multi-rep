@@ -24,7 +24,7 @@ const routes = [
                 component: () => import('/src/views/auth/Recover.vue'),
             },
             {
-                path: 'recover2',
+                path: 'recover2/:token_id',
                 component: () => import('/src/views/auth/Recover2.vue'),
             },
         ],
