@@ -3,16 +3,18 @@ import useReport from "../../composables/useReport.js"
 import PlusIcon from "../../assets/icons/modals/PlusIcon.vue";
 
 const {reportTypes, _hoverIndex, hoveredIndex, _clickedIndex, clearIndex, clickedIndex, report} = useReport()
+const emit = defineEmits(['closeModal'])
 </script>
 
 <template>
   <form
-      @submit.prevent="report"
-      class="absolute right-0 left-0 z-10 m-auto flex w-2/5 flex-col gap-y-6 bg-white p-5 shadow-2xl">
+      @submit.prevent="report(); emit('closeModal')"
+      class="absolute right-0 left-0 z-10 m-auto flex w-[40vw] flex-col gap-y-6 bg-white p-5 shadow-2xl">
     <div class="flex w-full items-center justify-between border-b pb-6 border-border-gray">
       <p class="text-2xl font-semibold">დაარეპორტეთ ეს პოსტი</p>
 
-      <img class="cursor-pointer" src="/src/assets/icons/modals/close.svg" alt="close icon"/>
+      <img @click="emit('closeModal')" class="cursor-pointer" src="/src/assets/icons/modals/close.svg"
+           alt="close icon"/>
     </div>
 
     <p>აირჩიეთ რეპორტის მიზეზი</p>

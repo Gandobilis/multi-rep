@@ -34,8 +34,8 @@ export default [
                 component: () => import('/src/views/main/UserListings.vue')
             },
             {
-                path: 'listings/:id',
-                component: () => import('../views/main/statementPage.vue')
+                path: 'user/listings/:user_id/:listing_id',
+                component: () => import('../views/main/UserListing.vue')
             },
             {
                 path: 'searchresults',
