@@ -3,19 +3,21 @@ import {defineStore} from 'pinia';
 export const useRegisterStore = defineStore('register', {
     state: () => ({
         data: {
-            first_name: '',
-            last_name: '',
-            phone_number: '',
-            email: '',
+            first_name: null,
+            last_name: null,
+            phone_number: null,
+            email: null,
             is_teacher: false,
-            city: '',
-            profession: '',
-            password: '',
-            password2: '',
+            city: null,
+            profession: null,
+            password: null,
+            password2: null,
         },
     }),
     getters: {
-        getAllData: (state) => state.data,
+        getData: {
+            getData: (state) => state.data
+        },
     },
     actions: {
         setData(payload) {
