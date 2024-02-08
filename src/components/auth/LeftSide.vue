@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col justify-center items-center bg-primary">
+  <div class="flex flex-col items-center justify-center text-white bg-primary">
     <img src="/src/assets/logos/multi-rep-logo.svg" alt="multi rep logo">
 
-    <h1 class="text-7xl text-white mb-7">E-learning</h1>
+    <h1 class="mb-7 text-7xl" v-text="'E-learning'"/>
 
-    <h3 class="text-2xl text-white">Learning is a treasure that will follow its owner everywhere.</h3>
+    <h3 class="text-2xl" v-text="'Learning is a treasure that will follow its owner everywhere.'"/>
   </div>
 </template>

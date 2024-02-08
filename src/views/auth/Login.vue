@@ -2,17 +2,17 @@
 import useLogin from "/src/composables/useLogin"
 import AnimatedInput from "/src/components/auth/AnimatedInput.vue"
 
-const {email, password, remember, error, login} = useLogin()
+const {data, error, login} = useLogin()
 </script>
 
 <template>
-  <formz @submit.prevent="login" class="w-[243px] mx-auto">
+  <form @submit.prevent="login" class="w-[243px] mx-auto">
     <h1 class="text-[32px] mb-[50px] font-semibold">ავტორიზაცია</h1>
 
     <div class="w-full space-y-10 mb-4">
-      <animated-input placeholder="ემაილი" v-model="email"/>
+      <animated-input placeholder="ემაილი" v-model="data.email"/>
 
-      <animated-input placeholder="პაროლი" v-model="password" show-password-toggle/>
+      <animated-input placeholder="პაროლი" v-model="data.password" show-password-toggle/>
     </div>
 
     <div v-if="error" class="flex items-center w-full justify-center gap-x-1.5 mb-1.5">
@@ -23,7 +23,7 @@ const {email, password, remember, error, login} = useLogin()
 
     <div class="w-full flex justify-between items-center mb-5">
       <div class="flex items-center gap-x-1.5">
-        <input type="checkbox" v-model="remember"><label class="text-sm mb-0.5">დამახსოვრება</label>
+        <input type="checkbox" v-model="data.remember"><label class="text-sm mb-0.5">დამახსოვრება</label>
       </div>
 
       <router-link class="flex w-full justify-end  text-primary text-xs" to="/auth/recover">
@@ -40,5 +40,5 @@ const {email, password, remember, error, login} = useLogin()
                  class="text-center text-primary  py-[6.5px] rounded-[5px] hover:shadow-2xl hover:text-white hover:bg-primary w-full">
       რეგისტრაცია
     </router-link>
-  </formz>
+  </form>
 </template>
