@@ -11,7 +11,7 @@ const is_teacher = ref(false)
 <template>
   <div class="relative flex flex-col gap-y-20">
     <div class="my-10 flex items-center justify-between">
-      <h1 class="text-5xl font-bold">განცხადებები</h1>
+      <h1 class="text-5xl font-bold"> განცხადებები</h1>
 
       <div class="flex items-center gap-x-10">
         <button @click="showModal = true" v-if="is_teacher" class="font-semibold text-primary">დაამატე განცხადება

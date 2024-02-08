@@ -5,17 +5,17 @@ export default [
         children: [
             {
                 path: 'login',
-                component: () => import('/src/views/auth/Login.vue'),
+                component: () => import('/src/views/auth/Login.vue')
             },
             {
                 path: 'register',
-                component: () => import('/src/views/auth/Register.vue'),
+                component: () => import('/src/views/auth/Register.vue')
             },
             {
                 path: 'recover',
                 component: () => import('/src/views/auth/Recover.vue')
-            },
-        ],
+            }
+        ]
     },
     {
         path: '/',
@@ -30,20 +30,16 @@ export default [
                 component: () => import('/src/views/main/Leaderboard.vue')
             },
             {
-                path: 'leaderboard',
-                component: () => import('/src/views/main/Leaderboard.vue')
+                path: 'user/listings/:user_id',
+                component: () => import('/src/views/main/UserListings.vue')
             },
             {
-                path: 'statement',
-                component: () => import('../views/main/statementPage.vue'),
+                path: 'listings/:id',
+                component: () => import('../views/main/statementPage.vue')
             },
             {
                 path: 'searchresults',
-                component: () => import('../views/main/SearchResultsPage.vue'),
-            },
-            {
-                path: 'report',
-                component: () => import('/src/components/modals/Report.vue'),
+                component: () => import('../views/main/SearchResultsPage.vue')
             }
         ],
     },
@@ -53,29 +49,29 @@ export default [
         children: [
             {
                 path: '',
-                component: () => import('/src/views/user/MyPage.vue'),
+                component: () => import('/src/views/user/MyPage.vue')
             },
             {
                 path: 'saved-listings',
-                component: () => import('/src/views/user/SavedListings.vue'),
+                component: () => import('/src/views/user/SavedListings.vue')
             },
             {
                 path: 'notifications',
-                component: () => import('/src/views/user/Notifications.vue'),
+                component: () => import('/src/views/user/Notifications.vue')
             },
             {
                 path: 'my-listings',
-                component: () => import('/src/views/user/MyListings.vue'),
+                component: () => import('/src/views/user/MyListings.vue')
             },
             {
                 path: 'edit-account',
-                component: () => import('/src/views/user/EditAccount.vue'),
+                component: () => import('/src/views/user/EditAccount.vue')
             },
             {
                 path: 'change-password',
-                component: () => import('/src/views/user/ChangePassword.vue'),
+                component: () => import('/src/views/user/ChangePassword.vue')
             }
-        ],
-    },
+        ]
+    }
 ]
 

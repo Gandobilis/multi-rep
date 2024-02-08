@@ -1,25 +1,13 @@
 <script setup>
-import {ref} from "vue";
-import Rating from "/src/components/leaderboard/Rating.vue";
-import icon from "/src/assets/icons/leaderboard/user-icon.svg";
+import {ref} from "vue"
+import Rating from "/src/components/leaderboard/Rating.vue"
+import useRatings from "../../composables/useRatings.js";
 
-const users = ref(Array(5).fill({
-  icon,
-  firstName: 'გიორგი',
-  lastName: 'გიორგაძე',
-  profession: 'ჯავა დეველოპერი',
-  phoneNumber: '551-11-12-22',
-  rating: '4.9',
-}));
+const {ratings} = useRatings()
 </script>
 
 <template>
   <div class="mt-14 flex flex-col gap-y-4">
-    <template v-for="(user, index) in users" :key="index">
-      <Rating :user="user" :class="index === 0 ? 'bg-yellow-400'
-    : index === 1 ? 'bg-gray-400'
-    : index === 2 ? 'bg-orange-400'
-: 'bg-white'"/>
-    </template>
+    <Rating v-for="(rating, index) in ratings" :key="index" :rating="rating"/>
   </div>
 </template>
