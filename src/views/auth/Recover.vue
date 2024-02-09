@@ -7,7 +7,7 @@ const {email, success, error, recover} = useRecover();
 
 <template>
   <div class="relative">
-    <router-link to="/auth/auth" class="cursor-pointer absolute top-10 -left-2/3">
+    <router-link to="/auth/login" class="cursor-pointer absolute top-10 -left-2/3">
       <img src="/src/assets/icons/auth/back-arrow.svg" alt="back arrow"/>
     </router-link>
 
