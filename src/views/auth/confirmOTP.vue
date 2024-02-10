@@ -1,8 +1,9 @@
 <script setup>
 import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
-import useRecover from "../../composables/useRecover.js";
+import useRegister from "../../composables/useRegister.js";
 
-const {email, success, error, recover} = useRecover();
+const {otp, success, error, cotasMeiparavCotasGaaketeb} = useRegister();
+
 </script>
 
 <template>
@@ -11,11 +12,11 @@ const {email, success, error, recover} = useRecover();
       <img src="/src/assets/icons/auth/back-arrow.svg" alt="back arrow"/>
     </router-link>
 
-    <form method="post" @submit.prevent="recover" class="flex flex-col items-center">
-      <h1 class="mb-12 text-3xl font-semibold">პაროლის აღდგენა</h1>
+    <form method="post" @submit.prevent="cotasMeiparavCotasGaaketeb" class="flex flex-col items-center">
+      <h1 class="mb-12 text-3xl font-semibold">ემაილის ვერიფიკაცია</h1>
 
       <div class="w-full space-y-10">
-        <animated-input placeholder="ელ. ფოსტა" v-model="email"/>
+        <animated-input placeholder="პინ.კოდი" v-model="otp"/>
       </div>
 
       <div v-if="success" class="flex items-center w-full justify-start gap-x-2 mt-8">

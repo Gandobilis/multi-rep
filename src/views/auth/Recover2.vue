@@ -11,6 +11,7 @@ const {
   error,
   token_id,
   recover2,
+  success
 } = useRecover();
 
 onMounted(() => {
@@ -29,7 +30,11 @@ onMounted(() => {
 
       <animated-input placeholder="პაროლი" v-model="password" show-password-toggle/>
 
-      <div v-if="error" class="flex items-center w-full justify-start gap-x-2 -my-10">
+      <div v-if="success" class="flex items-center w-full justify-start gap-x-2 mt-8">
+        <span class="text-sm text-price" v-text="success"/>
+      </div>
+
+      <div v-if="error" class="flex items-center w-full justify-start gap-x-2 mt-8">
         <img src="../../assets/icons/auth/error.svg" alt="alert error icon">
 
         <span class="text-sm text-error" v-text="error"/>

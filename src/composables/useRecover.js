@@ -19,8 +19,12 @@ export default function useRecover() {
     };
 
     const recover2 = async () => {
-        axios.post(`password_reset/set_new_password/token_id=${token_id}`, {'password': password.value}).then(res => {
+        error.value = null
+        success.value = null
+        axios.post(`users/set_new_password/`, {'password': password.value, 'token':token_id.value}).then(res => {
+        success.value = 'პაროლი წარმატებით შეიცვალა'
         }).catch(err => {
+            error.value = 'შეცდომა პაროლის შეცვლისას, სცადეთ თავიდან'
         })
     }
 

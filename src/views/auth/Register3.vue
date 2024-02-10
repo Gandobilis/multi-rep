@@ -26,7 +26,7 @@ const {
                         :show-password-toggle="field.showToggle"/>
       </div>
 
-      <div v-if="error" class="flex items-center w-full justify-start gap-x-2 -my-10">
+      <div v-if="error" class="flex items-center w-full justify-start gap-x-1.5 mt-5">
         <img src="../../assets/icons/auth/error.svg" alt="alert error icon">
 
         <span class="text-sm text-error" v-text="error"/>

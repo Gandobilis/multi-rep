@@ -27,6 +27,10 @@ const routes = [
                 path: 'recover2/:token_id',
                 component: () => import('/src/views/auth/Recover2.vue'),
             },
+            {
+                path: 'confirm_otp',
+                component: () => import('/src/views/auth/confirmOTP.vue'),
+            },
         ],
     },
     {

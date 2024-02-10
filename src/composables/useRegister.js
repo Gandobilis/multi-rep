@@ -4,11 +4,15 @@ import axios from "/src/interceptors/axios/index";
 import {useRegisterStore} from '/src/stores/registerStore.js';
 import cookies from "vue-cookies";
 import useHelpers from "../helpers";
+import {data} from "autoprefixer";
 
 export default function useRegister() {
     const router = useRouter();
     const error = ref();
+    const success = ref();
+
     const store = useRegisterStore();
+    const otp = ref(null)
 
     const step1Models = [
         {placeholder: "სახელი", model: "first_name"},
@@ -47,29 +51,77 @@ export default function useRegister() {
     });
 
     const step1 = async () => {
-        store.setData(step1Data.value)
+        error.value = null
 
-        if (store.data.is_teacher) {
-            await router.push('/auth/register2');
+        if (Object.values(step1Data.value).includes(null)) {
+            error.value = 'შეავსეთ ყველა ველი'
         } else {
-            await router.push('/auth/register3');
+
+            const data = await axios.post('users/check_email/', {
+                "email": step1Data.value.email
+            }).then(res => res.data)
+
+            if (data) {
+                error.value = "იმეილი გამოყენებულია"
+                return
+            }
+
+            store.setData(step1Data.value)
+            if (store.data.is_teacher) {
+                await router.push('/auth/register2');
+            } else {
+                await router.push('/auth/register3');
+            }
         }
     }
 
     const step2 = async () => {
-        store.setData(step2Data.value)
-
-        await router.push('/auth/register3')
+        error.value = null
+        if (Object.values(step2Data.value).includes(null)) {
+            error.value = 'შეავსეთ ყველა ველი'
+        } else {
+            store.setData(step2Data.value)
+            await router.push('/auth/register3')
+        }
     }
 
     const step3 = () => {
-        store.setData(step3Data.value)
+        error.value = null
+
+        if (Object.values(step3Data.value).includes(null)) {
+            error.value = 'შეავსეთ ყველა ველი'
+        }
+        else if(step3Data.value.password !== step3Data.value.password2){
+            error.value = "პაროლები არ ემთხვევა"
+        }
+        else {
+            store.setData(step3Data.value)
+        }
+
     }
 
     const register = async () => {
         step3()
+        if(error.value){
+            return
+        }
         try {
             await axios.post('users/auth/register', store.data);
+
+            await router.push("/auth/confirm_otp");
+        } catch (err) {
+            error.value = err.response.data.error;
+        }
+    };
+
+    const cotasMeiparavCotasGaaketeb = async () =>{
+        success.value = null
+        error.value = null
+        axios.post('/users/verify', {
+            'email': store.data.email,
+            'otp': otp.value
+        }).then(async () => {
+            success.value = 'თქვენ წარმადებით გაიარეთ ვერიფიკაცია'
             const {mapObjectKeys} = useHelpers()
             const _data = mapObjectKeys(store.data, ['email', 'password']);
             const {data} = await axios.post('users/auth/login', _data)
@@ -87,13 +139,13 @@ export default function useRegister() {
                 sameSite: "strict",
                 expires: "1d",
             });
-
-            await router.push("/");
-        } catch (err) {
-            error.value = err.response.data.error;
-        }
-    };
-
+            setTimeout(()=>{
+                router.push('/')
+            }, 1000)
+        }).catch(() => {
+            error.value = 'კოდი არასწორია'
+        })
+    }
     return {
         step1Models,
         step1Data,
@@ -105,5 +157,8 @@ export default function useRegister() {
         step3Data,
         error,
         register,
+        otp,
+        cotasMeiparavCotasGaaketeb
+
     };
 };
