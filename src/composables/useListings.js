@@ -1,9 +1,8 @@
-import {ref} from "vue"
+import {ref} from "vue";
 
-export default function useListings() {
-    const courses = ref(Array(3).fill({
-        id: 0,
-        icon: '/src/assets/icons/courses/statement-icon.svg',
+export default function useCourses() {
+    const courses = ref(Array(11).fill({
+        icon: 'https://i.guim.co.uk/img/static/sys-images/Media/Pix/pictures/2013/1/14/1358150745448/Java-logo-008.jpg?width=465&dpr=1&s=none',
         title: 'ჯავას ახალი კურსი',
         publishDate: 'დღეს 19:57',
         price: '300 ₾',
@@ -12,15 +11,7 @@ export default function useListings() {
         rating: 4.9,
         author: 'გიორგი გიორგაძე',
         phoneNumber: '(+995) 599-111-222'
-    }))
+    }));
 
-    const getListings = (user_id) => {
-        const listings = courses.value.filter(course => course.id == user_id)
-        return {
-            username: 'გიორგი გიორგაძის',
-            listings
-        }
-    }
-
-    return {courses, getListings}
+    return {courses}
 }

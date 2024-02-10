@@ -39,6 +39,10 @@ const routes = [
         children: [
             {
                 path: '',
+                component: () => import('/src/views/main/mainPage.vue'),
+            },
+            {
+                path: 'listings',
                 component: () => import('/src/views/main/Listings.vue'),
             },
             {

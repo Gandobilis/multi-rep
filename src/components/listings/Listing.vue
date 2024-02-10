@@ -10,8 +10,8 @@ const user_id = 0
 </script>
 
 <template>
-  <router-link :to="`/user/listings/${user_id}/${data.id}`" class="rounded-lg border border-gray-400">
-    <img :src="data.icon" alt="course icon" class="w-full"/>
+  <div  class="rounded-lg h-96 w-96  ">
+    <img :src="data.icon" alt="course icon" class="w-full h-1/2"/>
     <div class="mt-4 mb-2 flex justify-between items-start px-2">
       <p v-text="data.title" class="font-bold"/>
       <p v-text="data.publishDate" class="text-meta"/>
@@ -35,5 +35,5 @@ const user_id = 0
       <p class="font-medium" v-text="data.author"/>
       <p class="text-xs" v-text="data.phoneNumber"/>
     </div>
-  </router-link>
+  </div>
 </template>

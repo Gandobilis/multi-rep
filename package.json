@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@material-tailwind/html": "^2.2.2",
+    "@splidejs/vue-splide": "^0.6.12",
     "axios": "^1.6.5",
     "pinia": "^2.1.7",
     "tw-elements": "^1.1.0",
