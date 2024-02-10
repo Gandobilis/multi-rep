@@ -1,6 +1,19 @@
 import {ref} from "vue";
+import axios from "/src/interceptors/axios/index";
 
 const useReport = () => {
+
+
+    const sendReport = (name,surname,email,issue) =>{
+        axios.post('/report/send_report', {
+            "name": name,
+            "surname": surname,
+            "issue": issue,
+            "email": email,
+            "listing_id": "ზოგადი"
+        })
+    }
+
     const reportTypes = ref([
         [
             'შევიწროვება',
@@ -42,7 +55,9 @@ const useReport = () => {
         }
     }
 
-    return {reportTypes, _hoverIndex, hoveredIndex, _clickedIndex, clickedIndex, clearIndex, report}
+
+
+    return {sendReport, reportTypes, _hoverIndex, hoveredIndex, _clickedIndex, clickedIndex, clearIndex, report}
 }
 
 export default useReport

@@ -5,6 +5,7 @@ import Filter from "/src/components/listings/Filter.vue"
 import AddPost from "../../components/modals/AddPost.vue"
 import TopFive from "../../components/leaderboard/topFive.vue";
 import ListingsForMainPage from "../../components/listings/listingsForMainPage.vue";
+import ReportSectionForMainPage from "../../components/reports/reportSectionForMainPage.vue";
 
 const showModal = ref(false)
 const is_teacher = ref(false)
@@ -24,7 +25,6 @@ const is_teacher = ref(false)
       </div>
     </div>
     <ListingsForMainPage/>
-
 
 
     <add-post ;@closeModal="showModal = false" v-if="showModal"/>
