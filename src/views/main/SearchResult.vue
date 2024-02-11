@@ -143,11 +143,11 @@ onMounted(() => {
           </div>
         </div>
         <div v-if="listings.length > 0" class="flex flex-col border border-[#CACACA] rounded-xl py-3 gap-y-2">
-          <h2 class=" pl-5 pb-2 pt-2 text-3xl border-b border-[#CACACA] ">დალაგება</h2>
+          <h2 class="pl-5 pb-2 pt-2 text-3xl border-b border-[#CACACA]">დალაგება</h2>
 
           <div v-for="(item, index) in checkInputs" :key="index" class="mt-4 flex items-center gap-x-4 gap-y-2 pl-5">
-            <input id="default-checkbox" type="checkbox" value=""
-                   class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600">
+            <input id="default-checkbox" name="filter" type="radio"
+                   class="accent-primary h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600">
 
             <label for="default-checkbox" class="text-sm font-medium text-gray-900" v-text="item"/>
           </div>
