@@ -1,45 +1,40 @@
 <script setup>
 
 import useStatement from "../../composables/useStatement";
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 import rating from "./rating.vue";
-
-const {dataForSpecificPage, getDataForSpecificListing, userForSpecificListing } = useStatement();
 const route = useRoute();
-import { Rating, initTE } from "tw-elements";
-import Report from "../modals/Report.vue";
+import { Rating } from "tw-elements";
 import { useRoute } from "vue-router";
-import Star from "../../assets/icons/SearchResults/star.vue";
 import Calendar from "../../assets/icons/forSpecificListing/calendar.vue";
 import Eye from "../../assets/icons/forSpecificListing/eye.vue";
 import Phone from "../../assets/icons/forSpecificListing/phone.vue";
 import Email from "../../assets/icons/forSpecificListing/email.vue";
+import SimilarListings from "./similarListings.vue";
 
-onMounted(async () => {
-  await getDataForSpecificListing(route.params.id);
-  initTE({ Rating });
+const {dataForSpecificPage, getDataForSpecificListing, userForSpecificListing } = useStatement();
+
+onMounted( () => {
+   getDataForSpecificListing(route.params.id);
+
 });
 
 const user_id = 0;
-const showModal = ref(false);
 
 const formatDate = (timestamp) => {
   const date = new Date(timestamp);
   const currentDate = new Date();
 
-  // Check if the date is today
   if (date.toDateString() === currentDate.toDateString()) {
     return "დღეს";
   }
 
-  // Check if the date is yesterday
   const yesterday = new Date(currentDate);
   yesterday.setDate(currentDate.getDate() - 1);
   if (date.toDateString() === yesterday.toDateString()) {
     return "გუშინ";
   }
 
-  // Otherwise, format as year, month, and day
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
@@ -52,7 +47,7 @@ const formatDate = (timestamp) => {
 <template>
 
   <div v-if="dataForSpecificPage" class="flex gap-16  justify-center  ">
-    <img class=" w-1/2 " :src="dataForSpecificPage?._photo" alt="">
+    <img class=" w-1/2 rounded-3xl " :src="dataForSpecificPage?._photo" alt="">
     <div class="flex flex-col w-1/2 pb-32 gap-10">
       <p class="text-4xl  font-bold">{{dataForSpecificPage?.title}}</p>
       <p class="text-2xl font-medium">{{dataForSpecificPage?.description}}</p>
@@ -85,13 +80,13 @@ const formatDate = (timestamp) => {
           </div>
         </div>
 
-        <div class="flex flex-col w-1/2 text-xl  gap-5">
-          <div class="flex gap-2 items-center justify-center py-1 px-5 rounded-xl bg-primary">
+        <div class="flex flex-col w-1/2 text-lg  gap-5">
+          <div class="flex gap-2 items-center justify-center py-1 px-6 rounded-xl bg-primary">
             <phone/>
             <p class="text-white">{{userForSpecificListing?.phone}}</p>
           </div>
 
-          <div class="flex gap-2 items-center py-1 justify-center px-5 rounded-xl bg-primary">
+          <div class="flex gap-2 items-center py-1 justify-center px-6  rounded-xl bg-primary">
             <email/>
             <p class="text-white">{{userForSpecificListing?.email}}</p>
           </div>
@@ -100,6 +95,8 @@ const formatDate = (timestamp) => {
       <rating/>
     </div>
   </div>
+
+  <similar-listings/>
 
 
 </template>

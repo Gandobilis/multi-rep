@@ -33,7 +33,7 @@ onMounted(async () => {
 <template>
   <section>
     <Splide  :options="mainOptions" :has-track="false" >
-      <div class="flex flex-col gap-10 items-center">
+      <div class="flex flex-col gap-10  ">
         <h1 class="text-3xl font-bold">ტოპ მასწავლებლები</h1>
 
         <div>

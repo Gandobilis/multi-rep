@@ -33,9 +33,9 @@ const formatDate = (timestamp) => {
 </script>
 
 <template>
-  <div  class="rounded-lg h-96 w-80  ">
+  <div  class="rounded-lg h-96 w-80 cursor-pointer group transition-all  ">
 
-    <img :src="props.data._photo" alt="course icon" class="w-full h-1/2"/>
+    <img :src="props.data._photo" alt="course icon" class="w-full group-hover:rounded-none transition-all rounded-2xl h-1/2"/>
 
       <div class="h-1/2">
         <div class="mt-4 mb-2 flex justify-between items-start px-2">
@@ -46,11 +46,8 @@ const formatDate = (timestamp) => {
         </div>
         <div class="flex justify-between items-center px-2 my-4">
           <p class="font-bold text-price text-xl" v-text="props.data.price"/>
-          <p class="text-meta" v-text="props.data.currency"/>
-          <div class="flex items-center gap-x-1.5">
-            <img src="/src/assets/icons/courses/time.svg" alt="time icon">
-            <p class="text-meta" v-text="props.data.duration"/>
-          </div>
+          <p class="font-bold">{{props.data._subject}}</p>
+
           <div class="flex items-center gap-x-1.5 px-2">
             <img class="w-6 h-6" src="/src/assets/icons/leaderboard/star-icon.svg" alt="time icon">
             <p v-text="props.data.average_listing_score + '/5.0'"/>
