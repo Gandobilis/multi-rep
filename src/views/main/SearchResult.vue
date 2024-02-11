@@ -2,6 +2,7 @@
 import {onMounted, ref} from "vue";
 import {useRoute} from "vue-router";
 import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
+import Filter from "../../components/listings/Filter.vue";
 
 const route = useRoute();
 const keyword = ref();
@@ -35,7 +36,7 @@ const changeSelect = (index) => {
 };
 
 const checkInputs = ref([
-  'ფასით', 'პოპულარობით', 'მისამართით', 'დისტანციურად',
+  'მისამართით', 'დისტანციურად',
 ]);
 
 const cities = ref([
@@ -143,7 +144,7 @@ onMounted(() => {
           </div>
         </div>
         <div v-if="listings.length > 0" class="flex flex-col border border-[#CACACA] rounded-xl py-3 gap-y-2">
-          <h2 class="pl-5 pb-2 pt-2 text-3xl border-b border-[#CACACA]">დალაგება</h2>
+          <h2 class="pl-5 pb-2 pt-2 text-3xl border-b border-[#CACACA]">ფილტრი</h2>
 
           <div v-for="(item, index) in checkInputs" :key="index" class="mt-4 flex items-center gap-x-4 gap-y-2 pl-5">
             <input id="default-checkbox" name="filter" type="radio"
@@ -165,6 +166,8 @@ onMounted(() => {
             </ul>
           </div>
         </div>
+
+        <Filter/>
       </div>
 
       <div class="col-span-2 flex flex-col gap-y-10">
