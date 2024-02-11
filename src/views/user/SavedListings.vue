@@ -1,5 +1,4 @@
 <script setup>
-
 import useUser from "../../composables/useUser.js";
 
 const {savedListings} = useUser();
