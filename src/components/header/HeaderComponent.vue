@@ -5,6 +5,7 @@ import User from "/src/components/header/User.vue"
 import Search from "/src/components/header/Search.vue"
 import {ref} from "vue"
 import Notifications from "./Notifications.vue"
+import cookies from "vue-cookies";
 
 const is_teacher = ref(false)
 </script>
@@ -20,8 +21,11 @@ const is_teacher = ref(false)
       <nav-link path="/leaderboard">ლიდერბორდი</nav-link>
       <notifications v-if="is_teacher"/>
       <favourite/>
-      <user/>
-      <search/>
+      <user v-if="cookies.get('user_id')"/>
+      <router-link v-else to="/auth/login"
+                   class="w-full rounded-md border text-center font-medium border-primary text-primary p-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
+        შესვლა
+      </router-link>
     </div>
   </nav>
 </template>

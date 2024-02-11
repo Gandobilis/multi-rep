@@ -3,10 +3,6 @@ const props = defineProps({
     data:Object
 })
 
-setTimeout(()=>{
-  console.log(props.data)
-})
-
 import Star from "../../assets/icons/SearchResults/star.vue";
 </script>
 

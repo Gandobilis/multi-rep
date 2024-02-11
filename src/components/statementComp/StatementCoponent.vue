@@ -16,10 +16,7 @@ const {dataForSpecificPage, getDataForSpecificListing, userForSpecificListing } 
 
 onMounted( () => {
    getDataForSpecificListing(route.params.id);
-
 });
-
-const user_id = 0;
 
 const formatDate = (timestamp) => {
   const date = new Date(timestamp);
@@ -46,8 +43,8 @@ const formatDate = (timestamp) => {
 
 <template>
 
-  <div v-if="dataForSpecificPage" class="flex gap-16  justify-center  ">
-    <img class=" w-1/2 rounded-3xl " :src="dataForSpecificPage?._photo" alt="">
+  <div v-if="dataForSpecificPage" class="flex gap-16  justify-center">
+    <img class="w-1/2 rounded-3xl aspect-square" :src="dataForSpecificPage?._photo" alt="">
     <div class="flex flex-col w-1/2 pb-32 gap-10">
       <p class="text-4xl  font-bold">{{dataForSpecificPage?.title}}</p>
       <p class="text-2xl font-medium">{{dataForSpecificPage?.description}}</p>
@@ -76,7 +73,7 @@ const formatDate = (timestamp) => {
                 <p>{{userForSpecificListing?.last_name}}</p>
               </div>
               <p class="text-xl">პროფესია</p>
-              <p class="text-lg cursor-pointer text-[#1F6C97]">ყველა განცხადება</p>
+              <router-link :to="`/user/listings/${dataForSpecificPage.teacher}`" class="text-lg cursor-pointer text-[#1F6C97]">ყველა განცხადება</router-link>
           </div>
         </div>
 
