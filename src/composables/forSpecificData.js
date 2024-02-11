@@ -8,7 +8,6 @@ export default function useCourses() {
     const getTopTenTeachers = async () =>{
        await axios.get('/users/top_ten_teacher').then(res => {
             topTenTeachers.value = res.data.data
-            console.log(topTenTeachers.value)
         })
     }
 

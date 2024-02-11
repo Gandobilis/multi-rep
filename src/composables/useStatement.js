@@ -16,13 +16,10 @@ export default (function useStatement() {
     const getFilteredListing = async (city,subject) =>{
         await axios.get(`/listings?subject=${subject}&city=${city}`).then(res => {
             similarListingsForSpecificListing.value = res.data.data
-            console.log(similarListingsForSpecificListing)
         })
     }
     const getDataForSpecificListing = (id) =>{
-        axios.post('/listings/get_specific_listing', {
-            "listing_id": id
-        }).then(res => {
+        axios.get(`/listings/${id}`).then(res => {
             dataForSpecificPage.value = res.data.data
             getFilteredListing(dataForSpecificPage.value._city, dataForSpecificPage?.value._subject,)
         })
@@ -31,9 +28,6 @@ export default (function useStatement() {
         }).then(res => {
             userForSpecificListing.value = res.data.data
         })
-
-
-
     }
 
 

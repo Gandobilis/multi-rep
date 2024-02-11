@@ -45,14 +45,14 @@ onMounted(async () => {
                 <img v-if="index===2" class="w-10 h-16 rotate-12" src="../.././assets/icons/topTeachers/bronzeCrown.svg" alt="">
                 <div class="h-16" v-if="index>2"></div>
 
-                <div class="relative flex flex-col items-center justify-center">
+                <router-link :to="`/user/listings/${teacher.id}`" class="block relative flex flex-col items-center justify-center">
                   <img class=" w-24 h-24 rounded-full" :src="teacher.profile_pic" alt="">
                   <div class="absolute rounded-lg px-4 flex -bottom-3 bg-secondary-bg gap-2">
                     <img class="w-5 h-5" src="../.././assets/icons/leaderboard/star-icon.svg" alt="">
                     <p class="font-bold">5.0</p>
 
                   </div>
-                </div>
+                </router-link>
                 <div class="flex flex-col items-center justify-center w-1/2 gap-2">
                   <p class="font-bold text-lg">{{teacher.first_name}}</p>
                 </div>

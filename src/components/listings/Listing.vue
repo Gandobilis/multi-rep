@@ -33,7 +33,7 @@ const formatDate = (timestamp) => {
 </script>
 
 <template>
-  <div  class="rounded-lg h-96 w-80 cursor-pointer group transition-all  ">
+  <router-link :to="`/listings/${data.id}`"  class="block rounded-lg h-96 w-80 cursor-pointer group transition-all  ">
 
     <img :src="props.data._photo" alt="course icon" class="w-full group-hover:rounded-none transition-all rounded-2xl h-1/2"/>
 
@@ -61,5 +61,5 @@ const formatDate = (timestamp) => {
           <p class="text-xs" v-text="props.data.phoneNumber"/>
         </div>
       </div>
-  </div>
+  </router-link>
 </template>
