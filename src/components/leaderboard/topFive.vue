@@ -2,8 +2,9 @@
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/vue-splide'
 import '@splidejs/vue-splide/css';
 import forSpecificData from "../../composables/forSpecificData.js"
+import {onMounted} from "vue";
 
-const {topTenTeachers} = forSpecificData()
+const {topTenTeachers, getTopTenTeachers} = forSpecificData()
 
 const mainOptions = {
   perMove: 3,
@@ -21,10 +22,13 @@ const mainOptions = {
     }
   }
 
-};
+}
+
+onMounted(async () => {
+  await getTopTenTeachers();
 
 
-
+});
 </script>
 <template>
   <section>
@@ -42,7 +46,7 @@ const mainOptions = {
                 <div class="h-16" v-if="index>2"></div>
 
                 <div class="relative flex flex-col items-center justify-center">
-                  <img class=" w-24 h-24 rounded-full" :src="teacher.img" alt="">
+                  <img class=" w-24 h-24 rounded-full" :src="teacher.profile_pic" alt="">
                   <div class="absolute rounded-lg px-4 flex -bottom-3 bg-secondary-bg gap-2">
                     <img class="w-5 h-5" src="../.././assets/icons/leaderboard/star-icon.svg" alt="">
                     <p class="font-bold">5.0</p>
@@ -50,9 +54,9 @@ const mainOptions = {
                   </div>
                 </div>
                 <div class="flex flex-col items-center justify-center w-1/2 gap-2">
-                  <p class="font-bold text-lg">{{teacher.name}}</p>
-                  <p class="text-sm">{{teacher.description.length>30 ? teacher.description.slice(0, 28) + "..." : teacher.description }}</p>
+                  <p class="font-bold text-lg">{{teacher.first_name}}</p>
                 </div>
+
               </div>
             </SplideSlide>
           </SplideTrack>

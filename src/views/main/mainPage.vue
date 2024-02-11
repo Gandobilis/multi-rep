@@ -8,7 +8,7 @@ import ListingsForMainPage from "../../components/listings/listingsForMainPage.v
 import ReportSectionForMainPage from "../../components/reports/reportSectionForMainPage.vue";
 
 const showModal = ref(false)
-const is_teacher = ref(false)
+const is_teacher = ref(true)
 </script>
 
 <template>
@@ -27,6 +27,6 @@ const is_teacher = ref(false)
     <ListingsForMainPage/>
 
 
-    <add-post ;@closeModal="showModal = false" v-if="showModal"/>
+    <add-post @closeModal="showModal = false" v-if="showModal"/>
   </div>
 </template>

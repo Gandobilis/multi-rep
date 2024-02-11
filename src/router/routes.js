@@ -54,7 +54,7 @@ const routes = [
                 component: () => import('/src/views/main/UserListings.vue'),
             },
             {
-                path: 'user/listings/:user_id/:listing_id',
+                path: 'listings/:id',
                 component: () => import('/src/views/main/UserListing.vue'),
             },
             {

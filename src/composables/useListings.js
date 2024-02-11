@@ -4,9 +4,10 @@ import axios from "/src/interceptors/axios/index";
 export default function useCourses() {
     const courses = ref(null)
 
-    const getListingsForMainPage = async () => {
-        await axios.post('/listings/getLast8Listings', {
-            "quantity": 8
+    const getListingsForMainPage = async (quantity) => {
+        console.log(quantity)
+         await axios.post('/listings/getLast8Listings', {
+            "quantity": quantity
         }).then(res => {
             courses.value = res.data.data
         })
