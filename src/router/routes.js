@@ -59,7 +59,7 @@ const routes = [
             },
             {
                 path: 'search/:keyword',
-                component: () => import('/src/views/main/SearchResults.vue'),
+                component: () => import('/src/views/main/SearchResult.vue'),
             },
         ],
     },
