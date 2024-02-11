@@ -1,7 +1,7 @@
 <script setup>
 import {onMounted, ref} from "vue";
 import {useRoute} from "vue-router";
-import AnimatedInput from "../../components/auth/AnimatedInput.vue";
+import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
 
 const route = useRoute();
 const keyword = ref();
@@ -17,6 +17,7 @@ const listings = ref(Array(5).fill({
   phone: '(+995) 599-111-222',
 }));
 
+const typeIndex = ref(0);
 const types = ref([
   {
     title: 'განცხადებები ',
@@ -29,19 +30,9 @@ const types = ref([
     notification: 0
   },
 ]);
-
-types.value.forEach(type => {
-  if (type.notification === 0) {
-    type.notification = 0;
-  }
-});
-
-const isSelectedColor = ref(0)
-const isSelectedLine = ref(0)
 const changeSelect = (index) => {
-  isSelectedColor.value = index
-  isSelectedLine.value = index
-}
+  typeIndex.value = index;
+};
 
 const checkInputs = ref([
   'ფასით', 'პოპულარობით', 'მისამართით', 'დისტანციურად',
@@ -112,22 +103,17 @@ const cities = ref([
   "ურეკი",
   "ვანი",
   "ზესტაფონი",
-  "ზუგდიდი"
+  "ზუგდიდი",
 ]);
 
-const cityInput = ref('')
-const chosenCity = ref('')
+const cityInput = ref('');
+const chosenCity = ref('');
+const cityNotFound = ref(false);
 const chooseCity = (city) => {
   chosenCity.value = city;
   cityInput.value = city;
-  cityNotFound.value = true
-}
-const cityNotFound = ref(false)
-
-const resultsLength = listings.value.length;
-types.value.forEach(type => {
-  type.notification = resultsLength;
-});
+  cityNotFound.value = true;
+};
 
 onMounted(() => {
   keyword.value = route.params.keyword;
@@ -141,18 +127,18 @@ onMounted(() => {
     <div class="grid grid-cols-3 gap-x-10">
       <div class="flex flex-col gap-y-10">
         <div class="flex relative flex-col border border-[#CACACA] rounded-xl pr-2 py-3 gap-y-2">
-          <div :style="{ 'background-color': isSelectedColor === index ? '#E7E7E7' : 'white' }"
+          <div :style="{ 'background-color': typeIndex === index ? '#E7E7E7' : 'white' }"
                @click="changeSelect(index)" v-for="(item, index) in types" :key="index"
                class="cursor-pointer my-1 ml-2 flex gap-x-6 rounded-xl py-3 pr-60 pl-3">
-                        <span :style="{ 'display': isSelectedLine === index ? 'block' : 'none' }"
+                        <span :style="{ 'display': typeIndex === index ? 'block' : 'none' }"
                               class=" absolute -left-1 font-medium text-[#950E1D] text-3xl -mt-3">|</span>
 
-            <img :src="item.icon" alt="" class="">
+            <img :src="item.icon" alt="filter icon">
 
-            <span>{{ item.title }}</span>
+            <span v-text="item.title"/>
 
             <div class="absolute -left-12 flex w-full justify-end">
-              <span class="bg-[#B3B3B3] w-6 h-6 pl-2 rounded-full">{{ item.notification }}</span>
+              <span class="bg-[#B3B3B3] w-6 h-6 pl-2 rounded-full" v-text="item.notification"/>
             </div>
           </div>
         </div>
