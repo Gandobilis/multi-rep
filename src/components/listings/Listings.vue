@@ -1,8 +1,14 @@
 <script setup>
 import useListings from "/src/composables/useListings.js";
 import Course from "/src/components/listings/Listing.vue";
+import {onMounted, ref} from "vue";
+const {courses, getListingsForMainPage} = useListings()
 
-const {courses} = useListings()
+onMounted(async () => {
+  await getListingsForMainPage(null);
+});
+
+
 </script>
 
 <template>

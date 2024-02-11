@@ -26,7 +26,11 @@ const {data, dropdowns, options, toggle, close} = useAddPost()
 
       <animated-input
           v-model="data.description"
-          placeholder="აღწერა"/>
+          placeholder="აღწერა"
+
+      />
+
+
 
       <Dropdown
           :options="options[0]"

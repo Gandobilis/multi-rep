@@ -1,7 +1,7 @@
 <script setup>
 import useListings from "/src/composables/useListings.js";
 import Course from "/src/components/listings/Listing.vue";
-import {nextTick, onMounted, ref} from "vue";
+import {onMounted, ref} from "vue";
 const {courses, getListingsForMainPage} = useListings()
 
 
@@ -12,17 +12,11 @@ const fourthTwo = ref()
 
 
 onMounted(async () => {
-  await getListingsForMainPage();
+  await getListingsForMainPage(8);
   firstTwo.value = courses.value.slice(0, 2);
   secondTwo.value = courses.value.slice(2, 4);
   thirdTwo.value = courses.value.slice(4, 6);
   fourthTwo.value = courses.value.slice(6, 8);
-  console.log(courses.value)
-  console.log(firstTwo.value)
-  console.log(secondTwo.value)
-  console.log(thirdTwo.value)
-  console.log(fourthTwo.value)
-
 });
 
 
