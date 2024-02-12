@@ -1,7 +1,7 @@
 <script setup>
 import {ref} from "vue"
 import Listings from "/src/components/listings/Listings.vue"
-import Filter from "/src/components/listings/Filter.vue"
+import Filter from "/src/components/listings/filter/Filter.vue"
 import AddPost from "../../components/modals/AddPost.vue"
 import TopFive from "../../components/leaderboard/topFive.vue";
 import ListingsForMainPage from "../../components/listings/listingsForMainPage.vue";

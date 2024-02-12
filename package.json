@@ -11,6 +11,7 @@
   "dependencies": {
     "@material-tailwind/html": "^2.2.2",
     "@splidejs/vue-splide": "^0.6.12",
+    "@vueform/slider": "^2.1.10",
     "axios": "^1.6.5",
     "pinia": "^2.1.7",
     "tw-elements": "^1.1.0",
@@ -23,6 +24,7 @@
     "@vitejs/plugin-vue": "^4.5.2",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.33",
+    "sass": "^1.70.0",
     "tailwindcss": "^3.4.1",
     "vite": "^5.0.8"
   }

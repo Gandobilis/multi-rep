@@ -2,7 +2,7 @@
 import {onMounted, ref} from "vue";
 import {useRoute} from "vue-router";
 import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
-import Filter from "../../components/listings/Filter.vue";
+import Filter from "../../components/listings/filter/Filter.vue";
 
 const route = useRoute();
 const keyword = ref();

@@ -14,5 +14,5 @@ const route = useRoute()
     </main>
   </div>
   <ReportSectionForMainPage v-if="route.path==='/' "/>
-  <!--    <footer-component class="px-12"/>-->
+<!--  <footer-component class="px-12"/>-->
 </template>

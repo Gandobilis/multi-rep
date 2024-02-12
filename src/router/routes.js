@@ -44,6 +44,7 @@ const routes = [
             {
                 path: 'listings',
                 component: () => import('/src/views/main/Listings.vue'),
+
             },
             {
                 path: 'leaderboard',

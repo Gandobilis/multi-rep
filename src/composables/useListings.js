@@ -1,26 +1,55 @@
-import {ref} from "vue";
+import {ref, watch, watchEffect} from "vue";
 import axios from "/src/interceptors/axios/index";
+import { useRoute } from "vue-router";
 
 export default function useCourses() {
-    const courses = ref(null)
-    const data = ref(null)
-    const isLoading = ref(true)
+    const route = useRoute();
+    const courses = ref(null);
+    const data = ref(null);
+    const isLoading = ref(true);
+    const params = ref(route.query);
+    const dataForMainPage = ref(null)
 
-    const getListingsForMainPage = async (quantity) => {
-        await axios.post('/listings/getLast8Listings', {
-            "quantity": quantity
-        }).then(res => {
-            courses.value = res.data.data
-        })
-    }
+
+    const filterListings = async () => {
+        try {
+            const queryParams = new URLSearchParams(params.value)
+
+            const res = await axios.get(`/listings?${queryParams.toString()}`);
+
+            console.log(queryParams.toString())
+            courses.value = res.data.data;
+        } catch (error) {
+            console.error("Error fetching listings:", error);
+        }
+    };
+
+    const getListingsForMainPage = async () => {
+        try {
+            const res = await axios.get(`/listings/getListingsForMainPage`);
+            console.log(res.data.data)
+            courses.value = res.data.data;
+            isLoading.value = false;
+        } catch (error) {
+            console.error("Error fetching listings:", error);
+        }
+    };
 
     const getListings = async (user_id) => {
-        await axios.get(`/listings?teacher=${user_id}`).then(res => {
-            data.value = res.data.data
-            isLoading.value = false
-        });
-    }
+        try {
+            const res = await axios.get(`/listings?teacher=${user_id}`);
+            dataForMainPage.value = res.data.data;
+            isLoading.value = false;
+        } catch (error) {
+            console.error("Error fetching listings:", error);
+        }
+    };
 
+    watchEffect(() => {
+        params.value = route.query;
+        filterListings()
 
-    return {courses, data, isLoading, getListings, getListingsForMainPage}
+    });
+
+    return { courses, data, isLoading, getListings, filterListings, params, dataForMainPage, getListingsForMainPage };
 }

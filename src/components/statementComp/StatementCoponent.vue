@@ -1,7 +1,7 @@
 <script setup>
 
 import useStatement from "../../composables/useStatement";
-import { onMounted } from "vue";
+import {onMounted, watch} from "vue";
 import rating from "./rating.vue";
 const route = useRoute();
 import { Rating } from "tw-elements";
@@ -17,6 +17,12 @@ const {dataForSpecificPage, getDataForSpecificListing, userForSpecificListing } 
 onMounted( () => {
    getDataForSpecificListing(route.params.id);
 });
+
+watch(route, ()=>{
+  getDataForSpecificListing(route.params.id);
+
+
+})
 
 const formatDate = (timestamp) => {
   const date = new Date(timestamp);
