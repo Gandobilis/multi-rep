@@ -1,5 +1,5 @@
 <script setup>
-import useLogin from "/src/composables/useLogin";
+import useLogin from "/src/composables/auth/useLogin";
 import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
 
 const {

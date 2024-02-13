@@ -1,6 +1,6 @@
 <script setup>
 import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
-import useRecover from "/src/composables/useRecover.js";
+import useRecover from "/src/composables/auth/useRecover.js";
 import {onMounted} from "vue";
 import {useRoute} from "vue-router";
 

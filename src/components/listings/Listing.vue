@@ -13,20 +13,14 @@ const formatDate = (timestamp) => {
   const day = date.getDate();
   const hours = date.getHours();
   const minutes = date.getMinutes();
-
-  // Check if the date is today
   if (date.toDateString() === currentDate.toDateString()) {
     return "დღეს";
   }
-
-  // Check if the date is yesterday
   const yesterday = new Date(currentDate);
   yesterday.setDate(currentDate.getDate() - 1);
   if (date.toDateString() === yesterday.toDateString()) {
     return "გუშინ";
   }
-
-  // Otherwise, format as year, month, and day
   return `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day} ${hours}:${minutes}`;
 };
 

@@ -1,9 +1,9 @@
 import {ref} from "vue";
 import {useRouter} from "vue-router";
-import axios from "/src/interceptors/axios/index";
+import axios from "/src/interceptors/axios";
 import {useRegisterStore} from '/src/stores/registerStore.js';
 import cookies from "vue-cookies";
-import useHelpers from "../helpers";
+import useHelpers from "../../helpers/index.js";
 import {data} from "autoprefixer";
 
 export default function useRegister() {

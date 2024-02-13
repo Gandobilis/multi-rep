@@ -1,6 +1,6 @@
 <script setup>
 import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
-import useRecover from "../../composables/useRecover.js";
+import useRecover from "../../composables/auth/useRecover.js";
 
 const {email, success, error, recover} = useRecover();
 </script>

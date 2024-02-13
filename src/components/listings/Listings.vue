@@ -1,15 +1,19 @@
 <script setup>
 import useListings from "/src/composables/useListings.js";
+import forSpecificData from "/src/composables/forSpecificData.js";
+
 import Course from "/src/components/listings/Listing.vue";
-import {onMounted, ref} from "vue";
+import {onMounted} from "vue";
 import FilterForAllListings from "./filter/dualRange.vue";
-import Dropdown from "./filter/dropdown.vue";
-import {useRoute} from "vue-router";
-const {courses, filterListings, params} = useListings()
+import Dropdown from "./filter/dropdownForCities.vue";
+import NormalDropdown from "./filter/normalDropdown.vue";
+const {courses, filterListings} = useListings()
+const {citiesData, getCitiesAndDistricts, getSubjects, subjects} = forSpecificData()
 
 onMounted(async () => {
-
   await filterListings();
+  await getCitiesAndDistricts();
+  await getSubjects()
 
 });
 </script>
@@ -17,7 +21,7 @@ onMounted(async () => {
 <template>
 
 
-  <div class="flex gap-10">
+  <div v-if="citiesData && subjects" class="flex gap-10">
     <div class="mt-10 flex flex-col gap-10">
       <div class="flex flex-col gap-16">
         <p class="font-bold text-xl">ფასი</p>
@@ -26,19 +30,13 @@ onMounted(async () => {
 
       <div class="flex flex-col gap-2">
         <p class="font-bold text-xl">საგანი</p>
-        <dropdown value="default" default-name="ყველა"/>
+        <normal-dropdown  :options="subjects.subjects" default-name="ყველა"/>
       </div>
 
       <div class="flex flex-col gap-2">
         <p class="font-bold text-xl">ქალაქი</p>
-        <dropdown value="default" default-name="ყველა"/>
+        <dropdown :options="citiesData.cities" value="default" default-name="ყველა"/>
       </div>
-
-      <div class="flex flex-col gap-2">
-        <p class="font-bold text-xl">უბანი</p>
-        <dropdown value="default" default-name="ყველა"/>
-      </div>
-
 
     </div>
 

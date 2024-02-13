@@ -1,6 +1,6 @@
 <script setup>
 import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
-import useRegister from "../../composables/useRegister.js";
+import useRegister from "../../composables/auth/useRegister.js";
 
 const {otp, success, error, cotasMeiparavCotasGaaketeb} = useRegister();
 
