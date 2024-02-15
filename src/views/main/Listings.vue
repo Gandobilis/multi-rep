@@ -16,7 +16,6 @@ const is_teacher = ref(false)
       <div class="flex items-center gap-x-10">
         <button @click="showModal = true" v-if="is_teacher" class="font-semibold text-primary">დაამატე განცხადება
         </button>
-        <Filter/>
       </div>
     </div>
     <listings/>

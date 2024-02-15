@@ -13,16 +13,13 @@ export default function useCourses() {
     }
 
     const getCitiesAndDistricts = async () =>{
-        await axios.get('/listings/get_cities_with_districts').then(res => {
-            console.log(res.data)
-            citiesData.value = res.data
+        await axios.get('/listings/get_cities_with_districts').then(res => {citiesData.value = res.data
 
         })
     }
 
     const getSubjects = async () =>{
         await axios.get('/listings/get_subjects').then(res => {
-            console.log(res.data)
             subjects.value = res.data
 
         })

@@ -17,7 +17,6 @@ export default function useCourses() {
 
             const res = await axios.get(`/listings?${queryParams.toString()}`);
 
-            console.log(queryParams.toString())
             courses.value = res.data.data;
         } catch (error) {
             console.error("Error fetching listings:", error);
@@ -27,7 +26,6 @@ export default function useCourses() {
     const getListingsForMainPage = async () => {
         try {
             const res = await axios.get(`/listings/getListingsForMainPage`);
-            console.log(res.data.data)
             courses.value = res.data.data;
             isLoading.value = false;
         } catch (error) {
