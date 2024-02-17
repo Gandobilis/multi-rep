@@ -4,7 +4,7 @@ import { useRoute } from "vue-router";
 
 export default function useCourses() {
     const route = useRoute();
-    const courses = ref(null);
+    const listings = ref(null);
     const data = ref(null);
     const isLoading = ref(true);
     const params = ref(route.query);
@@ -18,7 +18,7 @@ export default function useCourses() {
             const res = await axios.get(`/listings?${queryParams.toString()}`);
 
             console.log(queryParams.toString())
-            courses.value = res.data.data;
+            listings.value = res.data.data;
         } catch (error) {
             console.error("Error fetching listings:", error);
         }
@@ -28,7 +28,7 @@ export default function useCourses() {
         try {
             const res = await axios.get(`/listings/getListingsForMainPage`);
             console.log(res.data.data)
-            courses.value = res.data.data;
+            listings.value = res.data.data;
             isLoading.value = false;
         } catch (error) {
             console.error("Error fetching listings:", error);
@@ -51,5 +51,5 @@ export default function useCourses() {
 
     });
 
-    return { courses, data, isLoading, getListings, filterListings, params, dataForMainPage, getListingsForMainPage };
+    return { listings, data, isLoading, getListings, filterListings, params, dataForMainPage, getListingsForMainPage };
 }
