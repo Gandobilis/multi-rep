@@ -5,9 +5,13 @@ import {onMounted} from "vue";
 import FilterForAllListings from "./filter/dualRange.vue";
 import Dropdown from "./filter/dropdown.vue";
 
-const {listings, filterListings} = useListings();
+const {listings, filterListings, filterCities, filterSubjects, fetchCities, fetchSubjects} = useListings();
 
-onMounted(async () => await filterListings());
+onMounted(async () => {
+  await filterListings();
+  await fetchCities();
+  await fetchSubjects();
+});
 </script>
 
 <template>
@@ -22,13 +26,13 @@ onMounted(async () => await filterListings());
       <div class="flex flex-col gap-2">
         <p class="font-bold text-xl">საგანი</p>
 
-        <Dropdown value="default" default-name="ყველა"/>
+        <Dropdown :options="filterSubjects" value="default" default-name="ყველა"/>
       </div>
 
       <div class="flex flex-col gap-2">
         <p class="font-bold text-xl">ქალაქი</p>
 
-        <Dropdown value="default" default-name="ყველა"/>
+        <Dropdown :options="filterCities" value="default" default-name="ყველა"/>
       </div>
 
       <div class="flex flex-col gap-2">
