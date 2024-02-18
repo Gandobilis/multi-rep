@@ -21,7 +21,7 @@ const {
       <animated-input placeholder="პაროლი" v-model="data.password" show-password-toggle/>
     </div>
 
-    <div v-if="error" class="flex items-center justify-center gap-x-1.5 mt-5">
+    <div v-if="error" class="flex items-center justify-center gap-x-1.5 mt-3 lg:mt-5">
       <img class="max-lg:w-2" src="/src/assets/icons/auth/error.svg" alt="alert error icon"/>
 
       <span v-if="error" class="text-xs lg:text-sm text-error" v-text="error"/>
