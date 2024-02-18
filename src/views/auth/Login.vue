@@ -22,9 +22,9 @@ const {
     </div>
 
     <div v-if="error" class="flex items-center justify-center gap-x-1.5 mt-5">
-      <img src="/src/assets/icons/auth/error.svg" alt="alert error icon"/>
+      <img class="max-lg:w-2" src="/src/assets/icons/auth/error.svg" alt="alert error icon"/>
 
-      <span v-if="error" class="text-sm text-error" v-text="error"/>
+      <span v-if="error" class="text-xs lg:text-sm text-error" v-text="error"/>
     </div>
 
     <div class="my-3 lg:my-6 flex w-full items-center justify-end lg:justify-between">
@@ -38,14 +38,14 @@ const {
     </div>
 
     <button type="submit"
-            class="max-lg:text-xs w-full rounded-[5px] lg:rounded-md font-medium text-white transition bg-primary py-1.5 lg:py-3.5 hover:shadow-xl">
+            class="max-lg:text-xs w-full rounded-[5px] lg:rounded-md font-medium text-white transition bg-primary py-2 lg:py-3.5 hover:shadow-xl">
       შესვლა
     </button>
 
     <h3 class="my-1 lg:my-4 max-lg:text-xs flex justify-center">ან</h3>
 
     <router-link to="/auth/register"
-                 class="max-lg:text-xs w-full rounded-[5px] lg:rounded-md border text-center font-medium transition border-primary text-primary py-1.5 lg:py-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
+                 class="max-lg:text-xs w-full rounded-[5px] lg:rounded-md border text-center font-medium transition border-primary text-primary py-2 lg:py-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
       რეგისტრაცია
     </router-link>
   </form>

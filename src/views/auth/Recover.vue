@@ -29,7 +29,7 @@ const {email, success, error, recover} = useRecover();
       </div>
 
       <button
-          class="mt-4 lg:mt-10 max-lg:text-xs w-full rounded-[5px] lg:rounded-md font-medium text-white transition bg-primary py-1.5 lg:py-3.5 hover:shadow-xl">
+          class="mt-4 lg:mt-10 max-lg:text-xs w-full rounded-[5px] lg:rounded-md font-medium text-white transition bg-primary py-2 lg:py-3.5 hover:shadow-xl">
         გაგზავნა
       </button>
     </form>
