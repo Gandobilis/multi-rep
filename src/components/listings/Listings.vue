@@ -1,11 +1,20 @@
 <script setup>
 import useListings from "/src/composables/useListings.js";
 import Listing from "/src/components/listings/Listing.vue";
-import {onMounted} from "vue";
+import {onMounted, watch} from "vue";
 import FilterForAllListings from "./filter/dualRange.vue";
 import Dropdown from "./filter/dropdown.vue";
 
-const {listings, filterListings, filterCities, filterSubjects, fetchCities, fetchSubjects} = useListings();
+const {
+  listings,
+  filterListings,
+  filterCities,
+  filterSubjects,
+  fetchCities,
+  fetchSubjects,
+  filterCity,
+  filterSubject
+} = useListings();
 
 onMounted(async () => {
   await filterListings();
@@ -26,13 +35,13 @@ onMounted(async () => {
       <div class="flex flex-col gap-2">
         <p class="font-bold text-xl">საგანი</p>
 
-        <Dropdown :options="filterSubjects" value="default" default-name="ყველა"/>
+        <Dropdown :options="filterSubjects" v-model="filterSubject" default-name="ყველა"/>
       </div>
 
       <div class="flex flex-col gap-2">
         <p class="font-bold text-xl">ქალაქი</p>
 
-        <Dropdown :options="filterCities" value="default" default-name="ყველა"/>
+        <Dropdown :options="filterCities" v-model="filterCity" default-name="ყველა"/>
       </div>
 
       <div class="flex flex-col gap-2">

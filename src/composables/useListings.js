@@ -1,9 +1,10 @@
 import {ref, watch, watchEffect} from "vue";
 import axios from "/src/interceptors/axios/index";
-import {useRoute} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 
 export default function useCourses() {
     const route = useRoute();
+    const router = useRouter();
     const listings = ref(null);
     const data = ref(null);
     const isLoading = ref(true);
@@ -12,6 +13,8 @@ export default function useCourses() {
 
     const filterCities = ref([]);
     const filterSubjects = ref([]);
+    const filterCity = ref('all')
+    const filterSubject = ref('all')
 
     const fetchCities = async () => {
         axios.get('/listings/cities').then((res) => {
@@ -25,9 +28,39 @@ export default function useCourses() {
         }).catch(err => console.log(err));
     };
 
+    const handleCityFilter = async () => {
+        await router.push({
+            query: {
+                ...router.currentRoute.value.query,
+                city: filterCity.value
+            }
+        });
+    };
+
+    const handleSubjectFilter = async () => {
+        await router.push({
+            query: {
+                ...router.currentRoute.value.query,
+                subject: filterSubject.value
+            }
+        });
+    };
+
+    watch(filterCity, async () => {
+        await handleCityFilter();
+    });
+
+    watch(filterSubject, async () => {
+        await handleSubjectFilter();
+    });
+
     const filterListings = async () => {
         try {
-            const queryParams = new URLSearchParams(params.value)
+            const _params = params.value
+            if (filterCity.value === 'all' && _params.hasOwnProperty('city')) delete _params.city
+            if (filterSubject.value === 'all' && _params.hasOwnProperty('subject')) delete _params.subject
+
+            const queryParams = new URLSearchParams(_params)
 
             const res = await axios.get(`/listings?${queryParams.toString()}`);
 
@@ -57,13 +90,15 @@ export default function useCourses() {
         }
     };
 
-    watchEffect(() => {
+    watchEffect(async () => {
         params.value = route.query;
-        filterListings()
+        await filterListings();
     });
 
     return {
+        filterCity,
         filterCities,
+        filterSubject,
         filterSubjects,
         fetchCities,
         fetchSubjects,
@@ -74,6 +109,8 @@ export default function useCourses() {
         filterListings,
         params,
         dataForMainPage,
-        getListingsForMainPage
+        getListingsForMainPage,
+        handleCityFilter,
+        handleSubjectFilter
     };
 }

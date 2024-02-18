@@ -45,7 +45,7 @@ const formatDate = (timestamp) => {
       </div>
 
       <div class="flex justify-between items-center px-2 my-4">
-        <p class="font-bold text-price text-xl" v-text="data.price"/>
+        <p class="font-bold text-price text-xl" v-text="`${data.price} $`"/>
 
         <p class="font-bold">{{ data._subject }}</p>
 
