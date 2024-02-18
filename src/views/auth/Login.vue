@@ -12,10 +12,10 @@ const {
 </script>
 
 <template>
-  <form @submit.prevent="login">
-    <h1 class="mb-6 lg:mb-14 text-xl lg:text-3xl font-semibold">ავტორიზაცია</h1>
+  <form @submit.prevent="login" class="w-1/2">
+    <h1 class="mb-5 lg:mb-14 text-lg lg:text-3xl font-semibold">ავტორიზაცია</h1>
 
-    <div class="w-full space-y-6 lg:space-y-12">
+    <div class="w-full space-y-5 lg:space-y-12">
       <animated-input placeholder="ელ. ფოსტა" v-model="data.email"/>
 
       <animated-input placeholder="პაროლი" v-model="data.password" show-password-toggle/>
@@ -34,18 +34,18 @@ const {
         <label class="text-sm mb-0.5">დამახსოვრება</label>
       </div>
 
-      <router-link class="text-xs font-medium text-primary" to="/auth/recover">დაგავიწყდა?</router-link>
+      <router-link class="text-[10px] lg:text-xs font-medium text-primary" to="/auth/recover">დაგავიწყდა?</router-link>
     </div>
 
     <button type="submit"
-            class="max-lg:text-sm w-full rounded-md font-medium text-white transition bg-primary py-1.5 lg:py-3.5 hover:shadow-xl">
+            class="max-lg:text-xs w-full rounded-[5px] lg:rounded-md font-medium text-white transition bg-primary py-1.5 lg:py-3.5 hover:shadow-xl">
       შესვლა
     </button>
 
-    <h3 class="my-1 lg:my-4 flex justify-center">ან</h3>
+    <h3 class="my-1 lg:my-4 max-lg:text-xs flex justify-center">ან</h3>
 
     <router-link to="/auth/register"
-                 class="max-lg:text-sm w-full rounded-md border text-center font-medium transition border-primary text-primary py-1.5 lg:py-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
+                 class="max-lg:text-xs w-full rounded-[5px] lg:rounded-md border text-center font-medium transition border-primary text-primary py-1.5 lg:py-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
       რეგისტრაცია
     </router-link>
   </form>
