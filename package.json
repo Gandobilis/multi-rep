@@ -16,6 +16,7 @@
     "pinia": "^2.1.7",
     "tw-elements": "^1.1.0",
     "vue": "^3.3.11",
+    "vue-awesome-paginate": "^1.1.46",
     "vue-cookies": "^1.8.3",
     "vue-rate": "^2.5.0",
     "vue-router": "^4.2.5"
