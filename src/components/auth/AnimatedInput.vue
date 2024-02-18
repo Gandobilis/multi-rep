@@ -42,7 +42,7 @@ const togglePasswordVisibility = () => {
     <img
         v-if="showPasswordToggle"
         @click="togglePasswordVisibility"
-        class="max-lg:w-4 absolute top-2 lg:top-4 right-2 lg:right-4 hover:cursor-pointer"
+        class="max-lg:w-4 absolute top-2.5 lg:top-4 right-2 lg:right-4 hover:cursor-pointer"
         :src="showPassword ? '/src/assets/icons/auth/hide-password-icon.svg' : '/src/assets/icons/auth/show-password-icon.svg'"
         alt="show-hide password icon"
     />
