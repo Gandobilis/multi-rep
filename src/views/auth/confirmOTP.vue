@@ -15,7 +15,7 @@ const {otp, success, error, cotasMeiparavCotasGaaketeb} = useRegister();
     <form method="post" @submit.prevent="cotasMeiparavCotasGaaketeb" class="flex flex-col items-center">
       <h1 class="mb-12 text-3xl font-semibold">ემაილის ვერიფიკაცია</h1>
 
-      <div class="w-full space-y-10">
+      <div class="w-full">
         <animated-input placeholder="პინ.კოდი" v-model="otp"/>
       </div>
 

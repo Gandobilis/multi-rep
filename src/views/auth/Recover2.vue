@@ -26,7 +26,7 @@ onMounted(() => {
     </router-link>
 
     <form method="post" @submit.prevent="recover2" class="flex flex-col items-center">
-      <h1 class="mb-14 text-3xl font-semibold">ახალი პაროლი</h1>
+      <h1 class="mb-5 lg:mb-14 text-lg lg:text-3xl font-semibold">ახალი პაროლი</h1>
 
       <animated-input placeholder="პაროლი" v-model="password" show-password-toggle/>
 
@@ -40,7 +40,7 @@ onMounted(() => {
         <span class="text-sm text-error" v-text="error"/>
       </div>
 
-      <button class="mt-10 w-full rounded-md font-medium text-white bg-primary py-3.5 hover:shadow-xl">შეცვლა</button>
+      <button class="mt-4 lg:mt-10 max-lg:text-xs w-full rounded-[5px] lg:rounded-md font-medium text-white transition bg-primary py-2 lg:py-3.5 hover:shadow-xl">შეცვლა</button>
     </form>
   </div>
 </template>
