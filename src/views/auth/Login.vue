@@ -12,7 +12,7 @@ const {
 </script>
 
 <template>
-  <form @submit.prevent="login" class="w-1/2">
+  <form @submit.prevent="login">
     <h1 class="mb-5 lg:mb-14 text-lg lg:text-3xl font-semibold">ავტორიზაცია</h1>
 
     <div class="w-full space-y-5 lg:space-y-12">
