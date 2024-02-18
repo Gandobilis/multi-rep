@@ -13,9 +13,9 @@ const {
 
 <template>
   <form @submit.prevent="login">
-    <h1 class="mb-14 text-3xl font-semibold">ავტორიზაცია</h1>
+    <h1 class="mb-6 lg:mb-14 text-xl lg:text-3xl font-semibold">ავტორიზაცია</h1>
 
-    <div class="w-full space-y-12">
+    <div class="w-full space-y-6 lg:space-y-12">
       <animated-input placeholder="ელ. ფოსტა" v-model="data.email"/>
 
       <animated-input placeholder="პაროლი" v-model="data.password" show-password-toggle/>
@@ -27,8 +27,8 @@ const {
       <span v-if="error" class="text-sm text-error" v-text="error"/>
     </div>
 
-    <div class="my-6 flex w-full items-center justify-between">
-      <div class="flex items-center gap-x-1.5">
+    <div class="my-3 lg:my-6 flex w-full items-center justify-end lg:justify-between">
+      <div class="flex items-center gap-x-1.5 max-lg:hidden">
         <img :src="getRememberIcon()" class="cursor-pointer" @click="toggleRemember" alt="remember icon"/>
 
         <label class="text-sm mb-0.5">დამახსოვრება</label>
@@ -37,14 +37,15 @@ const {
       <router-link class="text-xs font-medium text-primary" to="/auth/recover">დაგავიწყდა?</router-link>
     </div>
 
-    <button type="submit" class="w-full rounded-md font-medium text-white transition bg-primary py-3.5 hover:shadow-xl">
+    <button type="submit"
+            class="max-lg:text-sm w-full rounded-md font-medium text-white transition bg-primary py-1.5 lg:py-3.5 hover:shadow-xl">
       შესვლა
     </button>
 
-    <h3 class="my-4 flex justify-center">ან</h3>
+    <h3 class="my-1 lg:my-4 flex justify-center">ან</h3>
 
     <router-link to="/auth/register"
-                 class="w-full rounded-md border text-center font-medium transition border-primary text-primary py-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
+                 class="max-lg:text-sm w-full rounded-md border text-center font-medium transition border-primary text-primary py-1.5 lg:py-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
       რეგისტრაცია
     </router-link>
   </form>
