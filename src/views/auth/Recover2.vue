@@ -34,10 +34,10 @@ onMounted(() => {
         <span class="text-sm text-price" v-text="success"/>
       </div>
 
-      <div v-if="error" class="flex items-center w-full justify-start gap-x-2 mt-8">
-        <img src="../../assets/icons/auth/error.svg" alt="alert error icon">
+      <div v-if="error" class="flex items-center w-full justify-start gap-x-1.5 mt-4 lg:mt-5">
+        <img class="max-lg:w-2" src="../../assets/icons/auth/error.svg" alt="alert error icon">
 
-        <span class="text-sm text-error" v-text="error"/>
+        <span class="text-xs lg:text-sm text-error" v-text="error"/>
       </div>
 
       <button class="mt-4 lg:mt-10 max-lg:text-xs w-full rounded-[5px] lg:rounded-md font-medium text-white transition bg-primary py-2 lg:py-3.5 hover:shadow-xl">შეცვლა</button>
