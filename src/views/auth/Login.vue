@@ -5,7 +5,6 @@ import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
 const {
   data,
   error,
-  getRememberIcon,
   toggleRemember,
   login,
 } = useLogin();
@@ -29,7 +28,10 @@ const {
 
     <div class="my-3 lg:my-6 flex w-full items-center justify-end lg:justify-between">
       <div class="flex items-center gap-x-1.5 max-lg:hidden">
-        <img :src="getRememberIcon()" class="cursor-pointer" @click="toggleRemember" alt="remember icon"/>
+        <img class="cursor-pointer" @click="toggleRemember" v-if="data.remember"
+             src="/src/assets/icons/auth/remember-checked.svg" alt="remember checked"/>
+        <img class="cursor-pointer" @click="toggleRemember" v-else src="/src/assets/icons/auth/remember-unchecked.svg"
+             alt="remember unchecked"/>
 
         <label class="text-sm mb-0.5">დამახსოვრება</label>
       </div>

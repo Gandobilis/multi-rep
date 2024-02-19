@@ -39,13 +39,19 @@ const togglePasswordVisibility = () => {
           v-text="placeholder"
       />
     </transition>
-    <img
-        v-if="showPasswordToggle"
-        @click="togglePasswordVisibility"
-        class="max-lg:w-4 absolute top-2.5 lg:top-4 right-2 lg:right-4 hover:cursor-pointer"
-        :src="showPassword ? '/src/assets/icons/auth/hide-password-icon.svg' : '/src/assets/icons/auth/show-password-icon.svg'"
-        alt="show-hide password icon"
-    />
+    <div class="max-lg:w-4 absolute top-2.5 lg:top-5 right-2 lg:right-4 hover:cursor-pointer" v-if="showPasswordToggle"
+         @click="togglePasswordVisibility">
+      <img
+          v-if="showPassword"
+          src="/src/assets/icons/auth/hide-password-icon.svg"
+          alt="show password icon"
+      />
+      <img
+          v-else
+          src="/src/assets/icons/auth/show-password-icon.svg"
+          alt="hide password icon"
+      />
+    </div>
   </div>
 </template>
 
