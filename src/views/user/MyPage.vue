@@ -5,15 +5,15 @@ const {myPage} = useUser();
 </script>
 
 <template>
-  <div class="flex flex-col justify-center h-full items-center gap-y-10">
-    <img :src="myPage.image" alt="user image">
+  <div class="flex flex-col justify-center h-full items-center gap-y-4 lg:gap-y-10 max-lg:py-4">
+    <img class="max-lg:w-20" :src="myPage.image" alt="user image">
 
-    <p class="text-2xl font-semibold" v-text="myPage.username"/>
+    <p class="lg:text-2xl font-semibold" v-text="myPage.username"/>
 
-    <div class="w-1/2 flex items-center gap-x-5">
+    <div class="max-lg:px-5 lg:w-1/2 flex items-center gap-x-5">
       <p class="text-center" v-text="myPage.bio"/>
 
-      <img class="cursor-pointer" src="/src/assets/icons/user/edit.svg" alt="edit icon">
+      <img class="max-lg:w-4 cursor-pointer" src="/src/assets/icons/user/edit.svg" alt="edit icon">
     </div>
 
     <div class="flex items-center gap-x-3">

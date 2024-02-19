@@ -105,3 +105,9 @@ onMounted(() => {
         </div>
         </div>
 </template>
+
+<style scoped>
+svg {
+  width: 2rem;
+}
+</style>

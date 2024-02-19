@@ -17,22 +17,22 @@ const {
     </router-link>
 
     <form method="post" @submit.prevent="step2()" class="flex flex-col items-center">
-      <h1 class="mb-14 text-3xl font-semibold">რეგისტრაცია</h1>
+      <h1 class="mb-5 lg:mb-14 text-lg lg:text-3xl font-semibold">რეგისტრაცია</h1>
 
-      <div class="w-full space-y-10">
+      <div class="w-full space-y-4 lg:space-y-10">
         <animated-input v-for="(field, index) in step2Models" :key="index"
                         :placeholder="field.placeholder"
                         v-model="step2Data[field.model]"
                         :show-password-toggle="field.showToggle"/>
       </div>
 
-      <div v-if="error" class="flex items-center w-full justify-start gap-x-1.5 mt-5">
-        <img src="../../assets/icons/auth/error.svg" alt="alert error icon">
+      <div v-if="error" class="flex items-center w-full justify-start gap-x-1.5 mt-4 lg:mt-5">
+        <img class="max-lg:w-2" src="../../assets/icons/auth/error.svg" alt="alert error icon">
 
-        <span class="text-sm text-error" v-text="error"/>
+        <span class="text-xs lg:text-sm text-error" v-text="error"/>
       </div>
 
-      <button class="mt-10 w-full rounded-md font-medium text-white bg-primary py-3.5 hover:shadow-xl">შემდეგი</button>
+      <button class="mt-4 lg:mt-10 max-lg:text-xs w-full rounded-[5px] lg:rounded-md font-medium text-white transition bg-primary py-2 lg:py-3.5 hover:shadow-xl">შემდეგი</button>
     </form>
   </div>
 </template>

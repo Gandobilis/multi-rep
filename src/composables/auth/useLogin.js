@@ -19,11 +19,6 @@ export default function useLogin() {
         data.value.remember = !data.value.remember;
     };
 
-    const getRememberIcon = () =>
-        data.value.remember
-            ? "/src/assets/icons/auth/remember-checked.svg"
-            : "/src/assets/icons/auth/remember-unchecked.svg";
-
     const login = async () => {
         const _data = mapObjectKeys(data.value, ["email", "password"]);
 
@@ -56,5 +51,5 @@ export default function useLogin() {
         }
     };
 
-    return {data, error, getRememberIcon, toggleRemember, login};
+    return {data, error, toggleRemember, login};
 }

@@ -1,6 +1,6 @@
 <script setup>
 import useCourses from "/src/composables/useListings.js"
-import Course from "/src/components/listings/Listing.vue"
+import Listing from "/src/components/listings/Listing.vue"
 import {useRoute} from "vue-router";
 import {onMounted} from "vue";
 
@@ -14,12 +14,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="!isLoading" class="flex flex-col gap-y-20">
-    <h1 class="text-5xl font-bold" v-text="`${data[0].teacher.name} განცხადებები`"/>
-    <div class="grid grid-cols-3 gap-x-10 gap-y-8">
-      <template v-for="(course, index) in data" :key="index">
-        <course :data="course"/>
-      </template>
+  <div v-if="!isLoading" class="flex flex-col gap-y-6 lg:gap-y-20 max-lg:px-5">
+    <h1 class="max-lg:text-center lg:text-5xl font-bold" v-text="`${data[0].teacher.name}-ის განცხადებები`"/>
+    <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-8">
+      <Listing v-for="(course, index) in data" :key="index" :data="course"/>
     </div>
   </div>
   <p v-else>იტვირთება...</p>

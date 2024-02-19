@@ -10,10 +10,10 @@ const {
 </script>
 
 <template>
-  <p class="border-b px-5 py-6 text-2xl font-semibold border-b-border-gray" v-text="'ჩემი განცხადებები'"/>
+  <p class="border-b px-5 py-3 lg:py-6 lg:text-2xl font-semibold border-b-border-gray" v-text="'ჩემი განცხადებები'"/>
 
-  <div class="flex flex-col gap-y-11 px-5 py-10">
-    <div class="flex w-full justify-between">
+  <div class="flex flex-col gap-y-7 lg:gap-y-11 px-5 py-5 lg:py-10">
+    <div class="max-lg:text-sm flex w-full justify-between">
       <p :class="{'text-primary': listingFilterType === filter}"
          class="font-medium cursor-pointer"
          @click="filterListings(filter)"
@@ -24,29 +24,29 @@ const {
       <img :src="listing.image" alt="listing image">
 
       <div class="flex w-full flex-col gap-y-3">
-        <p class="text-2xl font-medium" v-text="listing.title"/>
+        <p class="lg:text-2xl font-medium" v-text="listing.title"/>
 
-        <div class="flex items-center justify-between">
+        <div class="flex max-lg:flex-wrap items-center justify-between">
           <div class="flex items-center gap-x-2">
-            <img src="/src/assets/icons/user/rating.svg" alt="rating icon">
+            <img class="max-lg:w-5" src="/src/assets/icons/user/rating.svg" alt="rating icon">
 
-            <p><span v-text="listing.rating"/>/5.0</p>
+            <p class="max-lg:text-sm"><span v-text="listing.rating"/>/5.0</p>
           </div>
 
-          <p class="font-semibold text-price" v-text="`${listing.price} ₾`"/>
+          <p class="max-lg:text-sm font-semibold text-price" v-text="`${listing.price} ₾`"/>
 
-          <p class="text-meta" v-text="listing.time_unit"/>
+          <p class="max-lg:text-xs text-meta" v-text="listing.time_unit"/>
 
-          <p class="text-meta" v-text="listing.publish_date"/>
+          <p class="max-lg:text-xs text-meta" v-text="listing.publish_date"/>
 
-          <div v-if="!listing.active" class="flex items-center gap-x-2">
+          <div v-if="!listing.active" class="max-lg:text-xs flex items-center max-lg:mt-2 gap-x-2">
             <p class="font-medium text-[#FF001C]" v-text="'ვადაგასული'"/>
 
             <RouterLink to="/user/my-listings" class="font-medium text-[#177B15]"
                         v-text="'გახანგრძლივება'"/>
           </div>
 
-          <div v-else class="flex items-center gap-x-2">
+          <div v-else class="max-lg:hidden flex items-center gap-x-2">
             <p v-text="listing.author"/>
 
             <p class="text-xs" v-text="listing.phone"/>

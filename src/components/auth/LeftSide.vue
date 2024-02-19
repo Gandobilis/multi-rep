@@ -4,6 +4,7 @@
 
     <h1 class="mb-7 text-7xl" v-text="'E-learning'"/>
 
-    <h3 class="text-2xl" v-text="'Learning is a treasure that will follow its owner everywhere.'"/>
+    <h3 class="text-2xl text-center"
+        v-text="'Learning is a treasure that will follow its owner everywhere.'"/>
   </div>
 </template>

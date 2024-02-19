@@ -3,7 +3,7 @@
     <animated-input v-model="value" :placeholder="label"/>
 
     <div
-        class="relative bg-[#ECECEC] rounded-md border border-black font-medium p-2.5">
+        class="max-lg:text-xs relative bg-[#ECECEC] rounded-md border border-black font-medium p-2 lg:p-2.5">
       <div class="flex cursor-pointer items-center justify-between" @click="emit('toggle')">
         <p v-text="util"/>
 
@@ -12,7 +12,7 @@
 
       <div
           v-if="show"
-          class="absolute left-0 z-10 flex w-full flex-col rounded-md border border-black bg-white top-[50px] p-2.5 gap-y-2.5">
+          class="absolute left-0 z-10 flex w-full flex-col rounded-md border border-black bg-white top-10 lg:top-14 p-2.5 gap-y-2.5">
         <p v-for="(option, index) in options" :class="{'font-semibold text-primary': option === unit}"
            class="cursor-pointer"
            :key="index" @click="util = option;emit('close')" v-text="option"/>
