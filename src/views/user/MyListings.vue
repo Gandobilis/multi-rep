@@ -10,9 +10,9 @@ const {
 </script>
 
 <template>
-  <p class="border-b px-5 py-6 lg:text-2xl font-semibold border-b-border-gray" v-text="'ჩემი განცხადებები'"/>
+  <p class="border-b px-5 py-3 lg:py-6 lg:text-2xl font-semibold border-b-border-gray" v-text="'ჩემი განცხადებები'"/>
 
-  <div class="flex flex-col gap-y-7 lg:gap-y-11 px-5 py-10">
+  <div class="flex flex-col gap-y-7 lg:gap-y-11 px-5 py-5 lg:py-10">
     <div class="max-lg:text-sm flex w-full justify-between">
       <p :class="{'text-primary': listingFilterType === filter}"
          class="font-medium cursor-pointer"
