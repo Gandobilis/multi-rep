@@ -9,7 +9,7 @@ const emit = defineEmits(['closeModal'])
 <template>
   <form
       @submit.prevent="report(); emit('closeModal')"
-      class="absolute right-0 left z-10 m-auto flex w-[40vw] flex-col gap-y-6 bg-white p-5 shadow-2xl">
+      class="absolute right-0 left z-10 m-auto flex lg:w-[40vw] flex-col gap-y-6 bg-white p-5 shadow-2xl">
     <div class="flex w-full items-center justify-between border-b pb-6 border-border-gray">
       <p class="text-2xl font-semibold">დაარეპორტეთ ეს პოსტი</p>
 

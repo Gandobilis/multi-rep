@@ -51,56 +51,55 @@ const showModal = ref(false);
 </script>
 
 <template>
-
-  <div v-if="dataForSpecificPage" class="relative flex gap-16  justify-center">
-    <img class="w-1/2 rounded-3xl aspect-square" :src="dataForSpecificPage?._photo" alt="">
-    <div class="flex flex-col w-1/2 gap-10">
-      <p class="text-4xl  font-bold">{{ dataForSpecificPage?.title }}</p>
-      <p class="text-2xl font-medium">{{ dataForSpecificPage?.description }}</p>
+  <div v-if="dataForSpecificPage" class="relative flex max-lg:flex-col gap-16  justify-center">
+    <img class="lg:w-1/2 rounded-md lg:rounded-3xl aspect-square" :src="dataForSpecificPage?._photo" alt="">
+    <div class="flex flex-col lg:w-1/2 gap-4 lg:gap-10">
+      <p class="text-xl lg:text-4xl  font-bold">{{ dataForSpecificPage?.title }}</p>
+      <p class="lg:text-2xl font-medium">{{ dataForSpecificPage?.description }}</p>
       <p class="">დისტანციურად</p>
-      <div class="flex text-2xl gap-5">
+      <div class="flex lg:text-2xl gap-5">
         <div class="flex items-center gap-3">
-          <calendar/>
+          <calendar class="max-lg:w-5"/>
           <p>{{ formatDate(dataForSpecificPage?.date_created) }}</p>
         </div>
-        <div class="flex items-center gap-3">
-          <eye class="w-9"/>
+        <div class="flex items-center gap-1.5 lg:gap-3">
+          <eye class="w-5 lg:w-9"/>
           <p>{{ dataForSpecificPage?.views }}</p>
         </div>
         <div class="flex items-center gap-1">
           <p class="text-[#177B15]  font-bold">{{ dataForSpecificPage?.price }}$</p>
           /
-          <p>თვე (დასამატებელი)</p>
+          <p>თვე</p>
         </div>
       </div>
-      <div class="flex gap-5 items-center">
-        <div class="flex items-center w-1/2 gap-3">
+      <div class="flex gap-5 items-center ">
+        <div class="flex max-lg:flex-col items-center lg:w-1/2 gap-3">
           <img class="w-24 h-24 rounded-full" :src="userForSpecificListing?.profile_pic" alt="">
           <div class="flex gap-2 flex-col">
-            <div class="flex gap-2 items-center text-2xl font-medium">
+            <div class="flex gap-2 items-center lg:text-2xl font-medium">
               <p>{{ userForSpecificListing?.first_name }}</p>
               <p>{{ userForSpecificListing?.last_name }}</p>
             </div>
-            <p class="text-xl">პროფესია</p>
+            <p class="lg:text-xl">პროფესია</p>
             <router-link :to="`/user/listings/${dataForSpecificPage.teacher}`"
-                         class="text-lg cursor-pointer text-[#1F6C97]">ყველა განცხადება
+                         class="lg:text-lg cursor-pointer text-[#1F6C97]">ყველა განცხადება
             </router-link>
           </div>
         </div>
 
-        <div class="flex flex-col w-1/2 text-lg  gap-5">
-          <div class="flex gap-2 items-center justify-center py-1 px-6 rounded-xl bg-primary">
-            <phone/>
+        <div class="flex flex-col lg:w-1/2 lg:text-lg  gap-5">
+          <div class="flex gap-2 items-center justify-center py-1 px-6 rounded-md lg:rounded-xl bg-primary">
+            <phone class="max-lg:w-5"/>
             <p class="text-white">{{ userForSpecificListing?.phone }}</p>
           </div>
 
-          <div class="flex gap-2 items-center py-1 justify-center px-6  rounded-xl bg-primary">
-            <email/>
+          <div class="flex gap-2 items-center py-1 justify-center px-6 rounded-md lg:rounded-xl bg-primary">
+            <email class="max-lg:w-5"/>
             <p class="text-white">{{ userForSpecificListing?.email }}</p>
           </div>
         </div>
       </div>
-      <div class="flex items-center justify-between">
+      <div class="flex max-lg:flex-col items-center justify-between">
         <rating/>
         <p class="cursor-pointer hover:text-primary" @click="showModal = true">დაარეპორტეთ</p>
       </div>

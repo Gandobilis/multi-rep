@@ -8,14 +8,14 @@ import Star from "../../assets/icons/SearchResults/star.vue";
 
 <template>
   <router-link :to="`/listings/${props.data.id}`">
-    <div class="flex flex-col w-56 hover:shadow-xl cursor-pointer gap-3">
-      <img class="rounded-2xl w-full h-44" :src="props.data._photo" alt="">
+    <div class="flex flex-col lg:w-56 hover:shadow-xl cursor-pointer gap-3">
+      <img class="rounded-2xl w-full lg:h-44" :src="props.data._photo" alt="">
 
       <div class="flex flex-col  justify-center it gap-3">
         <p class="font-bold">{{props.data.title}}</p>
         <div class="flex gap-1 font-medium ">
           <span>{{props.data.average_listing_score}}</span>/ 5
-          <star/>
+          <star class="max-lg:w-4"/>
         </div>
         <p class="text-sm text-ce">{{props.data.description?.length > 60
             ? props.data.description.slice(0, 60) + "..."
