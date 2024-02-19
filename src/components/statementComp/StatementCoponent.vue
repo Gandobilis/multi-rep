@@ -50,7 +50,7 @@ const formatDate = (timestamp) => {
 <template>
 
   <div v-if="dataForSpecificPage" class="flex gap-16  justify-center">
-    <img class="w-1/2 rounded-3xl aspect-square" :src="dataForSpecificPage?._photo" alt="">
+    <img class="w-1/2 h-full object-cover rounded-3xl" :src="dataForSpecificPage?._photo" alt="">
     <div class="flex flex-col w-1/2 pb-32 gap-10">
       <p class="text-4xl  font-bold">{{dataForSpecificPage?.title}}</p>
       <p class="text-2xl font-medium">{{dataForSpecificPage?.description}}</p>

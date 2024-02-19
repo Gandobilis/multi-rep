@@ -6,6 +6,8 @@ import MyListingsIcon from '/src/assets/icons/user/MyListings.vue';
 import MyPageIcon from '/src/assets/icons/user/MyPage.vue';
 import NotificationIcon from '/src/assets/icons/user/Notification.vue';
 import SavedListingsIcon from '/src/assets/icons/user/SavedListings.vue';
+import cookies from "vue-cookies";
+import axios from "../interceptors/axios/index.js";
 
 const useUser = () => {
     const data = ref({
@@ -144,7 +146,33 @@ const useUser = () => {
         }
     ]);
 
+
+    const isAuthenticated = ref();
+
+    const checkIfAuthenticated = async () => {
+        try {
+            const accessToken = cookies.get('access_token');
+
+            await axios.get('users/check_token_validity', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+
+            isAuthenticated.value = true
+
+        } catch (error) {
+            console.error(error);
+            isAuthenticated.value = false
+
+        }
+        console.log(isAuthenticated.value);
+
+    };
+
     return {
+        isAuthenticated,
+        checkIfAuthenticated,
         data,
         myPage,
         savedListings,

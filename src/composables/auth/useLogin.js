@@ -34,14 +34,19 @@ export default function useLogin() {
                 httpOnly: true,
                 secure: true,
                 sameSite: "strict",
-                expires: "1d",
+            });
+
+
+            cookies.set("refresh_token", data.refresh, {
+                httpOnly: true,
+                secure: true,
+                sameSite: "strict",
             });
 
             cookies.set("user_id", data.user_id, {
                 httpOnly: true,
                 secure: true,
                 sameSite: "strict",
-                expires: "1d",
             });
 
             await router.push("/");

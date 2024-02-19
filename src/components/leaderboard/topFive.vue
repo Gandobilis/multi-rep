@@ -46,7 +46,7 @@ onMounted(async () => {
                 <div class="h-16" v-if="index>2"></div>
 
                 <router-link :to="`/user/listings/${teacher.id}`" class="block relative flex flex-col items-center justify-center">
-                  <img class=" w-24 h-24 rounded-full" :src="teacher.profile_pic" alt="">
+                  <img class="w-24 h-24 object-cover rounded-full" :src="teacher.profile_pic" alt="">
                   <div class="absolute rounded-lg px-4 flex -bottom-3 bg-secondary-bg gap-2">
                     <img class="w-5 h-5" src="../.././assets/icons/leaderboard/star-icon.svg" alt="">
                     <p class="font-bold">5.0</p>

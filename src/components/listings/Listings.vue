@@ -17,9 +17,7 @@ const currentPage = ref(1);
 const router = useRouter();
 
 const onClickHandler = (page) => {
-  // Add the 'page' query parameter to the current route
   router.push({ query: { page } });
-  console.log(courses)
 };
 
 onMounted(async () => {
@@ -56,16 +54,14 @@ onMounted(async () => {
         </div>
       </div>
       <p v-else>განცხადებები ვერ მოიძებნა</p>
-
-
     </div>
-
-
   </div>
 
   <vue-awesome-paginate
       v-if="courses"
       :total-items="courses.count"
+      :max-pages-shown="courses.page_count"
+      :items-per-page="12"
       v-model="currentPage"
       :on-click="onClickHandler"
   />
@@ -90,11 +86,11 @@ onMounted(async () => {
   background-color: #d8d8d8;
 }
 .active-page {
-  background-color: #3498db;
-  border: 1px solid #3498db;
+  background-color: #950E1D;
+  border: 1px solid #950E1D;
   color: white;
 }
 .active-page:hover {
-  background-color: #2988c8;
+  background-color: #950E1D;
 }
 </style>

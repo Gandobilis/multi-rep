@@ -1,4 +1,6 @@
 <script setup>
+import HeartIcon from "../../assets/icons/header/HeartIcon.vue";
+
 const props = defineProps({
   data:Object
 })
@@ -27,10 +29,12 @@ const formatDate = (timestamp) => {
 </script>
 
 <template>
+
   <router-link :to="`/listings/${data.id}`"  class="block rounded-lg h-96 w-80 cursor-pointer group transition-all  ">
 
-    <img :src="props.data._photo" alt="course icon" class="w-full group-hover:rounded-none transition-all rounded-2xl h-1/2"/>
-
+    <div class="h-1/2 overflow-hidden">
+      <img :src="props.data._photo" alt="course icon" class="w-full h-full object-cover group-hover:rounded-none transition-all rounded-2xl"/>
+    </div>
       <div class="h-1/2">
         <div class="mt-4 mb-2 flex justify-between items-start px-2">
           <p class="font-bold">{{props.data.title?.length > 40
@@ -44,11 +48,12 @@ const formatDate = (timestamp) => {
 
           <div class="flex items-center gap-x-1.5 px-2">
             <img class="w-6 h-6" src="/src/assets/icons/leaderboard/star-icon.svg" alt="time icon">
-            <p v-text="props.data.average_listing_score + '/5.0'"/>
+            <p>{{props.data.average_listing_score}}/ 5</p>
           </div>
         </div>
-        <div class="px-2 mb-2">
-          <p class="text-meta">დისტანციურად</p>
+        <div class="px-2 mb-2 flex justify-between">
+          <p class="text-meta">{{props.data._city}}</p>
+          <heart-icon class="w-5 " stroke="black"/>
         </div>
         <div class="border-t border-t-meta gap-x-2 flex items-center justify-start px-2 py-2.5">
           <p class="font-medium" v-text="props.data.author"/>

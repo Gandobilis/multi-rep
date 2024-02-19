@@ -7,9 +7,9 @@ import Star from "../../assets/icons/SearchResults/star.vue";
 </script>
 
 <template>
-  <router-link :to="`/listings/${props.data.id}`">
+  <a :href="`/listings/${props.data.id}`">
     <div class="flex flex-col w-56 hover:shadow-xl cursor-pointer gap-3">
-      <img class="rounded-2xl w-full h-44" :src="props.data._photo" alt="">
+      <img class="rounded-2xl w-full h-44 object-cover" :src="props.data._photo" alt="">
 
       <div class="flex flex-col  justify-center it gap-3">
         <p class="font-bold">{{props.data.title}}</p>
@@ -29,5 +29,5 @@ import Star from "../../assets/icons/SearchResults/star.vue";
       </div>
 
     </div>
-  </router-link>
+  </a>
 </template>

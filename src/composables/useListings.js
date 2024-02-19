@@ -18,6 +18,7 @@ export default function useCourses() {
             const res = await axios.get(`/listings?${queryParams.toString()}`);
 
             courses.value = res.data;
+            console.log(courses.value)
 
         } catch (error) {
             console.error("Error fetching listings:", error);
@@ -47,9 +48,6 @@ export default function useCourses() {
     watchEffect(() => {
         params.value = route.query;
         filterListings()
-        console.log(courses.value)
-
-
     });
 
     return { courses, data, isLoading, getListings, filterListings, params, dataForMainPage, getListingsForMainPage };
