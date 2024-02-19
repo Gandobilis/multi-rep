@@ -14,7 +14,7 @@ const formFields = [
 </script>
 
 <template>
-  <form @submit.prevent="" class="h-full flex justify-center items-center">
+  <form @submit.prevent="" class="h-full flex justify-center items-center max-lg:py-4">
     <div class="flex flex-col justify-between gap-y-4 lg:gap-y-10">
       <div v-for="(field, index) in formFields" :key="index" class="grid grid-cols-3 items-center gap-x-1">
         <label class="whitespace-nowrap max-lg:text-sm" :for="field.model" v-text="field.label"/>

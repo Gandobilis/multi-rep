@@ -7,7 +7,7 @@ const repeat = ref();
 </script>
 
 <template>
-  <form @submit.prevent="" class="h-full flex justify-center items-center">
+  <form @submit.prevent="" class="h-full flex justify-center items-center max-lg:py-4">
     <div class="flex flex-col justify-between gap-y-4 lg:gap-y-10">
       <animated-input v-model="password" placeholder="პაროლი" show-password-toggle/>
 
