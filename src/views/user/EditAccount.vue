@@ -22,9 +22,9 @@ const formFields = [
         <div class="relative col-span-2">
           <animated-input v-model="editAccount[field.model]" :id="field.model"/>
 
-          <img v-if="['city', 'profession'].includes(field.model)"
-               class="max-lg:w-3 absolute top-3 lg:top-4 right-3 lg:right-4 hover:cursor-pointer" src="/src/assets/icons/user/close.svg"
-               alt="close icon"/>
+<!--          <img v-if="['city', 'profession'].includes(field.model)"-->
+<!--               class="max-lg:w-3 absolute top-3 lg:top-4 right-3 lg:right-4 hover:cursor-pointer" src="/src/assets/icons/user/close.svg"-->
+<!--               alt="close icon"/>-->
         </div>
       </div>
 
