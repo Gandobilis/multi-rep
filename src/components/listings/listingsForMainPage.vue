@@ -1,8 +1,10 @@
 <script setup>
 import useListings from "/src/composables/useListings.js";
+
 import Course from "/src/components/listings/Listing.vue";
 import {onMounted, ref} from "vue";
 const {getListingsForMainPage,listingsForMainPage} = useListings()
+
 
 
 const firstTwo = ref()

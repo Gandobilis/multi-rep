@@ -1,5 +1,7 @@
 <script setup>
 import HeartIcon from "../../assets/icons/header/HeartIcon.vue";
+import forFavorites from "/src/composables/forFavorites.js";
+import {onMounted} from "vue";
 
 defineProps({
   data: {
@@ -7,12 +9,12 @@ defineProps({
     required: true,
   },
 });
+const {addToFavorites, getFavoriteListings,removeFromFavorites, favoriteListings} = forFavorites()
 
 const user_id = 0
 const formatDate = (timestamp) => {
   const date = new Date(timestamp);
   const currentDate = new Date();
-
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
@@ -32,10 +34,41 @@ const formatDate = (timestamp) => {
   return `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day} ${hours}:${minutes}`;
 };
 
+onMounted(()=>{
+  getFavoriteListings()
+
+})
+
+const handleHeartIconClick = async (id) => {
+  event.preventDefault()
+  try {
+    if (isFavorite(id)) {
+      await removeFromFavorites(id);
+
+    } else {
+      await addToFavorites(id);
+    }
+
+    // Update the favoriteListings after adding/removing from favorites
+    await getFavoriteListings();
+
+  } catch (error) {
+    console.error(error);
+  }
+
+};
+
+const isFavorite = (id) => {
+  return favoriteListings.value.some((favorite) => favorite.id === id);
+};
+
+
+
+
 </script>
 
 <template>
-  <router-link :to="`/listings/${data.id}`" class="max-lg:text-sm block lg:w-96 px-4 h-96   rounded-lg cursor-pointer group transition-all">
+  <a v-if="favoriteListings" :href="`/listings/${data.id}`" class="max-lg:text-sm block lg:w-96 px-4 h-96   rounded-lg cursor-pointer group transition-all">
     <img :src="data._photo" alt="course  icon"
          class="w-full group-hover:rounded-none object-cover h-1/2 transition-all rounded-md lg:rounded-2xl"/>
 
@@ -66,7 +99,11 @@ const formatDate = (timestamp) => {
 
       <div class="px-2 mb-2 flex justify-between">
         <p class="text-meta">{{data._city}}</p>
-        <heart-icon class="w-5 h-5" stroke="black"/>
+        <heart-icon
+            @click="handleHeartIconClick(data.id)"
+            class="w-5 hover:opacity-70 h-5"
+            :stroke="isFavorite(data.id) ? 'red' : 'black'"
+        />
       </div>
 
       <div class="border-t border-t-meta gap-x-2 flex items-center justify-start px-2 py-2.5">
@@ -75,5 +112,5 @@ const formatDate = (timestamp) => {
         <p class="text-xs" v-text="data.phoneNumber"/>
       </div>
     </div>
-  </router-link>
+  </a>
 </template>
