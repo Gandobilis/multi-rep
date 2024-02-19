@@ -29,7 +29,13 @@ const isOpen = ref(false);
       </router-link>
     </div>
     <img class="lg:hidden w-8 cursor-pointer" @click="isOpen = !isOpen" alt="hamburger icon"
-         :src="isOpen ? '/src/assets/icons/header/close-icon.svg' : '/src/assets/icons/header/Hamburger_icon.svg.png'"/>
+         v-if="isOpen"
+         src="/src/assets/icons/header/close-icon.svg"
+    />
+    <img class="lg:hidden w-8 cursor-pointer" @click="isOpen = !isOpen" alt="hamburger icon"
+         v-else
+         src="/src/assets/icons/header/Hamburger_icon.svg.png"
+    />
     <div v-if="isOpen"
          @click="isOpen = !isOpen"
          class="w-screen h-screen absolute top-20 left-0 flex flex-col pt-10 justify-start items-center gap-y-10 bg-white z-10">
