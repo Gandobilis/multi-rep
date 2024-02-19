@@ -9,15 +9,15 @@ const is_teacher = ref(false);
 </script>
 
 <template>
-  <div class="relative flex flex-col gap-y-20">
-    <div class="my-10 flex items-center justify-between">
-      <h1 class="text-5xl font-bold"> განცხადებები</h1>
+  <div class="relative flex flex-col gap-y-4 lg:gap-y-20 max-lg:px-5">
+    <div class="lg:my-10 flex items-center justify-between">
+      <h1 class="text-xl lg:text-5xl font-bold"> განცხადებები</h1>
 
       <div class="flex items-center gap-x-10">
         <button @click="showModal = true" v-if="is_teacher" class="font-semibold text-primary"
                 v-text="'დაამატე განცხადება'"/>
 
-        <Filter/>
+        <Filter class="max-lg:hidden"/>
       </div>
     </div>
 

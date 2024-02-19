@@ -33,9 +33,9 @@ const formatDate = (timestamp) => {
 </script>
 
 <template>
-  <router-link :to="`/listings/${data.id}`" class="block rounded-lg h-96 w-80 cursor-pointer group transition-all">
+  <router-link :to="`/listings/${data.id}`" class="max-lg:text-sm block rounded-lg cursor-pointer group transition-all">
     <img :src="data._photo" alt="course icon"
-         class="w-full group-hover:rounded-none transition-all rounded-2xl h-1/2"/>
+         class="w-full group-hover:rounded-none transition-all rounded-md lg:rounded-2xl h-1/2"/>
 
     <div class="h-1/2">
       <div class="mt-4 mb-2 flex justify-between items-start px-2">

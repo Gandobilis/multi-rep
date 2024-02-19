@@ -2,7 +2,7 @@
 import useListings from "/src/composables/useListings.js";
 import Course from "/src/components/listings/Listing.vue";
 import {onMounted, ref} from "vue";
-const {courses, getListingsForMainPage} = useListings()
+const {listings, getListingsForMainPage} = useListings()
 
 
 const firstTwo = ref()
@@ -13,10 +13,10 @@ const fourthTwo = ref()
 
 onMounted(async () => {
   await getListingsForMainPage(8);
-  firstTwo.value = courses.value.slice(0, 2);
-  secondTwo.value = courses.value.slice(2, 4);
-  thirdTwo.value = courses.value.slice(4, 6);
-  fourthTwo.value = courses.value.slice(6, 8);
+  firstTwo.value = listings.value.slice(0, 2);
+  secondTwo.value = listings.value.slice(2, 4);
+  thirdTwo.value = listings.value.slice(4, 6);
+  fourthTwo.value = listings.value.slice(6, 8);
 });
 
 
@@ -31,7 +31,7 @@ onMounted(async () => {
     <img class="w-48 absolute top-0 right-5 h-48" src="https://cdn-icons-png.flaticon.com/256/6663/6663869.png" alt="">
 
     <div class="flex items-center relative justify-center gap-3">
-      <div v-if="courses" v-for="(course, index) in firstTwo " :key="index">
+      <div v-if="listings" v-for="(course, index) in firstTwo " :key="index">
 
         <course :data="course"/>
       </div>

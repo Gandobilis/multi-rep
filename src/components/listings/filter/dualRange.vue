@@ -39,7 +39,7 @@ const handleSliderEnd = () => {
         handleLower: 'slider-hande-lower',
         handleUpper: 'slider-hande-upper',
         touchArea: 'h-full w-full',
-        tooltip: 'absolute block text-2xl font-medium whitespace-nowrap py-1 px-1.5 min-w-5 text-center text-primary  bg-transparent transform h:-translate-x-1/2 h:left-1/2 v:-translate-y-1/2 v:top-1/2 disabled:bg-gray-400 disabled:border-gray-400 merge-h:translate-x-1/2 merge-h:left-auto merge-v:-translate-x-4 merge-v:top-auto tt-focus:hidden tt-focused:block tt-drag:hidden tt-dragging:block',
+        tooltip: 'absolute block lg:text-2xl font-medium whitespace-nowrap py-1 px-1.5 min-w-5 text-center text-primary  bg-transparent transform h:-translate-x-1/2 h:left-1/2 v:-translate-y-1/2 v:top-1/2 disabled:bg-gray-400 disabled:border-gray-400 merge-h:translate-x-1/2 merge-h:left-auto merge-v:-translate-x-4 merge-v:top-auto tt-focus:hidden tt-focused:block tt-drag:hidden tt-dragging:block',
         tooltipTop: 'bottom-3  merge-h:bottom-3.5',
         tooltipBottom: 'top-6 h:arrow-top merge-h:top-5',
         tooltipLeft: 'right-6 v:arrow-right merge-v:right-1',
