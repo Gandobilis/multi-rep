@@ -1,12 +1,12 @@
 <script setup>
-import star from "/src/assets/icons/leaderboard/star-icon.svg"
+import star from "/src/assets/icons/leaderboard/star-icon.svg";
 
 defineProps({
   rating: {
     type: Object,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 </script>
 
 <template>
@@ -17,7 +17,7 @@ defineProps({
     <p v-text="rating.profession"/>
     <p v-text="rating.phoneNumber"/>
     <div class="flex items-center gap-x-1">
-      <img class="max-lg:w-6" :src="star" alt="rating star icon">
+      <img class="w-6 lg:w-7" :src="star" alt="rating star icon">
       <p>{{ rating.rating }}/5.0</p>
     </div>
     <router-link :to="`/user/listings/${rating.user_id}`" class="text-primary">დეტალურად</router-link>

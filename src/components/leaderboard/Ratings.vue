@@ -1,9 +1,8 @@
 <script setup>
-import {ref} from "vue"
-import Rating from "/src/components/leaderboard/Rating.vue"
+import Rating from "/src/components/leaderboard/Rating.vue";
 import useRatings from "../../composables/useRatings.js";
 
-const {ratings} = useRatings()
+const {ratings} = useRatings();
 </script>
 
 <template>
