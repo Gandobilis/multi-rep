@@ -6,6 +6,7 @@ import MyListingsIcon from '/src/assets/icons/user/MyListings.vue';
 import MyPageIcon from '/src/assets/icons/user/MyPage.vue';
 import NotificationIcon from '/src/assets/icons/user/Notification.vue';
 import SavedListingsIcon from '/src/assets/icons/user/SavedListings.vue';
+import axios from "axios";
 
 const useUser = () => {
     const data = ref({
@@ -24,6 +25,18 @@ const useUser = () => {
         cv: '/src/assets/images/cv.svg',
         rating: 4.9
     })
+
+    const upload_cv = async () => {
+        await axios.post('', {})
+    }
+
+    const delete_cv = async (user_id) => {
+        await axios.post('', {})
+    }
+
+    const edit_bio = async (bio) => {
+        await axios.post('', {})
+    }
 
     const savedListings = ref(Array(5).fill({
         image: '/src/assets/images/listing.svg',
@@ -147,6 +160,9 @@ const useUser = () => {
     return {
         data,
         myPage,
+        upload_cv,
+        delete_cv,
+        edit_bio,
         savedListings,
         listingFilters,
         listingFilterType,
