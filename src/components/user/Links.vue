@@ -17,17 +17,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-start gap-y-10 px-5 py-10 border border-[#CACACA] rounded-md">
-    <RouterLink class="flex justify-start items-center gap-x-5" :to="link.path"
+  <div class="max-lg:text-sm w-full flex flex-col justify-start gap-y-4 lg:gap-y-10 px-3 lg:px-5 py-4 lg:py-10 border border-[#CACACA] rounded-md">
+    <RouterLink class="flex justify-start items-center gap-x-3 lg:gap-x-5" :to="link.path"
                 v-for="(link, index) in links"
                 :key="index">
-      <component :is="link.icon" :fill="router.currentRoute.value.path === link.path ? '#950E1D' : 'black'"/>
+      <component class="w-5" :is="link.icon" :fill="router.currentRoute.value.path === link.path ? '#950E1D' : 'black'"/>
       <p :class="{
             'text-primary': router.currentRoute.value.path === link.path
           }" v-text="link.title"/>
     </RouterLink>
-    <RouterLink to="/user" class="flex justify-start items-center gap-x-5">
-      <Logout/>
+    <RouterLink to="/user" class="flex justify-start items-center gap-x-2 lg:gap-x-5">
+      <Logout class="w-5"/>
       <p v-text="'გასვლა'" class="text-[#FF001C]"/>
     </RouterLink>
   </div>
