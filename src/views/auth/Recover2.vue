@@ -30,7 +30,7 @@ onMounted(() => {
 
       <animated-input placeholder="პაროლი" v-model="password" show-password-toggle/>
 
-      <div v-if="success" class="flex items-center w-full justify-start gap-x-2 mt-8">
+      <div v-if="success" class="flex items-center w-full justify-start gap-x-2 mt-4 lg:mt-5">
         <span class="text-sm text-price" v-text="success"/>
       </div>
 
