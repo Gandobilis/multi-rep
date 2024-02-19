@@ -44,8 +44,8 @@ const formatDate = (timestamp) => {
         <p class="text-meta text-end">{{ formatDate(data.date_created) }}</p>
       </div>
 
-      <div class="flex justify-between items-center px-2 my-4">
-        <p class="font-bold text-price text-xl" v-text="`${data.price} $`"/>
+      <div class="flex justify-between items-center px-2 my-2 lg:my-4">
+        <p class="font-bold text-price lg:text-xl" v-text="`${data.price} $`"/>
 
         <p class="font-bold">{{ data._subject }}</p>
 

@@ -9,7 +9,7 @@ const route = useRoute()
   <header-component class="px-12 py-8"/>
   <hr/>
   <div class="container mx-auto mb-20">
-    <main class="py-12">
+    <main class="py-6 lg:py-12">
       <router-view/>
     </main>
   </div>

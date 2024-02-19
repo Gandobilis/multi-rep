@@ -84,6 +84,7 @@ export default function useCourses() {
         try {
             const res = await axios.get(`/listings?teacher=${user_id}`);
             dataForMainPage.value = res.data.data;
+            data.value = res.data.data;
             isLoading.value = false;
         } catch (error) {
             console.error("Error fetching listings:", error);
