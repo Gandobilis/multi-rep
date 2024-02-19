@@ -10,16 +10,16 @@ const {data, dropdowns, options, toggle, close} = useAddPost()
 
 <template>
   <div
-      class="bg-white absolute right-0 left-0 z-10 m-auto flex w-1/3 flex-col items-center gap-y-12 px-5 pt-5 pb-10 shadow-2xl">
+      class="bg-white absolute right-0 left-0 z-10 m-auto flex lg:w-1/3 flex-col items-center gap-y-6 lg:gap-y-12 px-5 pt-5 pb-10 shadow-2xl">
     <div class="flex w-full items-center justify-between">
-      <p class="text-2xl font-semibold" v-text="'დაამატეთ პოსტი'"/>
+      <p class="lg:text-2xl font-semibold" v-text="'დაამატეთ პოსტი'"/>
       <img class="cursor-pointer" src="/src/assets/icons/modals/close.svg" alt="close icon"
            @click="emit('closeModal')"/>
     </div>
 
     <form
         @submit.prevent=""
-        class="flex w-3/5 flex-col gap-y-8">
+        class="flex w-3/5 flex-col gap-y-4 lg:gap-y-8">
       <animated-input
           v-model="data.title"
           placeholder="სათაური"/>
@@ -54,7 +54,7 @@ const {data, dropdowns, options, toggle, close} = useAddPost()
         <div
             class="flex flex-row-reverse items-center gap-x-2">
           <label
-              class="font-medium"
+              class="max-lg:text-xs font-medium"
               for="online">
             დისტანციურად
           </label>
@@ -62,7 +62,7 @@ const {data, dropdowns, options, toggle, close} = useAddPost()
               v-model="data.is_online"
               :value="true"
               id="online"
-              class="accent-primary"
+              class="max-lg:w-3 accent-primary"
               name="learning_type"
               type="radio"/>
         </div>
@@ -70,7 +70,7 @@ const {data, dropdowns, options, toggle, close} = useAddPost()
         <div
             class="flex flex-row-reverse items-center gap-x-2">
           <label
-              class="font-medium"
+              class="max-lg:text-xs font-medium"
               for="online">
             მისამართით
           </label>
@@ -78,7 +78,7 @@ const {data, dropdowns, options, toggle, close} = useAddPost()
               v-model="data.is_online"
               :value="false"
               id="onsite"
-              class="accent-primary"
+              class="max-lg:w-3 accent-primary"
               name="learning_type"
               type="radio"/>
         </div>
@@ -100,7 +100,7 @@ const {data, dropdowns, options, toggle, close} = useAddPost()
 
       <button
           type="submit"
-          class="rounded-md py-3 font-medium text-white bg-primary hover:shadow-2xl"
+          class="max-lg:text-xs w-full rounded-[5px] lg:rounded-md font-medium text-white transition bg-primary py-2 lg:py-3.5 hover:shadow-xl"
           v-text="'შემდეგი'"/>
 
     </form>
