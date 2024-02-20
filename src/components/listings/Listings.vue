@@ -28,13 +28,10 @@ onMounted(async () => {
     <div class="mt-10 grid grid-rows-4 h-fit gap-y-4 lg:gap-y-10">
       <div class="flex flex-col gap-16">
         <p class="font-bold text-sm lg:text-xl">ფასი</p>
-
         <filter-for-all-listings/>
       </div>
-
       <div class="flex flex-col gap-1.5 lg:gap-2">
         <p class="font-bold text-sm lg:text-xl">საგანი</p>
-
         <Dropdown :options="filterSubjects" v-model="filterSubject" default-name="ყველა"/>
       </div>
 
