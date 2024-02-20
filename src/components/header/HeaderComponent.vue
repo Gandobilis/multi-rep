@@ -7,7 +7,6 @@ import Notifications from "./Notifications.vue"
 import cookies from "vue-cookies";
 import AddPost from "../modals/AddPost.vue";
 
-const is_teacher = ref(true);
 const show_modal = ref(false);
 const isOpen = ref(false);
 </script>
@@ -23,7 +22,7 @@ const isOpen = ref(false);
       <nav-link path="/leaderboard">ლიდერბორდი</nav-link>
       <button
           @click="isOpen = false; show_modal = true"
-          v-if="is_teacher"
+          v-if="cookies.get('user_id')"
           class="max-lg:text-xs rounded-[5px] lg:rounded-md border text-center font-medium transition border-primary px-2 text-primary py-2 lg:py-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
         დაამატეთ განცხადება
       </button>
@@ -51,7 +50,7 @@ const isOpen = ref(false);
       <nav-link path="/leaderboard" class="text-sm">ლიდერბორდი</nav-link>
       <button
           @click="isOpen = false; show_modal = true"
-          v-if="is_teacher"
+          v-if="cookies.get('user_id')"
           class="max-lg:text-xs rounded-[5px] lg:rounded-md border text-center font-medium transition border-primary px-2 text-primary py-2 lg:py-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
         დაამატეთ განცხადება
       </button>
