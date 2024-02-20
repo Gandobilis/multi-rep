@@ -24,7 +24,6 @@ const handleSpecificFavorite = (id) => {
 
 
 const show = ref(false)
-const favourites = ref(1);
 </script>
 
 <template>

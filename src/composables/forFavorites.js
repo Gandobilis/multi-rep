@@ -2,22 +2,24 @@ import {ref} from "vue";
 import axios from "/src/interceptors/axios/index";
 import cookies from "vue-cookies";
 
-export default function useCourses() {
+
+
+export default (function favorites () {
+
     const accessToken = cookies.get('access_token');
     const headers = {
         Authorization: `Bearer ${accessToken}`,
-        // Add other headers if needed
     };
     const favoriteListings = ref(null)
 
 
     const addToFavorites = async (id) => {
         try {
-            const response = await axios.post(`/users/add_to_favorites`, {
+            await axios.post(`/users/add_to_favorites`, {
                 'listing_id': id
             }, {headers});
 
-            console.log(response)
+            await getFavoriteListings()
 
         } catch (error) {
             console.error(error);
@@ -26,11 +28,12 @@ export default function useCourses() {
 
     const removeFromFavorites = async (id) => {
         try {
-            const response = await axios.post(`/users/remove_from_favorites`, {
+            await axios.post(`/users/remove_from_favorites`, {
                 'listing_id': id
             }, {headers});
 
-            console.log(response)
+            await getFavoriteListings()
+
 
         } catch (error) {
             console.error(error);
@@ -52,5 +55,9 @@ export default function useCourses() {
     };
 
 
-    return {getFavoriteListings,removeFromFavorites, addToFavorites ,favoriteListings};
-}
+    let instance = { getFavoriteListings,removeFromFavorites, addToFavorites ,favoriteListings }
+
+    return () => {
+        return instance
+    }
+})()
