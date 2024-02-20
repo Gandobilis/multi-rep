@@ -17,13 +17,13 @@ export default function useCourses() {
     const filterSubject = ref('all')
 
     const fetchCities = async () => {
-        axios.get('/listings/cities').then((res) => {
+       await axios.get('/listings/cities').then((res) => {
             filterCities.value = res.data.data;
         }).catch(err => console.log(err));
     };
 
     const fetchSubjects = async () => {
-        axios.get('/listings/get_subjects').then((res) => {
+        await axios.get('/listings/get_subjects').then((res) => {
             filterSubjects.value = res.data.subjects;
         }).catch(err => console.log(err));
     };

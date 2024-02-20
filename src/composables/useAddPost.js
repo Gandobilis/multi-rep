@@ -1,19 +1,27 @@
 import {ref} from 'vue'
+import axios from "../interceptors/axios/index.js";
+import cookies from "vue-cookies";
+import useListings from "./useListings.js";
+
 
 const useAddPost = () => {
+    const {filterCities, filterSubjects, fetchCities, fetchSubjects} = useListings();
     const show = ref(true) // ნაგულისხმევად false უნდა დაყენდეს
 
     const data = ref({
         title: '',
         description: '',
+        subject: '',
+        // price_unit: 'თვე',
+        // time: '',
+        // time_unit: 'თვე',
+        // date: '',
+        // date_unit: 'თვე',
+        // is_online: true,
         price: '',
-        price_unit: 'თვე',
-        time: '',
-        time_unit: 'თვე',
-        date: '',
-        date_unit: 'თვე',
-        is_online: true,
         city: '',
+        distinct: '',
+        is_teacher: true
     })
 
     const options = ref([
@@ -33,7 +41,23 @@ const useAddPost = () => {
         dropdowns.value[index] = false
     }
 
-    return {show, data, dropdowns, options, toggle, close}
+    const add_post = async () => {
+        console.log(data.value);
+
+        await fetchCities();
+        data.value.city = filterCities.value.find(city => city.name === data.value.city).id
+        await fetchSubjects();
+        data.value.subject = filterSubjects.value.find(subject => subject.name === data.value.subject).id
+
+        console.log(data.value);
+        await axios.post('/listings/ManageListing', data.value, {
+            headers: {
+                Authorization: `Bearer ${cookies.get('access_token')}`,
+            }
+        });
+    }
+
+    return {show, data, dropdowns, options, toggle, close, add_post}
 }
 
 export default useAddPost

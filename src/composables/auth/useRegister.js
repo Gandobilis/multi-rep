@@ -17,7 +17,7 @@ export default function useRegister() {
     const step1Models = [
         {placeholder: "სახელი", model: "first_name"},
         {placeholder: "გვარი", model: "last_name"},
-        {placeholder: "ტელეფონი", model: "phone_number"},
+        {placeholder: "ტელეფონი", model: "phone"},
         {placeholder: "ელ. ფოსტა", model: "email"},
         {model: "is_teacher"},
     ];
@@ -25,7 +25,7 @@ export default function useRegister() {
     const step1Data = ref({
         first_name: null,
         last_name: null,
-        phone_number: null,
+        phone: null,
         email: null,
         is_teacher: false,
     });

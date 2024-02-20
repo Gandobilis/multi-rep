@@ -127,11 +127,11 @@ const useUser = () => {
             title: 'შენახული განცხადებები',
             path: '/user/saved-listings',
         },
-        {
-            icon: markRaw(NotificationIcon),
-            title: 'შეტყობინებები',
-            path: '/user/notifications',
-        },
+        // {
+        //     icon: markRaw(NotificationIcon),
+        //     title: 'შეტყობინებები',
+        //     path: '/user/notifications',
+        // },
         {
             icon: markRaw(MyListingsIcon),
             title: 'ჩემი განცხადებები',
@@ -153,16 +153,13 @@ const useUser = () => {
 
     const getUserProfileInfo = async () =>{
         try {
-
             await axios.get('users/myInfo', {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
-
                 },
             }).then(res => {
                 myUserData.value = res.data.data
                 console.log(myUserData.value)
-
             })
         } catch (error) {
             console.error(error);
