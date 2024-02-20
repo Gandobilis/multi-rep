@@ -10,6 +10,9 @@ import cookies from "vue-cookies";
 import axios from "../interceptors/axios/index.js";
 
 const useUser = () => {
+    const accessToken = cookies.get('access_token');
+    const myUserData = ref(null)
+
     const data = ref({
         image: markRaw(UserIcon),
         username: 'გიორგი გიორგაძე',
@@ -147,11 +150,31 @@ const useUser = () => {
     ]);
 
 
+
+    const getUserProfileInfo = async () =>{
+        try {
+
+            await axios.get('users/myInfo', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+
+                },
+            }).then(res => {
+                myUserData.value = res.data.data
+                console.log(myUserData.value)
+
+            })
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
+
+
     const isAuthenticated = ref();
 
     const checkIfAuthenticated = async () => {
         try {
-            const accessToken = cookies.get('access_token');
 
             await axios.get('users/check_token_validity', {
                 headers: {
@@ -166,7 +189,6 @@ const useUser = () => {
             isAuthenticated.value = false
 
         }
-        console.log(isAuthenticated.value);
 
     };
 
@@ -181,7 +203,9 @@ const useUser = () => {
         filteredListings,
         filterListings,
         editAccount,
-        links
+        links,
+        getUserProfileInfo,
+        myUserData
     };
 };
 

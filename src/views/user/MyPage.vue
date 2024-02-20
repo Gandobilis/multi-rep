@@ -1,11 +1,17 @@
 <script setup>
 import useUser from "../../composables/useUser.js";
+import {onMounted} from "vue";
 
-const {myPage} = useUser();
+const {myPage, getUserProfileInfo, myUserData} = useUser();
+
+onMounted(async () => {
+  await getUserProfileInfo()
+
+})
 </script>
 
 <template>
-  <div class="flex flex-col justify-center h-full items-center gap-y-4 lg:gap-y-10 max-lg:py-4">
+  <div v-if="myUserData" class="flex flex-col justify-center h-full items-center gap-y-4 lg:gap-y-10 max-lg:py-4">
     <img class="max-lg:w-20" :src="myPage.image" alt="user image">
 
     <p class="lg:text-2xl font-semibold" v-text="myPage.username"/>

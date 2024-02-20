@@ -68,7 +68,7 @@ const isFavorite = (id) => {
 </script>
 
 <template>
-  <a v-if="favoriteListings" :href="`/listings/${data.id}`" class="max-lg:text-sm block lg:w-96 px-4 h-96   rounded-lg cursor-pointer group transition-all">
+  <a  :href="`/listings/${data.id}`" class="max-lg:text-sm block lg:w-96 px-4 h-96   rounded-lg cursor-pointer group transition-all">
     <img :src="data._photo" alt="course  icon"
          class="w-full group-hover:rounded-none object-cover h-1/2 transition-all rounded-md lg:rounded-2xl"/>
 
@@ -97,7 +97,7 @@ const isFavorite = (id) => {
         </div>
       </div>
 
-      <div class="px-2 mb-2 flex justify-between">
+      <div v-if="favoriteListings" class="px-2 mb-2 flex justify-between">
         <p class="text-meta">{{data._city}}</p>
         <heart-icon
             @click="handleHeartIconClick(data.id)"
