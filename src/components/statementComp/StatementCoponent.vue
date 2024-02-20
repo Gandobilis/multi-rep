@@ -52,7 +52,7 @@ const showModal = ref(false);
 
 <template>
   <div v-if="dataForSpecificPage" class="relative flex max-lg:flex-col gap-16  justify-center">
-    <img class="lg:w-1/2 rounded-md lg:rounded-3xl aspect-square" :src="dataForSpecificPage?._photo" alt="">
+    <img class="lg:w-1/2 rounded-md object-cover lg:h-[700px] h-[200px] lg:rounded-3xl " :src="dataForSpecificPage?._photo" alt="">
     <div class="flex flex-col lg:w-1/2 gap-4 lg:gap-10">
       <p class="text-xl lg:text-4xl  font-bold">{{ dataForSpecificPage?.title }}</p>
       <p class="lg:text-2xl font-medium">{{ dataForSpecificPage?.description }}</p>
@@ -72,9 +72,9 @@ const showModal = ref(false);
           <p>თვე</p>
         </div>
       </div>
-      <div class="flex gap-5 items-center ">
-        <div class="flex max-lg:flex-col items-center lg:w-1/2 gap-3">
-          <img class="w-24 h-24 rounded-full" :src="userForSpecificListing?.profile_pic" alt="">
+      <div class="flex gap-5 lg:flex-row flex-col items-center ">
+        <div class="flex  items-center lg:w-1/2 gap-3">
+          <img class="w-20  h-20 rounded-full" :src="userForSpecificListing?.profile_pic" alt="">
           <div class="flex gap-2 flex-col">
             <div class="flex gap-2 items-center lg:text-2xl font-medium">
               <p>{{ userForSpecificListing?.first_name }}</p>

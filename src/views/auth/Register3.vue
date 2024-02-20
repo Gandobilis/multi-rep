@@ -1,5 +1,5 @@
 <script setup>
-import useRegister from "/src/composables/useRegister";
+import useRegister from "/src/composables/auth/useRegister";
 import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
 
 const {

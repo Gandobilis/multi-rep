@@ -51,7 +51,7 @@ onMounted(async () => {
       </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-5 lg:gap-x-10 gap-y-4 lg:gap-y-8">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-5 lg:gap-x-36 gap-y-4 lg:gap-y-8">
       <div v-for="(listing, index) in listings" :key="index">
         <Listing :data="listing"/>
       </div>

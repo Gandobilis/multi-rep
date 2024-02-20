@@ -1,4 +1,6 @@
 <script setup>
+import HeartIcon from "../../assets/icons/header/HeartIcon.vue";
+
 defineProps({
   data: {
     type: Object,
@@ -33,12 +35,12 @@ const formatDate = (timestamp) => {
 </script>
 
 <template>
-  <router-link :to="`/listings/${data.id}`" class="max-lg:text-sm block rounded-lg cursor-pointer group transition-all">
-    <img :src="data._photo" alt="course icon"
-         class="w-full group-hover:rounded-none transition-all rounded-md lg:rounded-2xl h-1/2"/>
+  <router-link :to="`/listings/${data.id}`" class="max-lg:text-sm block lg:w-96 px-4 h-96   rounded-lg cursor-pointer group transition-all">
+    <img :src="data._photo" alt="course  icon"
+         class="w-full group-hover:rounded-none object-cover h-1/2 transition-all rounded-md lg:rounded-2xl"/>
 
     <div class="h-1/2">
-      <div class="mt-4 mb-2 flex justify-between items-start px-2">
+      <div class="mt-4 mb-2 flex  justify-between items-start px-2">
         <p class="font-bold" v-text="data.title?.length > 40 ? data.title.slice(0, 40) + '...' : data.title"/>
 
         <p class="text-meta text-end">{{ formatDate(data.date_created) }}</p>
@@ -56,14 +58,15 @@ const formatDate = (timestamp) => {
             <p v-text="data.average_listing_score + '/5.0'"/>
           </template>
 
-          <template v-else>
+          <div v-else>
             <p class="text-end">შეფასებები<br/> არ არის</p>
-          </template>
+          </div>
         </div>
       </div>
 
-      <div class="px-2 mb-2">
-        <p class="text-meta">დისტანციურად</p>
+      <div class="px-2 mb-2 flex justify-between">
+        <p class="text-meta">{{data._city}}</p>
+        <heart-icon class="w-5 h-5" stroke="black"/>
       </div>
 
       <div class="border-t border-t-meta gap-x-2 flex items-center justify-start px-2 py-2.5">

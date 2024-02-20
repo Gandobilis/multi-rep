@@ -10,7 +10,7 @@ export default function useCourses() {
     const isLoading = ref(true);
     const params = ref(route.query);
     const dataForMainPage = ref(null);
-
+    const listingsForMainPage = ref(null)
     const filterCities = ref([]);
     const filterSubjects = ref([]);
     const filterCity = ref('all')
@@ -73,7 +73,7 @@ export default function useCourses() {
     const getListingsForMainPage = async () => {
         try {
             const res = await axios.get(`/listings/getListingsForMainPage`);
-            listings.value = res.data.data;
+            listingsForMainPage.value = res.data.data;
             isLoading.value = false;
         } catch (error) {
             console.error("Error fetching listings:", error);
@@ -97,6 +97,7 @@ export default function useCourses() {
     });
 
     return {
+        listingsForMainPage,
         filterCity,
         filterCities,
         filterSubject,
