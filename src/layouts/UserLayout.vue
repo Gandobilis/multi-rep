@@ -14,7 +14,7 @@ import Links from "../components/user/Links.vue";
           <Info class="max-lg:hidden"/>
           <Links/>
         </div>
-        <div class="lg:w-2/3 border border-[#CACACA] rounded-md">
+        <div class="lg:w-2/3  border border-[#CACACA] rounded-md">
           <RouterView/>
         </div>
       </div>

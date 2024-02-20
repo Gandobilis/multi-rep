@@ -1,25 +1,38 @@
-import {ref, watch, watchEffect} from "vue";
+import {ref} from "vue";
 import axios from "/src/interceptors/axios/index";
-import { useRoute } from "vue-router";
 import cookies from "vue-cookies";
 
-export default function useCourses() {
+
+
+export default (function favorites () {
+
+    const accessToken = cookies.get('access_token');
+    const headers = {
+        Authorization: `Bearer ${accessToken}`,
+    };
     const favoriteListings = ref(null)
 
 
-    const addToFavorites = () => {
+    const addToFavorites = async (id) => {
         try {
-            axios.post(`/users/add_to_favorites`).then(res => console.log(res))
+            await axios.post(`/users/add_to_favorites`, {
+                'listing_id': id
+            }, {headers});
 
+            await getFavoriteListings()
 
         } catch (error) {
             console.error(error);
         }
     };
 
-    const removeFromFavorites = () => {
+    const removeFromFavorites = async (id) => {
         try {
-            axios.post(`/users/remove_from_favorites`).then(res => console.log(res))
+            await axios.post(`/users/remove_from_favorites`, {
+                'listing_id': id
+            }, {headers});
+
+            await getFavoriteListings()
 
 
         } catch (error) {
@@ -28,16 +41,13 @@ export default function useCourses() {
     };
     const getFavoriteListings = async () => {
         try {
-            const accessToken = cookies.get('access_token');
 
-            const res = await axios.get(`/users/get_all_favorites`,{
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
+            const response = await axios.get(`/users/get_all_favorites`, {
+                headers: headers  // Pass headers in the configuration options
             });
 
-            favoriteListings.value = res.data;
-            console.log(favoriteListings.value)
+            favoriteListings.value = response.data;
+
 
         } catch (error) {
             console.error(error);
@@ -45,5 +55,9 @@ export default function useCourses() {
     };
 
 
-    return {getFavoriteListings,removeFromFavorites, addToFavorites ,favoriteListings};
-}
+    let instance = { getFavoriteListings,removeFromFavorites, addToFavorites ,favoriteListings }
+
+    return () => {
+        return instance
+    }
+})()
