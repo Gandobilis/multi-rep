@@ -6,7 +6,6 @@ const { getUserProfileInfo, myUserData} = useUser();
 
 onMounted(async () => {
   await getUserProfileInfo()
-
 })
 </script>
 
