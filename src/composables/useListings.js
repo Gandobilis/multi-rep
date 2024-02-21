@@ -63,6 +63,7 @@ export default function useCourses() {
             const queryParams = new URLSearchParams(_params)
 
             const res = await axios.get(`/listings?${queryParams.toString()}`);
+            console.log(res)
 
             listings.value = res.data.data;
         } catch (error) {
