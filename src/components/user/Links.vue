@@ -3,6 +3,7 @@ import useUser from "../../composables/useUser.js";
 import {useRouter} from "vue-router";
 import Logout from "../../assets/icons/user/Logout.vue";
 import {onMounted, ref} from "vue";
+import useLogout from "../../composables/auth/useLogout.js";
 
 const is_teacher = ref(true) // შეცვალეთ რენდერინგის სანახავად
 
@@ -14,6 +15,8 @@ onMounted(() => {
     links.value = links.value.filter((_, index) => index !== 2 && index !== 3);
   }
 })
+
+const {logOut} = useLogout()
 </script>
 
 <template>
@@ -28,7 +31,7 @@ onMounted(() => {
     </RouterLink>
     <RouterLink to="/user" class="flex justify-start items-center gap-x-2 lg:gap-x-5">
       <Logout class="w-5"/>
-      <p v-text="'გასვლა'" class="text-[#FF001C]"/>
+      <button @click="logOut" v-text="'გასვლა'" class="text-[#FF001C]"/>
     </RouterLink>
   </div>
 </template>

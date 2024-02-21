@@ -41,11 +41,11 @@ onMounted(async () => {
         <Dropdown :options="filterCities" v-model="filterCity" default-name="ყველა"/>
       </div>
 
-      <div class="flex flex-col gap-1.5 lg:gap-2">
-        <p class="font-bold text-sm lg:text-xl">უბანი</p>
+<!--      <div class="flex flex-col gap-1.5 lg:gap-2">-->
+<!--        <p class="font-bold text-sm lg:text-xl">უბანი</p>-->
 
-        <Dropdown value="default" default-name="ყველა"/>
-      </div>
+<!--        <Dropdown value="default" default-name="ყველა"/>-->
+<!--      </div>-->
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-5 lg:gap-x-36 gap-y-4 lg:gap-y-8">
