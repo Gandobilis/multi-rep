@@ -40,6 +40,7 @@ onMounted(()=>{
 })
 
 const handleHeartIconClick = async (id) => {
+
   event.preventDefault()
   try {
     if (isFavorite(id)) {
@@ -68,7 +69,7 @@ const isFavorite = (id) => {
 </script>
 
 <template>
-  <a  :href="`/listings/${data.id}`" class="max-lg:text-sm block lg:w-96 px-4 h-96   rounded-lg cursor-pointer group transition-all">
+  <a   :href="`/listings/${data.id}`" class="max-lg:text-sm block lg:w-96 px-4 h-96  border border-primary rounded-3xl cursor-pointer group transition-all">
     <img :src="data._photo" alt="course  icon"
          class="w-full group-hover:rounded-none object-cover h-1/2 transition-all rounded-md lg:rounded-2xl"/>
 
@@ -106,10 +107,10 @@ const isFavorite = (id) => {
         />
       </div>
 
-      <div class="border-t border-t-meta gap-x-2 flex items-center justify-start px-2 py-2.5">
-        <p class="font-medium" v-text="data.author"/>
+      <div class="  gap-x-2 flex items-center justify-between px-2 py-2.5">
+        <p class="font-medium" v-text="data._teacher"/>
 
-        <p class="text-xs" v-text="data.phoneNumber"/>
+        <p class="text-primary" v-text="data._phone"/>
       </div>
     </div>
   </a>

@@ -1,141 +1,98 @@
 <script setup>
-import useAddPost from "/src/composables/useAddPost.js"
-import Dropdown from "/src/components/modals/Dropdown.vue"
-import AnimatedInput from "/src/components/auth/AnimatedInput.vue"
+import useAddPost from "/src/composables/useAddPost.js";
 import useListings from "/src/composables/useListings.js";
-import {onMounted} from "vue";
+import {defineEmits, onMounted, ref} from "vue";
+import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
+import DropdownForCities from "../listings/filter/dropdownForCities.vue";
+import Dropdown from "../listings/filter/dropdown.vue";
+import useUser from "../../composables/useUser.js";
 
-const emit = defineEmits(['closeModal'])
+const emit = defineEmits(["closeModal"]);
 
-const {data, dropdowns, options, toggle, close, add_post} = useAddPost()
-const {filterCities, filterSubjects, fetchCities, fetchSubjects} = useListings();
+const { data, options, toggle, close, add_post ,errorMessage, successMessage} = useAddPost();
+const { filterCities, filterSubjects, fetchCities, fetchSubjects } = useListings();
+const {getUserProfileInfo, myUserData} = useUser();
 
 onMounted(async () => {
   await fetchCities();
   await fetchSubjects();
-})
+  await getUserProfileInfo()
+
+});
+const handlePhotoUpload = (event) => {
+  data.value.photo = event.target.files[0];
+};
 </script>
 
 <template>
-  <div
-      class="rounded-lg bg-white absolute top-28 right-0 left-0 z-10 m-auto flex lg:w-1/3 flex-col items-center gap-y-6 lg:gap-y-12 px-5 pt-5 pb-10 shadow-2xl">
-    <div class="flex w-full items-center justify-between">
-      <p class="lg:text-2xl font-semibold" v-text="'დაამატეთ პოსტი'"/>
-      <img class="cursor-pointer" src="/src/assets/icons/modals/close.svg" alt="close icon"
-           @click="emit('closeModal')"/>
+  <div v-if="filterCities && filterSubjects" class="rounded-xl shadow-2xl border-2 bg-white absolute top-28 right-0 left-0 z-10 m-auto flex lg:w-[600px] flex-col items-center gap-y-6 lg:gap-y-12 px-5 pt-5 pb-10">
+    <img
+        class="cursor-pointer"
+        src="/src/assets/icons/modals/close.svg"
+        alt="close icon"
+        @click="emit('closeModal')"
+    />
+    <div v-if="myUserData?.is_teacher===true">
+      <div class="flex w-full items-center justify-between">
+
+
+      </div>
+
+      <div class="flex w-full flex-col gap-y-4 lg:gap-y-8">
+        <animated-input v-model="data.title" placeholder="სათაური" />
+
+        <animated-input v-model="data.description" placeholder="აღწერა" />
+
+        <dropdown-for-cities default-name="ქალაქი" :options="filterCities" />
+
+        <dropdown default-name="საგანი" :options="filterSubjects" />
+
+        <animated-input v-model="data.price" placeholder="ფასი" />
+
+        <!-- Photo upload section -->
+        <div class="flex flex-col lრcoბაog:text-lg gap-y-4 items-center">
+          <div class="relative">
+            <input
+                type="file"
+                id="photo"
+                accept="image/*"
+                @change="handlePhotoUpload"
+                class="hidden"
+            />
+            <label
+                for="photo"
+                class="max-lg:text-xs w-full rounded-[5px] px-4 lg:rounded-md font-medium text-white transition bg-primary py-2 lg:py-3.5 hover:shadow-xl"
+            >
+              აირჩიე ფოტო
+            </label>
+          </div>
+        </div>
+
+        <button
+            type="submit"
+            class="max-lg:text-xs w-full rounded-[5px] lg:rounded-md font-medium text-white transition bg-primary py-2 lg:py-3.5 hover:shadow-xl"
+            v-text="'შემდეგი'"
+            @click="add_post"
+        />
+      </div>
+
+      <div v-if="errorMessage?.length > 0" class="text-red-500 mt-4">
+        <ul class="flex flex-col gap-2 text-center">
+          <li v-for="error in errorMessage" :key="error">{{ error }}</li>
+        </ul>
+      </div>
+      <div class="text-green-600 mt-4" v-if="successMessage">
+        <p>{{successMessage}}</p>
+
+      </div>
     </div>
 
-    <form
-        @submit.prevent="add_post"
-        class="flex w-3/5 flex-col gap-y-4 lg:gap-y-8">
-      <animated-input
-          v-model="data.title"
-          placeholder="სათაური"/>
+    <div v-else class="flex lg:text-lg text-sm text-center flex-col gap-5">
+      <p class="text-primary">იმისთვის რომ დადოთ განცხადება უნდა იყოთ მასწავლებელი</p>
+      <button>გახდი მასწავლებელი (დასამატებელი)</button>
+    </div>
 
-      <animated-input
-          v-model="data.description"
-          placeholder="აღწერა"
-      />
-
-      <Dropdown
-          :options="filterSubjects.map(subject => subject.name)"
-          :show="dropdowns[0]"
-          @close="close(0)"
-          @toggle="toggle(0)"
-          v-model:unit="data.subject"
-          v-model:value="data.subject"
-          label="საგანი"/>
-
-      <!--      <Dropdown-->
-      <!--          :options="options[0]"-->
-      <!--          :show="dropdowns[0]"-->
-      <!--          @close="close(0)"-->
-      <!--          @toggle="toggle(0)"-->
-      <!--          v-model:unit="data.price_unit"-->
-      <!--          v-model:value="data.price"-->
-      <!--          label="ფასი ₾"/>-->
-
-      <!--      <Dropdown-->
-      <!--          :options="options[1]"-->
-      <!--          :show="dropdowns[1]" @close="close(1)"-->
-      <!--          @toggle="toggle(1)"-->
-      <!--          v-model:unit="data.time_unit"-->
-      <!--          v-model:value="data.time"-->
-      <!--          label="დრო"/>-->
-
-      <!--      <div-->
-      <!--          class="flex items-center justify-between">-->
-      <!--        <div-->
-      <!--            class="flex flex-row-reverse items-center gap-x-2">-->
-      <!--          <label-->
-      <!--              class="max-lg:text-xs font-medium"-->
-      <!--              for="online">-->
-      <!--            დისტანციურად-->
-      <!--          </label>-->
-      <!--          <input-->
-      <!--              v-model="data.is_online"-->
-      <!--              :value="true"-->
-      <!--              id="online"-->
-      <!--              class="max-lg:w-3 accent-primary"-->
-      <!--              name="learning_type"-->
-      <!--              type="radio"/>-->
-      <!--        </div>-->
-
-      <!--        <div-->
-      <!--            class="flex flex-row-reverse items-center gap-x-2">-->
-      <!--          <label-->
-      <!--              class="max-lg:text-xs font-medium"-->
-      <!--              for="online">-->
-      <!--            მისამართით-->
-      <!--          </label>-->
-      <!--          <input-->
-      <!--              v-model="data.is_online"-->
-      <!--              :value="false"-->
-      <!--              id="onsite"-->
-      <!--              class="max-lg:w-3 accent-primary"-->
-      <!--              name="learning_type"-->
-      <!--              type="radio"/>-->
-      <!--        </div>-->
-      <!--      </div>-->
-
-      <Dropdown
-          :options="filterCities.map(city => city.name)"
-          :show="dropdowns[1]"
-          @close="close(1)"
-          @toggle="toggle(1)"
-          v-model:unit="data.city"
-          v-model:value="data.city"
-          label="ქალაქი"/>
-
-      <Dropdown
-          :options="filterCities.map(city => city.name)"
-          :show="dropdowns[2]"
-          @close="close(2)"
-          @toggle="toggle(2)"
-          v-model:unit="data.distinct"
-          v-model:value="data.distinct"
-          label="უბანი"/>
-
-
-      <animated-input
-          v-model="data.price"
-          placeholder="ფასი"
-      />
-
-      <!--      <Dropdown-->
-      <!--          :options="options[2]"-->
-      <!--          :show="dropdowns[2]"-->
-      <!--          @close="close(2)"-->
-      <!--          @toggle="toggle(2)"-->
-      <!--          v-model:unit="data.date_unit"-->
-      <!--          v-model:value="data.date"-->
-      <!--          label="პოსტის ვადა"/>-->
-
-      <button
-          type="submit"
-          class="max-lg:text-xs w-full rounded-[5px] lg:rounded-md font-medium text-white transition bg-primary py-2 lg:py-3.5 hover:shadow-xl"
-          v-text="'შემდეგი'" @click="emit('closeModal')"/>
-
-    </form>
   </div>
+
+
 </template>

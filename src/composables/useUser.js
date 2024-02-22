@@ -172,7 +172,6 @@ const useUser = () => {
 
     const checkIfAuthenticated = async () => {
         try {
-
             await axios.get('users/check_token_validity', {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
@@ -186,7 +185,6 @@ const useUser = () => {
             isAuthenticated.value = false
 
         }
-
     };
 
     return {

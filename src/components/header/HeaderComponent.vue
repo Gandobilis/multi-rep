@@ -2,12 +2,18 @@
 import NavLink from "/src/components/header/NavLink.vue"
 import Favourite from "/src/components/header/Favourite.vue"
 import User from "/src/components/header/User.vue"
-import {ref} from "vue"
+import {onMounted, ref} from "vue"
 import Notifications from "./Notifications.vue"
-import cookies from "vue-cookies";
 import AddPost from "../modals/AddPost.vue";
+import useUser from "../../composables/useUser.js";
 
 const show_modal = ref(false);
+const {checkIfAuthenticated, isAuthenticated} = useUser();
+
+onMounted(async () => {
+  await checkIfAuthenticated()
+})
+
 const isOpen = ref(false);
 </script>
 <template>
@@ -22,14 +28,14 @@ const isOpen = ref(false);
       <nav-link path="/leaderboard">ლიდერბორდი</nav-link>
       <button
           @click="isOpen = false; show_modal = true"
-          v-if="cookies.get('user_id')"
+          v-if="isAuthenticated"
           class="max-lg:text-xs rounded-[5px] lg:rounded-md border text-center font-medium transition border-primary px-2 text-primary py-2 lg:py-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
         დაამატეთ განცხადება
       </button>
 
       <notifications v-if="false"/>
       <favourite/>
-      <user v-if="cookies.get('user_id')"/>
+      <user v-if="isAuthenticated"/>
       <router-link v-else to="/auth/login"
                    class="w-full rounded-md border text-center font-medium border-primary text-primary p-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
         შესვლა
@@ -50,11 +56,11 @@ const isOpen = ref(false);
       <nav-link path="/leaderboard" class="text-sm">ლიდერბორდი</nav-link>
       <button
           @click="isOpen = false; show_modal = true"
-          v-if="cookies.get('user_id')"
+          v-if="isAuthenticated"
           class="max-lg:text-xs rounded-[5px] lg:rounded-md border text-center font-medium transition border-primary px-2 text-primary py-2 lg:py-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
         დაამატეთ განცხადება
       </button>
-      <user v-if="cookies.get('user_id')"/>
+      <user v-if="isAuthenticated"/>
       <router-link v-else to="/auth/login"
                    class="w-1/2 text-sm rounded-[5px] border text-center font-medium border-primary text-primary p-2 hover:bg-primary hover:text-white hover:shadow-xl">
         შესვლა

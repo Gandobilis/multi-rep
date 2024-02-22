@@ -17,8 +17,8 @@ export default function useCourses() {
     const filterSubject = ref('all')
 
     const fetchCities = async () => {
-       await axios.get('/listings/cities').then((res) => {
-            filterCities.value = res.data.data;
+       await axios.get('/listings/get_cities_with_districts').then((res) => {
+            filterCities.value = res.data.cities;
         }).catch(err => console.log(err));
     };
 
@@ -54,6 +54,10 @@ export default function useCourses() {
         await handleSubjectFilter();
     });
 
+
+
+
+
     const filterListings = async () => {
         try {
             const _params = params.value
@@ -63,7 +67,6 @@ export default function useCourses() {
             const queryParams = new URLSearchParams(_params)
 
             const res = await axios.get(`/listings?${queryParams.toString()}`);
-            console.log(res)
 
             listings.value = res.data.data;
         } catch (error) {
@@ -82,10 +85,11 @@ export default function useCourses() {
     };
 
     const getListings = async (user_id) => {
+        data.value = null
         try {
             const res = await axios.get(`/listings?teacher=${user_id}`);
-            dataForMainPage.value = res.data.data;
             data.value = res.data.data;
+            console.log(data.value)
             isLoading.value = false;
         } catch (error) {
             console.error("Error fetching listings:", error);

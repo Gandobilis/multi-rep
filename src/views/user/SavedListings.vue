@@ -9,19 +9,18 @@ onMounted(async () => {
 </script>
 
 <template>
-  <p class="border-b px-5 py-3 lg:py-6 lg:text-2xl font-semibold border-b-border-gray" v-text="'შენახული განცხადებები'"/>
+  <p class="border-b px-5 py-3 lg:py-6 lg:text-2xl font-semibold border-b-border-gray" v-text="'ფავორიტი განცხადებები'"/>
 
   <div v-if="favoriteListings" class="flex flex-col gap-y-7 lg:gap-y-11 px-5 py-5 lg:py-10">
-    <div class="flex  gap-20" v-for="(listing, index) in favoriteListings" :key="index">
+    <a class="flex cursor-pointer border-b-primary border py-5 shadow-xl  gap-20" v-for="(listing, index) in favoriteListings" :key="index" :href="`/listings/${listing.id}`"  >
       <img class="w-72 rounded-2xl object-cover  h-40" :src="listing._photo" alt="listing image">
 
       <div class="flex  flex-col gap-y-8">
         <p class="lg:text-2xl font-medium" v-text="listing.title"/>
 
-        <div class="flex max-lg:flex-wrap items-center justify-between">
+        <div class="flex max-lg:flex-wrap items-center gap-5 ">
           <div class="flex items-center gap-x-2">
             <img class="max-lg:w-5" src="/src/assets/icons/user/rating.svg" alt="rating icon">
-
             <p class="max-lg:text-sm"><span v-text="listing.rating"/>/5.0</p>
           </div>
 
@@ -36,6 +35,6 @@ onMounted(async () => {
         <p class="text-lg text-gray-700">{{listing._city}} <span class="text-sm" v-if="listing._district">/ {{listing._district}}</span></p>
       </div>
 
-    </div>
+    </a>
   </div>
 </template>
