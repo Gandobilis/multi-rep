@@ -63,10 +63,8 @@ onMounted(async () => {
     </div>
 
     <div class="flex flex-col items-center gap-y-10">
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-5 lg:gap-x-36 gap-y-4 lg:gap-y-8">
-        <div v-for="(listing, index) in listings?.data" :key="index">
-          <Listing :data="listing"/>
-        </div>
+      <div class="grid grid-cols-1 lg:grid-rows-4 lg:grid-cols-3 gap-4">
+        <Listing :data="listing" v-for="(listing, index) in listings?.data" :key="index"/>
       </div>
 
       <vue-awesome-paginate

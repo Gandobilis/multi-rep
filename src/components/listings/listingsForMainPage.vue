@@ -36,14 +36,14 @@ onMounted(async () => {
     <div class="sm:block hidden">
       <div class="flex items-center relative justify-center gap-3">
         <div v-if="listingsForMainPage" v-for="(course, index) in firstTwo " :key="index">
-          <course :data="course"/>
+          <course is-main :data="course"/>
         </div>
       </div>
 
       <div class="flex items-center  justify-between">
         <div class="flex flex-col gap-3">
           <div v-for="(course, index) in secondTwo" :key="index">
-            <course :data="course"/>
+            <course is-main :data="course"/>
           </div>
         </div>
         <div>
@@ -53,7 +53,7 @@ onMounted(async () => {
         </div>
         <div class="flex flex-col  bottom-0 gap-3">
           <div v-for="(course, index) in fourthTwo" :key="index">
-            <course :data="course"/>
+            <course is-main :data="course"/>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@ onMounted(async () => {
 
       <div class="flex justify-center  gap-3">
         <div v-for="(course, index) in thirdTwo" :key="index">
-          <course :data="course"/>
+          <course is-main :data="course"/>
         </div>
       </div>
     </div>

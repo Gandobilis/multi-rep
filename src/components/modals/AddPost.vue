@@ -1,7 +1,7 @@
 <script setup>
 import useAddPost from "/src/composables/useAddPost.js";
 import useListings from "/src/composables/useListings.js";
-import {defineEmits, onMounted, ref} from "vue";
+import { onMounted} from "vue";
 import AnimatedInput from "/src/components/auth/AnimatedInput.vue";
 import DropdownForCities from "../listings/filter/dropdownForCities.vue";
 import Dropdown from "../listings/filter/dropdown.vue";
@@ -9,7 +9,7 @@ import useUser from "../../composables/useUser.js";
 
 const emit = defineEmits(["closeModal"]);
 
-const { data, options, toggle, close, add_post ,errorMessage, successMessage} = useAddPost();
+const { data, add_post ,errorMessage, successMessage} = useAddPost();
 const { filterCities, filterSubjects, fetchCities, fetchSubjects } = useListings();
 const {getUserProfileInfo, myUserData} = useUser();
 
