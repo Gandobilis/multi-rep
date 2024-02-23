@@ -44,13 +44,13 @@ onMounted(async () => {
           <SplideTrack>
             <SplideSlide class="flex items-center justify-center" v-for="(teacher, index) in topTenTeachers">
               <div class="flex flex-col items-center h-fit rounded-lg transition-all cursor-pointer">
-                <img v-if="index===0" class="ml-20 w-10 h-16 rotate-[35deg]"
+                <img v-if="index===0" class="ml-20 w-10 h-16 rotate-[30deg]"
                      src="/src/assets/icons/topTeachers/goldenCrown.svg"
                      alt="">
-                <img v-if="index===1" class="ml-20 w-10 h-16 rotate-[35deg]"
+                <img v-if="index===1" class="ml-20 w-10 h-16 rotate-[30deg]"
                      src="/src/assets/icons/topTeachers/silverCrown.svg"
                      alt="">
-                <img v-if="index===2" class="ml-20 w-10 h-16 rotate-[35deg]"
+                <img v-if="index===2" class="ml-20 w-10 h-16 rotate-[30deg]"
                      src="/src/assets/icons/topTeachers/bronzeCrown.svg"
                      alt="">
                 <span v-if="index > 2" class="w-10 h-16"/>

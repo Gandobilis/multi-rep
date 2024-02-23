@@ -33,7 +33,7 @@ onMounted(async () => {
     <img class="w-56 sm:flex hidden absolute bottom-0 right-0 h-56" src="https://static.vecteezy.com/system/resources/previews/023/841/800/original/adorable-blue-bots-small-cute-robots-generated-by-ai-free-png.png" alt="">
     <img class="w-48 sm:flex hidden absolute top-0 right-5 h-48" src="https://cdn-icons-png.flaticon.com/256/6663/6663869.png" alt="">
 
-    <div class="sm:block hidden">
+    <div class="sm:block hidden space-y-4">
       <div class="flex items-center relative justify-center gap-3">
         <div v-if="listingsForMainPage" v-for="(course, index) in firstTwo " :key="index">
           <course is-main :data="course"/>
