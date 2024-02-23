@@ -36,7 +36,7 @@ onMounted(async () => {
         <p class="font-bold text-sm lg:text-xl">საგანი</p>
 
         <filter-dropdown
-            :options="filterSubjects.map(subject => subject.name)"
+            :options="[...new Set(filterSubjects.map(subject => subject.name))]"
             v-model="filterSubject"
         />
       </div>

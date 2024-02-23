@@ -20,7 +20,6 @@ export default function useCourses() {
     const fetchCities = async () => {
         await axios.get('/listings/get_cities_with_districts').then((res) => {
             filterCities.value = res.data.cities;
-            console.log(res.data.cities)
         }).catch(err => console.log(err));
     };
 
@@ -30,36 +29,35 @@ export default function useCourses() {
         }).catch(err => console.log(err));
     };
 
+    const handleFilter = async (filterKey, filterValue) => {
+        const query = {
+            ...router.currentRoute.value.query
+        };
+
+        if (filterValue !== 'all') {
+            query[filterKey] = filterValue;
+        } else {
+            delete query[filterKey];
+        }
+
+        await router.push({query});
+    };
+
     const handleCityFilter = async () => {
-        await router.push({
-            query: {
-                ...router.currentRoute.value.query,
-                city: filterCity.value
-            }
-        });
+        await handleFilter('city', filterCity.value);
+        filterDistrict.value = 'all';
     };
 
     const handleSubjectFilter = async () => {
-        await router.push({
-            query: {
-                ...router.currentRoute.value.query,
-                subject: filterSubject.value
-            }
-        });
+        await handleFilter('subject', filterSubject.value);
     };
 
     const handleDistrictFilter = async () => {
-        await router.push({
-            query: {
-                ...router.currentRoute.value.query,
-                distinct: filterDistrict.value
-            }
-        });
+        await handleFilter('district', filterDistrict.value);
     };
 
     watch(filterCity, async () => {
         await handleCityFilter();
-        filterDistrict.value = 'all';
     });
 
     watch(filterSubject, async () => {
@@ -73,12 +71,9 @@ export default function useCourses() {
 
     const filterListings = async () => {
         try {
-            const _params = params.value
-            // if (filterCity.value === 'all' && _params.hasOwnProperty('city')) delete _params.city
-            // if (filterSubject.value === 'all' && _params.hasOwnProperty('subject')) delete _params.subject
+            const queryParams = new URLSearchParams(params.value)
 
-            const queryParams = new URLSearchParams(_params)
-
+            console.log(params.value)
             const res = await axios.get(`/listings?${queryParams.toString()}`);
 
             listings.value = res.data.data;
@@ -102,7 +97,6 @@ export default function useCourses() {
         try {
             const res = await axios.get(`/listings?teacher=${user_id}`);
             data.value = res.data.data;
-            console.log(data.value)
             isLoading.value = false;
         } catch (error) {
             console.error("Error fetching listings:", error);
