@@ -15,7 +15,8 @@ const {
   fetchSubjects,
   filterCity,
   filterSubject,
-  filterDistrict
+  filterDistrict,
+  clearFilters
 } = useListings();
 
 onMounted(async () => {
@@ -53,6 +54,11 @@ onMounted(async () => {
         <filter-dropdown :options="[...new Set(filterCities.find(city => city.city_name === filterCity)?.districts)]"
                          v-model="filterDistrict"/>
       </div>
+
+      <button @click="clearFilters"
+              class="max-lg:text-xs w-full rounded-[5px] lg:rounded-md border text-center font-medium transition border-primary text-primary py-2 lg:py-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
+        გასუფთავება
+      </button>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-5 lg:gap-x-36 gap-y-4 lg:gap-y-8">

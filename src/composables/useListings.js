@@ -103,6 +103,13 @@ export default function useCourses() {
         }
     };
 
+    const clearFilters = async () => {
+        filterCity.value = 'all';
+        filterDistrict.value = 'all';
+        filterSubject.value = 'all';
+        await router.push({query: undefined})
+    }
+
     watchEffect(async () => {
         params.value = route.query;
         await filterListings();
@@ -126,6 +133,7 @@ export default function useCourses() {
         dataForMainPage,
         getListingsForMainPage,
         handleCityFilter,
-        handleSubjectFilter
+        handleSubjectFilter,
+        clearFilters
     };
 }
