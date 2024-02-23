@@ -62,7 +62,7 @@ onMounted(async () => {
       </button>
     </div>
 
-    <div class="flex flex-col items-center gap-y-10">
+    <div v-if="listings" class="flex flex-col items-center gap-y-10">
       <div class="grid grid-cols-1 lg:grid-rows-4 lg:grid-cols-3 gap-4">
         <Listing :data="listing" v-for="(listing, index) in listings?.data" :key="index"/>
       </div>
@@ -74,6 +74,29 @@ onMounted(async () => {
           :max-pages-shown="listings?.page_count"
           v-model="currentPage"
       />
+    </div>
+    <div v-else class="grid grid-cols-1 lg:grid-rows-4 lg:grid-cols-3 gap-4 w-full">
+      <div v-for="index in 12" class="flex flex-col h-96" :key="index">
+        <div class="skeleton w-full h-1/2 rounded-b-none rounded-t-lg"></div>
+        <div class="flex flex-col justify-between h-1/2 p-4">
+          <div class="flex items-center justify-between">
+            <div class="skeleton h-8 w-2/5 rounded-lg"></div>
+            <div class="skeleton h-8 w-2/5 rounded-lg"></div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="skeleton h-8 w-1/5 rounded-lg"></div>
+            <div class="skeleton h-8 w-2/5 rounded-lg"></div>
+            <div class="skeleton h-8 w-1/5 rounded-lg"></div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-x-4 w-2/5">
+              <div class="skeleton rounded-full h-14 aspect-square"></div>
+              <div class="skeleton h-8 w-2/3 rounded-lg"></div>
+            </div>
+            <div class="skeleton h-8 w-2/5 rounded-lg"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

@@ -5,6 +5,7 @@ export default {
     ],
     plugins: [
         require('@vueform/slider/tailwind'),
+        require("daisyui")
     ],
     theme: {
         extend: {
