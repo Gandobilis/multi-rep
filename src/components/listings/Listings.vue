@@ -4,6 +4,7 @@ import Listing from "/src/components/listings/Listing.vue";
 import {onMounted, watch} from "vue";
 import FilterForAllListings from "./filter/dualRange.vue";
 import Dropdown from "./filter/dropdown.vue";
+import FilterDropdown from "./filter/FilterDropdown.vue";
 
 const {
   listings,
@@ -13,7 +14,8 @@ const {
   fetchCities,
   fetchSubjects,
   filterCity,
-  filterSubject
+  filterSubject,
+  filterDistrict
 } = useListings();
 
 onMounted(async () => {
@@ -32,20 +34,25 @@ onMounted(async () => {
       </div>
       <div class="flex flex-col gap-1.5 lg:gap-2">
         <p class="font-bold text-sm lg:text-xl">საგანი</p>
-        <Dropdown :options="filterSubjects" v-model="filterSubject" default-name="ყველა"/>
+
+        <filter-dropdown
+            :options="filterSubjects.map(subject => subject.name)"
+            v-model="filterSubject"
+        />
       </div>
 
       <div class="flex flex-col gap-1.5 lg:gap-2">
         <p class="font-bold text-sm lg:text-xl">ქალაქი</p>
 
-        <Dropdown :options="filterCities" v-model="filterCity" default-name="ყველა"/>
+        <filter-dropdown :options="[...new Set(filterCities.map(city => city.city_name))]"
+                         v-model="filterCity"/>
       </div>
 
-<!--      <div class="flex flex-col gap-1.5 lg:gap-2">-->
-<!--        <p class="font-bold text-sm lg:text-xl">უბანი</p>-->
-
-<!--        <Dropdown value="default" default-name="ყველა"/>-->
-<!--      </div>-->
+      <div class="flex flex-col gap-1.5 lg:gap-2">
+        <p class="font-bold text-sm lg:text-xl">უბანი</p>
+        <filter-dropdown :options="[...new Set(filterCities.find(city => city.city_name === filterCity)?.districts)]"
+                         v-model="filterDistrict"/>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-5 lg:gap-x-36 gap-y-4 lg:gap-y-8">

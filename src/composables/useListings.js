@@ -15,10 +15,12 @@ export default function useCourses() {
     const filterSubjects = ref([]);
     const filterCity = ref('all')
     const filterSubject = ref('all')
+    const filterDistrict = ref('all')
 
     const fetchCities = async () => {
-       await axios.get('/listings/get_cities_with_districts').then((res) => {
+        await axios.get('/listings/get_cities_with_districts').then((res) => {
             filterCities.value = res.data.cities;
+            console.log(res.data.cities)
         }).catch(err => console.log(err));
     };
 
@@ -46,23 +48,34 @@ export default function useCourses() {
         });
     };
 
+    const handleDistrictFilter = async () => {
+        await router.push({
+            query: {
+                ...router.currentRoute.value.query,
+                distinct: filterDistrict.value
+            }
+        });
+    };
+
     watch(filterCity, async () => {
         await handleCityFilter();
+        filterDistrict.value = 'all';
     });
 
     watch(filterSubject, async () => {
         await handleSubjectFilter();
     });
 
-
-
+    watch(filterDistrict, async () => {
+        await handleDistrictFilter();
+    });
 
 
     const filterListings = async () => {
         try {
             const _params = params.value
-            if (filterCity.value === 'all' && _params.hasOwnProperty('city')) delete _params.city
-            if (filterSubject.value === 'all' && _params.hasOwnProperty('subject')) delete _params.subject
+            // if (filterCity.value === 'all' && _params.hasOwnProperty('city')) delete _params.city
+            // if (filterSubject.value === 'all' && _params.hasOwnProperty('subject')) delete _params.subject
 
             const queryParams = new URLSearchParams(_params)
 
@@ -107,6 +120,7 @@ export default function useCourses() {
         filterCities,
         filterSubject,
         filterSubjects,
+        filterDistrict,
         fetchCities,
         fetchSubjects,
         listings,
