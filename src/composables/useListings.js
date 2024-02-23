@@ -16,6 +16,7 @@ export default function useCourses() {
     const filterCity = ref('all')
     const filterSubject = ref('all')
     const filterDistrict = ref('all')
+    const currentPage = ref(1);
 
     const fetchCities = async () => {
         await axios.get('/listings/get_cities_with_districts').then((res) => {
@@ -38,6 +39,10 @@ export default function useCourses() {
             query[filterKey] = filterValue;
         } else {
             delete query[filterKey];
+        }
+
+        if (filterKey !== 'page') {
+            currentPage.value = 1;
         }
 
         await router.push({query});
@@ -68,15 +73,18 @@ export default function useCourses() {
         await handleDistrictFilter();
     });
 
+    watch(currentPage, async () => {
+        await handleFilter('page', currentPage.value)
+    })
+
 
     const filterListings = async () => {
         try {
             const queryParams = new URLSearchParams(params.value)
 
-            console.log(params.value)
             const res = await axios.get(`/listings?${queryParams.toString()}`);
 
-            listings.value = res.data.data;
+            listings.value = res.data;
         } catch (error) {
             console.error("Error fetching listings:", error);
         }
@@ -108,6 +116,7 @@ export default function useCourses() {
         filterDistrict.value = 'all';
         filterSubject.value = 'all';
         await router.push({query: undefined})
+        await filterListings();
     }
 
     watchEffect(async () => {
@@ -134,6 +143,7 @@ export default function useCourses() {
         getListingsForMainPage,
         handleCityFilter,
         handleSubjectFilter,
-        clearFilters
+        clearFilters,
+        currentPage
     };
 }

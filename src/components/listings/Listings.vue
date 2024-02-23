@@ -1,10 +1,10 @@
 <script setup>
 import useListings from "/src/composables/useListings.js";
 import Listing from "/src/components/listings/Listing.vue";
-import {onMounted, watch} from "vue";
+import {onMounted} from "vue";
 import FilterForAllListings from "./filter/dualRange.vue";
-import Dropdown from "./filter/dropdown.vue";
 import FilterDropdown from "./filter/FilterDropdown.vue";
+import {VueAwesomePaginate} from "vue-awesome-paginate";
 
 const {
   listings,
@@ -16,7 +16,8 @@ const {
   filterCity,
   filterSubject,
   filterDistrict,
-  clearFilters
+  clearFilters,
+  currentPage,
 } = useListings();
 
 onMounted(async () => {
@@ -61,10 +62,49 @@ onMounted(async () => {
       </button>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-5 lg:gap-x-36 gap-y-4 lg:gap-y-8">
-      <div v-for="(listing, index) in listings" :key="index">
-        <Listing :data="listing"/>
+    <div class="flex flex-col items-center gap-y-10">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-5 lg:gap-x-36 gap-y-4 lg:gap-y-8">
+        <div v-for="(listing, index) in listings?.data" :key="index">
+          <Listing :data="listing"/>
+        </div>
       </div>
+
+      <vue-awesome-paginate
+          v-if="listings?.count !== 0"
+          :total-items="listings?.count"
+          :items-per-page="12"
+          :max-pages-shown="listings?.page_count"
+          v-model="currentPage"
+      />
     </div>
   </div>
 </template>
+
+<style>
+.pagination-container {
+  display: flex;
+  column-gap: 10px;
+}
+
+.paginate-buttons {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: rgb(242, 242, 242);
+  color: black;
+}
+
+.paginate-buttons:hover {
+  background-color: #d8d8d8;
+}
+
+.active-page {
+  background-color: #950E1D;
+  color: white;
+}
+
+.active-page:hover {
+  background-color: #950E1D;
+}
+</style>

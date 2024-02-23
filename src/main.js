@@ -4,7 +4,10 @@ import App from './App.vue';
 
 import router from './router';
 import {createPinia} from 'pinia';
+// import the package
 import VueAwesomePaginate from "vue-awesome-paginate";
+
+// import the necessary css file
 import "vue-awesome-paginate/dist/style.css";
 
 createApp(App)
