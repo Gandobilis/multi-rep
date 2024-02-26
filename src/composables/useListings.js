@@ -85,6 +85,7 @@ export default function useCourses() {
             const res = await axios.get(`/listings?${queryParams.toString()}`);
 
             listings.value = res.data;
+            console.log(res.data.data)
         } catch (error) {
             console.error("Error fetching listings:", error);
         }
@@ -94,6 +95,7 @@ export default function useCourses() {
         try {
             const res = await axios.get(`/listings/getListingsForMainPage`);
             listingsForMainPage.value = res.data.data;
+            console.log(res.data.data)
             isLoading.value = false;
         } catch (error) {
             console.error("Error fetching listings:", error);
@@ -112,10 +114,8 @@ export default function useCourses() {
     };
 
     const clearFilters = async () => {
-        filterCity.value = 'all';
-        filterDistrict.value = 'all';
-        filterSubject.value = 'all';
-        await router.push({query: undefined})
+        await router.push('/listings')
+
         await filterListings();
     }
 

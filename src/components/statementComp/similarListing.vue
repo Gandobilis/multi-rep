@@ -24,7 +24,7 @@ import Star from "../../assets/icons/SearchResults/star.vue";
         <div class="flex gap-3 border-2 py-1 px-3 justify-between rounded-3xl border-secondary-bg items-center text-sm font-medium">
           <img class="w-10 rounded-full h-10" :src="props.data.teacher.profile_pic" alt="">
           <p>{{props.data.teacher.name}}</p>
-          <p class="bg-primary text-white py-1 px-3 rounded-2xl text-center">598757596</p>
+          <p class="bg-primary text-white py-1 px-2 rounded-2xl text-center">598757596</p>
         </div>
       </div>
 

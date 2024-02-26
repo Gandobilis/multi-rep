@@ -67,9 +67,9 @@ const showModal = ref(false);
           <p>{{ dataForSpecificPage?.views }}</p>
         </div>
         <div class="flex items-center gap-1">
-          <p class="text-[#177B15]  font-bold">{{ dataForSpecificPage?.price }}$</p>
+          <p class="text-[#177B15]  font-bold">{{ dataForSpecificPage?.price }} {{dataForSpecificPage?.currency}}</p>
           /
-          <p>თვე</p>
+          <p>{{dataForSpecificPage?.time_unit}}</p>
         </div>
       </div>
       <div class="flex gap-5 lg:flex-row flex-col items-center ">
