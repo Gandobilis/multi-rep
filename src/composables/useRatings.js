@@ -1,17 +1,17 @@
 import {ref} from "vue";
+import axios from "../interceptors/axios/index.js";
 
 const useRatings = () => {
-    const ratings = ref(Array(5).fill({
-        user_id: 0,
-        image: '/src/assets/icons/leaderboard/user-icon.svg',
-        firstName: 'გიორგი',
-        lastName: 'გიორგაძე',
-        profession: 'ჯავა დეველოპერი',
-        phoneNumber: '551-11-12-22',
-        rating: '4.9'
-    }))
+    const ratings = ref()
 
-    return {ratings}
+    const getRatings = async () => {
+        await axios.get('/listings?sortBy=_score&order=desc&quantity=10').then(res => {
+            ratings.value = res.data.data
+            console.log(ratings.value)
+        })
+    }
+
+    return {ratings, getRatings}
 }
 
 export default useRatings

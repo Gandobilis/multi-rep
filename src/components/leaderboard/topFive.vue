@@ -64,7 +64,7 @@ onMounted(async () => {
                        alt="default teacher icon"/>
                   <div class="absolute rounded-lg px-4 flex -bottom-3 bg-secondary-bg gap-2">
                     <img class="w-4 aspect-square" src="../.././assets/icons/leaderboard/star-icon.svg" alt="">
-                    <p class="font-bold">5.0</p>
+                    <p class="font-bold">{{teacher._score}}</p>
 
                   </div>
                 </router-link>

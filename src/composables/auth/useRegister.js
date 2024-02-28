@@ -31,13 +31,13 @@ export default function useRegister() {
     });
 
     const step2Models = [
-        {placeholder: "ქალაქი", model: "city"},
-        {placeholder: "პროფესია", model: "profession"},
+        {placeholder: "თქვენს შესახებ", model: "bio"},
     ];
 
     const step2Data = ref({
-        city: null,
-        profession: null,
+        bio: null,
+        profile_pic: "",
+        cv: ""
     });
 
     const step3Models = [
@@ -102,6 +102,7 @@ export default function useRegister() {
 
     const register = async () => {
         step3()
+        console.log(store.data)
         if(error.value){
             return
         }

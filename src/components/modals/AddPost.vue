@@ -49,8 +49,7 @@ const handlePhotoUpload = (event) => {
 
         <animated-input v-model="data.price" placeholder="ფასი" />
 
-        <!-- Photo upload section -->
-        <div class="flex flex-col lრcoბაog:text-lg gap-y-4 items-center">
+        <div class="flex flex-col lg:text-lg gap-y-4 items-center">
           <div class="relative">
             <input
                 type="file"
