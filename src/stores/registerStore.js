@@ -5,11 +5,9 @@ export const useRegisterStore = defineStore('register', () => {
     const data = ref({
         first_name: null,
         last_name: null,
-        phone_number: null,
+        phone: null,
         email: null,
         is_teacher: false,
-        city: null,
-        profession: null,
         password: null,
         password2: null,
     });

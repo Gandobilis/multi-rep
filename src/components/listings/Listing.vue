@@ -71,7 +71,7 @@ const isFavorite = (id) => {
 </script>
 
 <template>
-  <a :href="`/listings/${data.id}`" :class=" {'w-96':isMain}"
+  <a :href="`/listings/${data.id}`" :class=" {'w-96':isMain , }"
      class="overflow-hidden max-lg:text-sm block h-96  border rounded-lg cursor-pointer transition-all">
     <img v-if="data._photo" :src="data._photo"
          class="hover:scale-105 w-full group-hover:rounded-none object-cover h-1/2 transition-all" alt="course  icon"/>
@@ -79,7 +79,7 @@ const isFavorite = (id) => {
          class="hover:scale-105 w-full group-hover:rounded-none object-cover h-1/2 transition-all" v-else
          alt="default course image"/>
 
-    <div class="flex flex-col justify-between h-1/2  px-4">
+    <div class="flex flex-col mb-5">
       <div class="mt-4 mb-2 flex  justify-between items-start px-2">
         <p class="font-bold text-sm " v-text="data.title?.length > 40 ? data.title.slice(0, 40) + '...' : data.title"/>
 
