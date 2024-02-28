@@ -31,7 +31,7 @@ defineProps({
 
     </div>
 
-
+{{rating}}
     <router-link :to="`/user/listings/${rating.user_id}`" class="text-primary">დეტალურად</router-link>
   </div>
 </template>

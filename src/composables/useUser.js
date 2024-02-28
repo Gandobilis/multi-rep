@@ -159,7 +159,6 @@ const useUser = () => {
                 },
             }).then(res => {
                 myUserData.value = res.data.data
-                console.log(myUserData.value)
             })
         } catch (error) {
             console.error(error);

@@ -31,13 +31,13 @@ export default function useRegister() {
     });
 
     const step2Models = [
-        {placeholder: "თქვენს შესახებ", model: "bio"},
+        {placeholder: "თქვენს შესახებ", model: "bio"}
     ];
 
     const step2Data = ref({
         bio: null,
-        profile_pic: "",
-        cv: ""
+        profile_pic: null,
+        cv: null
     });
 
     const step3Models = [
@@ -90,11 +90,9 @@ export default function useRegister() {
 
         if (Object.values(step3Data.value).includes(null)) {
             error.value = 'შეავსეთ ყველა ველი'
-        }
-        else if(step3Data.value.password !== step3Data.value.password2){
+        } else if (step3Data.value.password !== step3Data.value.password2) {
             error.value = "პაროლები არ ემთხვევა"
-        }
-        else {
+        } else {
             store.setData(step3Data.value)
         }
 
@@ -103,11 +101,15 @@ export default function useRegister() {
     const register = async () => {
         step3()
         console.log(store.data)
-        if(error.value){
+        if (error.value) {
             return
         }
         try {
-            await axios.post('users/auth/register', store.data);
+            await axios.post('users/auth/register', store.data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
 
             await router.push("/auth/confirm_otp");
         } catch (err) {
@@ -115,7 +117,7 @@ export default function useRegister() {
         }
     };
 
-    const cotasMeiparavCotasGaaketeb = async () =>{
+    const cotasMeiparavCotasGaaketeb = async () => {
         success.value = null
         error.value = null
         axios.post('/users/verify', {
@@ -140,7 +142,7 @@ export default function useRegister() {
                 sameSite: "strict",
                 expires: "1d",
             });
-            setTimeout(()=>{
+            setTimeout(() => {
                 router.push('/')
             }, 1000)
         }).catch(() => {
@@ -160,6 +162,5 @@ export default function useRegister() {
         register,
         otp,
         cotasMeiparavCotasGaaketeb
-
     };
 };
