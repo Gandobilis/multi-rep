@@ -8,7 +8,6 @@ import {VueAwesomePaginate} from "vue-awesome-paginate";
 
 const {
   listings,
-  filterListings,
   filterCities,
   filterSubjects,
   fetchCities,
@@ -21,7 +20,6 @@ const {
 } = useListings();
 
 onMounted(async () => {
-  await filterListings();
   await fetchCities();
   await fetchSubjects();
 });

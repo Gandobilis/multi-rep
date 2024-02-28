@@ -103,7 +103,7 @@ export default function useCourses() {
     const getListings = async (user_id) => {
         data.value = null
         try {
-            const res = await axios.get(`/listings?teacher=${user_id}`);
+            const res = await axios.get(`/listings?teacher_id=${user_id}`);
             data.value = res.data.data;
             isLoading.value = false;
         } catch (error) {
