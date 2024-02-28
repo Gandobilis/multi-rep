@@ -8,9 +8,7 @@ const props = defineProps({
   defaultName: String,
   options: Array,
 });
-const test = () =>{
-  console.log(selectedSubject)
-}
+
 const value = defineModel();
 </script>
 

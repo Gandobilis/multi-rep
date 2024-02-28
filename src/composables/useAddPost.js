@@ -42,7 +42,7 @@ export default (function useHome () {
                 errorMessage.value.push("შეიყვანეთ სათაური");
             }
 
-            // Check if description is not null
+
             if (data.value.description !== null) {
                 formData.append('description', data.value.description);
             } else {
@@ -65,6 +65,8 @@ export default (function useHome () {
 
             // Check if selectedCityId is not null and not the default value
             if (selectedCityId.value !== null && selectedCityId.value !== "default") {
+                console.log(selectedCityId.value)
+
                 formData.append('city', selectedCityId.value);
             } else {
                 errorMessage.value.push("მიუთითეთ ქალაქი");
@@ -81,17 +83,20 @@ export default (function useHome () {
             } else {
                 errorMessage.value.push("ატვირთეთ კურსის შესაბამისი ფოტო");
             }
-            console.log(errorMessage.value)
 
             // Check if there are no validation errors before making the POST request
             if (errorMessage.value.length === 0) {
+
 
                 await axios.post('/listings/ManageListing', formData, {
                     headers: {
                         Authorization: `Bearer ${cookies.get('access_token')}`,
                         'Content-Type': 'multipart/form-data',
                     },
-                }).then(res => successMessage.value = res.data.success)
+                }).then(res =>{
+                    successMessage.value = res.data.success
+                    console.log(formData)
+                })
 
                 // Reset form values after successful post
                 data.value = {

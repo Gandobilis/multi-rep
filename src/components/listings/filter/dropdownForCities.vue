@@ -20,13 +20,14 @@ watchEffect(() => {
     districts.value = selectedCityData ? selectedCityData.district : [];
   } else {
     districts.value = [];
-
   }
+  console.log(selectedCityId)
 
 });
 </script>
 
 <template>
+
   <div v-if="props.options" class="flex flex-col gap-5">
     <select
         v-model="selectedCityId"

@@ -85,7 +85,6 @@ export default function useCourses() {
             const res = await axios.get(`/listings?${queryParams.toString()}`);
 
             listings.value = res.data;
-            console.log(res.data.data)
         } catch (error) {
             console.error("Error fetching listings:", error);
         }
