@@ -12,9 +12,9 @@ defineProps({
 <template>
   <div
       class="grid grid-rows-3 grid-cols-3 lg:grid-rows-1 lg:grid-cols-7 items-center font-medium text-sm lg:text-xl border border-gray-400 px-4 pt-3 lg:py-6 rounded-lg">
-    <img class="max-lg:w-14 rounded-3xl " :src="rating._photo" alt="rating image">
+    <img class="w-28 h-28 rounded-full " :src="rating._photo" alt="rating image">
 
-    <p class="ml-5" v-text="rating.teacher.name"/>
+    <p class="ml-5" v-text="rating._teacher"/>
 
     <p v-text="rating._subject"/>
 

@@ -1,8 +1,9 @@
 import {ref, watch, watchEffect} from "vue";
 import axios from "/src/interceptors/axios/index";
 import {useRoute, useRouter} from "vue-router";
+import cookies from "vue-cookies";
 
-export default function useCourses() {
+export default function useListings() {
     const route = useRoute();
     const router = useRouter();
     const listings = ref(null);
@@ -19,7 +20,9 @@ export default function useCourses() {
     const currentPage = ref(1);
     const currencies = ref(null)
     const timeUnits = ref(null)
-
+    const accessToken = cookies.get('access_token');
+    const myListings = ref()
+    const showPostDelete = ref(false)
     const fetchCities = async () => {
         await axios.get('/listings/get_cities_with_districts').then((res) => {
             filterCities.value = res.data.cities;
@@ -115,6 +118,36 @@ export default function useCourses() {
         }
     };
 
+    const deleteListing = async (id) => {
+        try {
+            await axios.delete(`/listings/ManageListing?id=${id}`,{
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            }).then(res =>{
+                getMyListings()
+
+            })
+        } catch (error) {
+            console.error("Error fetching listings:", error);
+        }
+    };
+
+
+    const getMyListings = async () => {
+        console.log(cookies.get('user_id'))
+        try {
+            await axios.get(`/listings?teacher_id=${cookies.get('user_id')}`).then(res =>{
+                myListings.value = res.data.data
+                console.log(res)
+            })
+
+
+        } catch (error) {
+            console.error("Error fetching listings:", error);
+        }
+    };
+
     const getListingsForMainPage = async () => {
         try {
             const res = await axios.get(`/listings/getListingsForMainPage`);
@@ -139,6 +172,11 @@ export default function useCourses() {
 
     const clearFilters = async () => {
         await router.push('/listings')
+        currentPage.value = 1
+
+         filterCity.value = 'all'
+        filterSubject.value = 'all'
+        filterDistrict.value = 'all'
 
         await filterListings();
     }
@@ -173,6 +211,10 @@ export default function useCourses() {
         currencies,
         getTimeUnits,
         timeUnits,
+        getMyListings,
+        myListings,
+        deleteListing,
+        showPostDelete,
 
     };
 }

@@ -59,7 +59,6 @@ const showModal = ref(false);
       <div class="flex font-semibold text-3xl flex-col gap-2">
         <p class="">{{dataForSpecificPage?._city}}</p>
         <p class="text-sm">{{dataForSpecificPage?._district}}</p>
-
       </div>
       <div class="flex lg:text-2xl gap-5">
         <div class="flex items-center gap-3">

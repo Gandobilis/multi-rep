@@ -5,8 +5,10 @@ import {useRoute} from "vue-router";
 const route = useRoute()
 </script>
 <template>
+
   <header-component class="px-12 py-8"/>
   <hr/>
+
   <div class="container mx-auto mb-20">
     <main class="py-6 lg:py-12">
       <router-view/>

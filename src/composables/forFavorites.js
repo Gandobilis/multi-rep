@@ -47,6 +47,7 @@ export default (function favorites () {
             });
 
             favoriteListings.value = response.data;
+            console.log(favoriteListings.value)
 
 
         } catch (error) {
