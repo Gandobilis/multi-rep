@@ -14,7 +14,10 @@ export default (function useHome () {
         title: null,
         description: null,
         price: null,
-        photo: null
+        photo: null,
+        time_unit: 'საათში',
+        currency: 'GEL'
+
     });
 
 
@@ -83,6 +86,10 @@ export default (function useHome () {
             } else {
                 errorMessage.value.push("ატვირთეთ კურსის შესაბამისი ფოტო");
             }
+            formData.append('currency', data.value.currency);
+            formData.append('time_unit', data.value.time_unit);
+
+
 
             // Check if there are no validation errors before making the POST request
             if (errorMessage.value.length === 0) {
@@ -107,11 +114,12 @@ export default (function useHome () {
                 };
             }
         } catch (error) {
-            console.error('Error during post creation:', error);
+            console.log(error.response.data.message)
+            errorMessage.value.push(error.response.data.message)
         }
     };
 
-    let instance = {errorMessage,successMessage, selectedSubject, show, data, dropdowns, toggle, close, add_post ,selectedCityId }
+    let instance = {selectedDistrictId,errorMessage,successMessage, selectedSubject, show, data, dropdowns, toggle, close, add_post ,selectedCityId }
 
     return () => {
         return instance

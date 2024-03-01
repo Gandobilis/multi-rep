@@ -52,11 +52,15 @@ const showModal = ref(false);
 
 <template>
   <div v-if="dataForSpecificPage" class="relative flex max-lg:flex-col gap-16  justify-center">
-    <img class="lg:w-1/2 rounded-md object-cover lg:h-[700px] h-[200px] lg:rounded-3xl " :src="dataForSpecificPage?._photo" alt="">
+    <img class="lg:w-1/2 rounded-md object-cover  lg:rounded-3xl " :src="dataForSpecificPage?._photo" alt="">
     <div class="flex flex-col lg:w-1/2 gap-4 lg:gap-10">
       <p class="text-xl lg:text-4xl  font-bold">{{ dataForSpecificPage?.title }}</p>
       <p class="lg:text-2xl font-medium">{{ dataForSpecificPage?.description }}</p>
-      <p class="">{{dataForSpecificPage?._city}}</p>
+      <div class="flex font-semibold text-3xl flex-col gap-2">
+        <p class="">{{dataForSpecificPage?._city}}</p>
+        <p class="text-sm">{{dataForSpecificPage?._district}}</p>
+
+      </div>
       <div class="flex lg:text-2xl gap-5">
         <div class="flex items-center gap-3">
           <calendar class="max-lg:w-5"/>
@@ -72,14 +76,17 @@ const showModal = ref(false);
           <p>{{dataForSpecificPage?.time_unit}}</p>
         </div>
       </div>
-      <div class="flex gap-5 lg:flex-row flex-col items-center ">
-        <div class="flex  items-center lg:w-1/2 gap-3">
+      <div class="flex justify-between  lg:flex-row flex-col items-center ">
+
+        <div class="flex justify-between  items-center lg:w-1/2 gap-3">
           <img class="w-20  h-20 rounded-full" :src="userForSpecificListing?.profile_pic" alt="">
           <div class="flex gap-2 flex-col">
+
             <div class="flex gap-2 items-center lg:text-2xl font-medium">
               <p>{{ userForSpecificListing?.first_name }}</p>
               <p>{{ userForSpecificListing?.last_name }}</p>
             </div>
+
             <p class="lg:text-xl">პროფესია</p>
             <router-link :to="`/user/listings/${dataForSpecificPage.teacher}`"
                          class="lg:text-lg cursor-pointer text-[#1F6C97]">ყველა განცხადება
@@ -87,21 +94,22 @@ const showModal = ref(false);
           </div>
         </div>
 
-        <div class="flex flex-col lg:w-1/2 lg:text-lg  gap-5">
-          <div class="flex gap-2 items-center justify-center py-1 px-6 rounded-md lg:rounded-xl bg-primary">
-            <phone class="max-lg:w-5"/>
-            <p class="text-white">{{ userForSpecificListing?.phone }}</p>
+        <div class="flex flex-col ml-24 text-white w-[40%] font-semibold text-lg gap-5">
+          <div class="flex gap-2 border-primary w-full bg-primary items-center border-2  justify-center py-1  rounded-md lg:rounded-xl">
+            <phone class="max-lg:w-3"/>
+            <p class="">{{ userForSpecificListing?.phone }}</p>
           </div>
 
-          <div class="flex gap-2 items-center py-1 justify-center px-6 rounded-md lg:rounded-xl bg-primary">
-            <email class="max-lg:w-5"/>
-            <p class="text-white">{{ userForSpecificListing?.email }}</p>
+          <div class="flex gap-2 border-primary w-full justify-center px-2 bg-primary border-2  py-1 items-center   rounded-md lg:rounded-xl ">
+            <email class="max-lg:w-3"/>
+            <p class="">{{ userForSpecificListing?.email }}</p>
           </div>
         </div>
+
       </div>
       <div class="flex max-lg:flex-col items-center justify-between">
         <rating/>
-        <p class="cursor-pointer hover:text-primary" @click="showModal = true">დაარეპორტეთ</p>
+        <p class="cursor-pointer text-primary text-xl hover:text-primary" @click="showModal = true">დაარეპორტეთ</p>
       </div>
     </div>
     <Report v-if="showModal" @close-modal="showModal = false"/>

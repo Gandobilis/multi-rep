@@ -25,7 +25,9 @@ const isOpen = ref(false);
 
     <div class="flex items-center gap-x-24 max-lg:hidden">
       <nav-link path="/">მთავარი</nav-link>
+      <nav-link path="/listings">განცხადებები</nav-link>
       <nav-link path="/leaderboard">ლიდერბორდი</nav-link>
+
       <button
           @click="isOpen = false; show_modal = true"
           v-if="isAuthenticated"
@@ -54,6 +56,8 @@ const isOpen = ref(false);
          class="w-screen h-screen absolute top-20 left-0 flex flex-col pt-10 justify-start items-center gap-y-10 bg-white z-10">
       <nav-link path="/" class="text-sm">მთავარი</nav-link>
       <nav-link path="/leaderboard" class="text-sm">ლიდერბორდი</nav-link>
+
+
       <button
           @click="isOpen = false; show_modal = true"
           v-if="isAuthenticated"

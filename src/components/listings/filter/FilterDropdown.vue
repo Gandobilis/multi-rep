@@ -10,6 +10,7 @@ const value = defineModel();
 </script>
 
 <template>
+
   <div class="flex text-sm lg:text-xl  flex-col gap-3">
     <select
         v-model="value"

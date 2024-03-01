@@ -10,6 +10,9 @@ export const useRegisterStore = defineStore('register', () => {
         is_teacher: false,
         password: null,
         password2: null,
+        bio: null,
+        cv: null,
+        profile_pic: null
     });
 
     function setData(payload) {

@@ -17,6 +17,8 @@ export default function useCourses() {
     const filterSubject = ref('all')
     const filterDistrict = ref('all')
     const currentPage = ref(1);
+    const currencies = ref(null)
+    const timeUnits = ref(null)
 
     const fetchCities = async () => {
         await axios.get('/listings/get_cities_with_districts').then((res) => {
@@ -60,6 +62,29 @@ export default function useCourses() {
     const handleDistrictFilter = async () => {
         await handleFilter('district', filterDistrict.value);
     };
+    const getCurrencies = async () =>{
+        try {
+
+            await axios.get(`/listings/currency_options`).then(res =>{
+                currencies.value = Object.keys(res.data.currency_options)
+                console.log(currencies.value)
+            })
+        } catch (error) {
+            console.error("Error fetching currencies:", error);
+        }
+    }
+
+    const getTimeUnits = async () =>{
+        try {
+
+            await axios.get(`/listings/time_unit_option`).then(res =>{
+                timeUnits.value = Object.keys(res.data.time_options)
+                console.log(timeUnits.value)
+            })
+        } catch (error) {
+            console.error("Error fetching currencies:", error);
+        }
+    }
 
     watch(filterCity, async () => {
         await handleCityFilter();
@@ -104,7 +129,7 @@ export default function useCourses() {
     const getListings = async (user_id) => {
         data.value = null
         try {
-            const res = await axios.get(`/listings?teacher=${user_id}`);
+            const res = await axios.get(`/listings?teacher_id=${user_id}`);
             data.value = res.data.data;
             isLoading.value = false;
         } catch (error) {
@@ -143,6 +168,11 @@ export default function useCourses() {
         handleCityFilter,
         handleSubjectFilter,
         clearFilters,
-        currentPage
+        currentPage,
+        getCurrencies,
+        currencies,
+        getTimeUnits,
+        timeUnits,
+
     };
 }

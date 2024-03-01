@@ -9,9 +9,7 @@ const route = useRoute();
 const {getListings, data, isLoading} = useCourses();
 
 onMounted(async () => {
-  console.log(route.params.user_id)
   await getListings(route.params.user_id);
-
 });
 </script>
 
@@ -22,5 +20,5 @@ onMounted(async () => {
       <Listing v-for="(course, index) in data" :key="index" :data="course"/>
     </div>
   </div>
-  <p v-else>იტვირთება...</p>
+  <p v-else>განცხადებები იძებნება ...</p>
 </template>

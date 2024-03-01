@@ -43,7 +43,7 @@ export default (function favorites () {
         try {
 
             const response = await axios.get(`/users/get_all_favorites`, {
-                headers: headers  // Pass headers in the configuration options
+                headers: headers
             });
 
             favoriteListings.value = response.data;

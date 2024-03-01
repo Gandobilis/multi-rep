@@ -45,7 +45,7 @@ const show = ref(false)
           <div @click="handleSpecificFavorite(statement.id)" class="flex items-center gap-5">
             <img class="object-cover w-14 h-14 rounded-full" :src="statement._photo" alt="">
             <div class="flex flex-col gap-3">
-              <p class="font-semibold">{{statement.title}}</p>
+              <p class="font-semibold">{{statement.title.slice(0,20)}}</p>
               <p class="text-sm">{{statement._subject}}</p>
 
             </div>
