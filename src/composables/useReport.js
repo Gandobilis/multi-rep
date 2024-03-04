@@ -73,7 +73,6 @@ const useReport = () => {
         if (_clickedIndex.value) {
             const indices = _clickedIndex.value.split('')
             const reason = reportTypes.value[indices[0]][indices[1]]
-            console.log(reason)
         }
     }
 

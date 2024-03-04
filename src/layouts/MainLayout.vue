@@ -1,6 +1,6 @@
 <script setup>
 import HeaderComponent from "/src/components/header/HeaderComponent.vue"
-import ReportSectionForMainPage from "/src/components/reports/reportSectionForMainPage.vue"
+import ReportSectionForMainPage from "/src/components/contact/Contact.vue"
 import {useRoute} from "vue-router"
 
 const route = useRoute()
