@@ -26,7 +26,6 @@ export default function useListings() {
     const fetchCities = async () => {
         await axios.get('/listings/get_cities_with_districts').then((res) => {
             filterCities.value = res.data.cities;
-            console.log(filterCities.value)
         }).catch(err => console.log(err));
     };
 
@@ -71,7 +70,6 @@ export default function useListings() {
 
             await axios.get(`/listings/currency_options`).then(res =>{
                 currencies.value = Object.keys(res.data.currency_options)
-                console.log(currencies.value)
             })
         } catch (error) {
             console.error("Error fetching currencies:", error);
@@ -83,7 +81,6 @@ export default function useListings() {
 
             await axios.get(`/listings/time_unit_option`).then(res =>{
                 timeUnits.value = Object.keys(res.data.time_options)
-                console.log(timeUnits.value)
             })
         } catch (error) {
             console.error("Error fetching currencies:", error);
@@ -140,7 +137,6 @@ export default function useListings() {
         try {
             await axios.get(`/listings?teacher_id=${cookies.get('user_id')}`).then(res =>{
                 myListings.value = res.data.data
-                console.log(res)
             })
 
 
@@ -153,7 +149,6 @@ export default function useListings() {
         try {
             const res = await axios.get(`/listings/getListingsForMainPage`);
             listingsForMainPage.value = res.data.data;
-            console.log(res.data.data)
             isLoading.value = false;
         } catch (error) {
             console.error("Error fetching listings:", error);
