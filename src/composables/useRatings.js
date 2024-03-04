@@ -1,17 +1,20 @@
-import {ref} from "vue";
-import axios from "../interceptors/axios/index.js";
+import {ref} from "vue"
+import axios from "/src/interceptors/axios"
 
-const useRatings = () => {
+export default function useRatings() {
     const ratings = ref()
+    const isLoading = ref(true)
+    const error = ref()
 
     const getRatings = async () => {
         await axios.get('/listings?sortBy=_score&order=desc&quantity=10').then(res => {
             ratings.value = res.data.data
-            console.log(ratings.value)
+        }).catch(() => {
+            error.value = 'შეცდომა განცხადებების ჩატვირთვისას, სცადეთ მოგვიანებით.'
+        }).finally(() => {
+            isLoading.value = false
         })
     }
 
-    return {ratings, getRatings}
+    return {ratings, isLoading, error, getRatings}
 }
-
-export default useRatings

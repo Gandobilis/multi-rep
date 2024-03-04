@@ -9,7 +9,9 @@ const titles = ref([
 <template>
   <div class="grid max-lg:hidden grid-cols-7">
     <div/>
+    
     <p v-for="(title, index) in titles" class="text-2xl font-semibold text-primary" v-text="title" :key="index"/>
+    
     <div/>
   </div>
 </template>

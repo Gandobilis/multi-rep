@@ -10,8 +10,8 @@ const route = useRoute()
   <header-component class="px-3.5 py-2.5 lg:px-12 lg:py-8"/>
   <hr/>
 
-  <main class="px-3.5 py-5 lg:px-24 lg:py-16">
+  <main class="py-5 px-3.5 lg:px-24 lg:py-16">
     <router-view/>
   </main>
-  <ReportSectionForMainPage v-if="route.path==='/'"/>
+  <report-section-for-main-page v-if="route.path==='/'"/>
 </template>
