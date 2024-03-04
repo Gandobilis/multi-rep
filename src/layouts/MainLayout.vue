@@ -7,10 +7,10 @@ const route = useRoute()
 </script>
 
 <template>
-  <header-component class="px-4 py-3 lg:py-8 lg:px-12"/>
+  <header-component class="px-3.5 py-2.5 lg:px-8 lg:py-8"/>
   <hr/>
 
-  <div class="mb-20 px-3 lg:px-12">
+  <div class="mb-20 px-3 lg:px-10">
     <main class="py-5 lg:py-10">
       <router-view/>
     </main>

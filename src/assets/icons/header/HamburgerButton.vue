@@ -1,10 +1,10 @@
 <script setup>
-const isOpen = defineModel()
+const showMenu = defineModel()
 </script>
 
 <template>
   <label class="btn btn-circle swap swap-rotate lg:hidden">
-    <input v-model="isOpen" type="checkbox"/>
+    <input v-model="showMenu" type="checkbox"/>
 
     <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
          viewBox="0 0 512 512">
