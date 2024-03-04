@@ -7,13 +7,11 @@ const route = useRoute()
 </script>
 
 <template>
-  <header-component class="px-3.5 py-2.5 lg:px-8 lg:py-8"/>
+  <header-component class="px-3.5 py-2.5 lg:px-12 lg:py-8"/>
   <hr/>
 
-  <div class="mb-20 px-3 lg:px-10">
-    <main class="py-5 lg:py-10">
-      <router-view/>
-    </main>
-  </div>
+  <main class="px-3.5 py-5 lg:px-24 lg:py-16">
+    <router-view/>
+  </main>
   <ReportSectionForMainPage v-if="route.path==='/'"/>
 </template>

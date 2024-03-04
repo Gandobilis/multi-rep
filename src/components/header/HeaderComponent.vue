@@ -29,7 +29,7 @@ const showModal = ref(false);
       <nav-link path="/leaderboard">ლიდერბორდი</nav-link>
 
       <button
-          @click="isOpen = false; show_modal = true"
+          @click="showMenu = false; showModal = true"
           v-if="isAuthenticated"
           class="max-lg:text-xs rounded-[5px] lg:rounded-md border text-center font-medium transition border-primary px-2 text-primary py-2 lg:py-3.5 hover:bg-primary hover:text-white hover:shadow-xl">
         დაამატეთ განცხადება

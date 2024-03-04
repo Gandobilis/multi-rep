@@ -10,7 +10,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="ratings" class="mt-7 lg:mt-14 flex flex-col gap-y-4">
+  <div v-if="ratings" class="flex flex-col gap-y-4">
     <Rating v-for="(rating, index) in ratings" :key="index" :rating="rating"/>
   </div>
   <div v-else class="mt-7 lg:mt-14 flex flex-col gap-y-4">

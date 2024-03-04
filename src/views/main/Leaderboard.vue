@@ -4,9 +4,11 @@ import Ratings from "/src/components/leaderboard/Ratings.vue"
 </script>
 
 <template>
-  <h1 class="max-lg:text-center text-2xl lg:text-5xl lg:font-medium" v-text="'ტოპ განცხადებები'"/>
+  <div class="flex flex-col gap-y-7 lg:gap-y-12">
+    <h1 class="max-lg:text-center text-2xl font-medium lg:text-4xl" v-text="'ტოპ განცხადებები'"/>
 
-  <titles class="max-lg:hidden"/>
+    <titles/>
 
-  <ratings class="px-5"/>
+    <ratings/>
+  </div>
 </template>
