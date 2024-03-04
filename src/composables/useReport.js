@@ -2,12 +2,26 @@ import {ref} from "vue";
 import axios from "/src/interceptors/axios/index";
 
 const useReport = () => {
-
     const name = ref()
     const surname = ref()
     const email = ref()
     const issue = ref()
     const sendReport = async () => {
+        await axios.post('/report/send_report', {
+            "name": name,
+            "surname": surname,
+            "issue": issue,
+            "email": email,
+            "listing_id": "ზოგადი"
+        }).then(res=>{
+            name.value = null
+            surname.value = null
+            email.value = null
+            issue.value = null
+        })
+    }
+
+    const handleReport = async (user) => {
         await axios.post('/report/send_report', {
             "name": name,
             "surname": surname,

@@ -2,18 +2,15 @@
 
 import useStatement from "../../composables/useStatement";
 import {onMounted, ref, watch} from "vue";
-import rating from "./rating.vue";
 
 const route = useRoute();
-import Report from "../modals/Report.vue";
-import {Rating} from "tw-elements";
 import {useRoute} from "vue-router";
 import Calendar from "../../assets/icons/forSpecificListing/calendar.vue";
 import Eye from "../../assets/icons/forSpecificListing/eye.vue";
 import Phone from "../../assets/icons/forSpecificListing/phone.vue";
 import Email from "../../assets/icons/forSpecificListing/email.vue";
 import SimilarListings from "./similarListings.vue";
-import {FALSE} from "sass";
+import Report from "../modals/Report.vue";
 
 const {dataForSpecificPage, getDataForSpecificListing, userForSpecificListing} = useStatement();
 
@@ -47,7 +44,7 @@ const formatDate = (timestamp) => {
   return `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day} ${hours}:${minutes}`;
 };
 
-const showModal = ref(false);
+const rating = ref(null)
 </script>
 
 <template>
@@ -57,8 +54,8 @@ const showModal = ref(false);
       <p class="text-xl lg:text-4xl  font-bold">{{ dataForSpecificPage?.title }}</p>
       <p class="lg:text-2xl font-medium">{{ dataForSpecificPage?.description }}</p>
       <div class="flex font-semibold text-3xl flex-col gap-2">
-        <p class="">{{dataForSpecificPage?._city}}</p>
-        <p class="text-sm">{{dataForSpecificPage?._district}}</p>
+        <p class="">{{ dataForSpecificPage?._city }}</p>
+        <p class="text-sm">{{ dataForSpecificPage?._district }}</p>
       </div>
       <div class="flex lg:text-2xl gap-5">
         <div class="flex items-center gap-3">
@@ -70,9 +67,9 @@ const showModal = ref(false);
           <p>{{ dataForSpecificPage?.views }}</p>
         </div>
         <div class="flex items-center gap-1">
-          <p class="text-[#177B15]  font-bold">{{ dataForSpecificPage?.price }} {{dataForSpecificPage?.currency}}</p>
+          <p class="text-[#177B15]  font-bold">{{ dataForSpecificPage?.price }} {{ dataForSpecificPage?.currency }}</p>
           /
-          <p>{{dataForSpecificPage?.time_unit}}</p>
+          <p>{{ dataForSpecificPage?.time_unit }}</p>
         </div>
       </div>
       <div class="flex justify-between  lg:flex-row flex-col items-center ">
@@ -94,24 +91,39 @@ const showModal = ref(false);
         </div>
 
         <div class="flex flex-col ml-24 text-white w-[40%] font-semibold text-lg gap-5">
-          <div class="flex gap-2 border-primary w-full bg-primary items-center border-2  justify-center py-1  rounded-md lg:rounded-xl">
+          <div
+              class="flex gap-2 border-primary w-full bg-primary items-center border-2  justify-center py-1  rounded-md lg:rounded-xl">
             <phone class="max-lg:w-3"/>
             <p class="">{{ userForSpecificListing?.phone }}</p>
           </div>
 
-          <div class="flex gap-2 border-primary w-full justify-center px-2 bg-primary border-2  py-1 items-center   rounded-md lg:rounded-xl ">
+          <div
+              class="flex gap-2 border-primary w-full justify-center px-2 bg-primary border-2  py-1 items-center   rounded-md lg:rounded-xl ">
             <email class="max-lg:w-3"/>
             <p class="">{{ userForSpecificListing?.email }}</p>
           </div>
         </div>
-
       </div>
-      <div class="flex max-lg:flex-col items-center justify-between">
-        <rating/>
-        <p class="cursor-pointer text-primary text-xl hover:text-primary" @click="showModal = true">დაარეპორტეთ</p>
+      <div class="flex items-center justify-between">
+        <div class="rating rating-lg rating-half">
+          <input type="radio" v-model="rating" name="rating-10" class="rating-hidden" />
+          <input type="radio" v-model="rating" name="rating-10" class="mask mask-star-2 mask-half-1" />
+          <input type="radio" v-model="rating" name="rating-10" class="mr-1.5 mask mask-star-2 mask-half-2" />
+          <input type="radio" v-model="rating" name="rating-10" class="mask mask-star-2 mask-half-1" checked />
+          <input type="radio" v-model="rating" name="rating-10" class="mr-1.5 mask mask-star-2 mask-half-2" />
+          <input type="radio" v-model="rating" name="rating-10" class="mask mask-star-2 mask-half-1" />
+          <input type="radio" v-model="rating" name="rating-10" class="mr-1.5 mask mask-star-2 mask-half-2" />
+          <input type="radio" v-model="rating" name="rating-10" class="mask mask-star-2 mask-half-1" />
+          <input type="radio" v-model="rating" name="rating-10" class="mr-1.5 mask mask-star-2 mask-half-2" />
+          <input type="radio" v-model="rating" name="rating-10" class="mask mask-star-2 mask-half-1" />
+          <input type="radio" v-model="rating" name="rating-10" class="mr-1.5 mask mask-star-2 mask-half-2" />
+        </div>
+        <div>
+          <button class="btn" onclick="my_modal.showModal()">დაარეპორტეთ</button>
+          <report/>
+        </div>
       </div>
     </div>
-    <Report v-if="showModal" @close-modal="showModal = false"/>
   </div>
   <similar-listings/>
 </template>
