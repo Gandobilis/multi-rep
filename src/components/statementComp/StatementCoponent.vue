@@ -125,5 +125,8 @@ const rating = ref(null)
       </div>
     </div>
   </div>
-  <similar-listings/>
+  <similar-listings v-if="dataForSpecificPage"/>
+  <div class="flex items-center gap-x-4 lg:text-xl lg:font-medium">
+    <span class="loading loading-spinner loading-lg"></span> იტვირთება
+  </div>
 </template>
