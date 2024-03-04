@@ -75,7 +75,7 @@ const showModal = ref(false);
           <p>{{dataForSpecificPage?.time_unit}}</p>
         </div>
       </div>
-      <div class="flex justify-between  lg:flex-row flex-col items-center ">
+      <div class="flex justify-between gap-10  lg:flex-row flex-col items-center ">
 
         <div class="flex justify-between  items-center lg:w-1/2 gap-3">
           <img class="w-20  h-20 rounded-full" :src="userForSpecificListing?.profile_pic" alt="">
@@ -93,7 +93,7 @@ const showModal = ref(false);
           </div>
         </div>
 
-        <div class="flex flex-col ml-24 text-white w-[40%] font-semibold text-lg gap-5">
+        <div class="flex flex-col ml-24 text-white w-[%] font-semibold text-lg gap-5">
           <div class="flex gap-2 border-primary w-full bg-primary items-center border-2  justify-center py-1  rounded-md lg:rounded-xl">
             <phone class="max-lg:w-3"/>
             <p class="">{{ userForSpecificListing?.phone }}</p>
