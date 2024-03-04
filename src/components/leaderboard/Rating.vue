@@ -30,15 +30,15 @@ watch(currency, () => {
     </div>
 
     <button
-        class="no-animation w-fit cursor-auto btn btn-xs btn-ghost hover:bg-transparent sm:btn-sm md:btn-md lg:btn-lg !px-0"
+        class="active:no-animation w-fit cursor-auto btn btn-xs btn-ghost hover:bg-transparent sm:btn-sm md:btn-md lg:btn-lg !px-0"
         v-text="rating._teacher"/>
 
     <button
-        class="no-animation w-fit cursor-auto btn btn-xs btn-ghost hover:bg-transparent sm:btn-sm md:btn-md lg:btn-lg !px-0"
+        class="active:no-animation w-fit cursor-auto btn btn-xs btn-ghost hover:bg-transparent sm:btn-sm md:btn-md lg:btn-lg !px-0"
         v-text="rating._subject"/>
 
     <button
-        class="no-animation w-fit cursor-auto btn btn-xs btn-ghost hover:bg-transparent sm:btn-sm md:btn-md lg:btn-lg !px-0"
+        class="active:no-animation w-fit cursor-auto btn btn-xs btn-ghost hover:bg-transparent sm:btn-sm md:btn-md lg:btn-lg !px-0"
         v-text="rating._phone"/>
 
     <div class=" rating rating-xs rating-half lg:max-2xl:rating-sm 2xl:rating-md">
@@ -49,7 +49,7 @@ watch(currency, () => {
 
     <div class="flex items-center gap-x-1">
       <button
-          class="no-animation w-fit cursor-auto btn btn-xs btn-ghost hover:bg-transparent sm:btn-sm md:btn-md lg:btn-lg !px-0"
+          class="active:no-animation w-fit cursor-auto btn btn-xs btn-ghost hover:bg-transparent sm:btn-sm md:btn-md lg:btn-lg !px-0"
           v-text="price"/>
       <label class="swap">
 
