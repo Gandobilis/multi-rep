@@ -17,8 +17,8 @@ onMounted(async () => {
   </div>
   <div v-else-if="isLoading" class="flex flex-col gap-y-4">
     <div v-for="i in 5" :key="i"
-         class="border border-gray-400 rounded-lg grid grid-cols-3 grid-rows-3 items-center px-4 pt-3 lg:grid-cols-7 lg:grid-rows-1 lg:py-6">
-      <div class="aspect-square w-14 rounded-full skeleton lg:w-28"/>
+         class="border rounded-lg grid grid-cols-3 grid-rows-3 items-center px-4 pt-3 lg:grid-cols-7 lg:grid-rows-1 lg:py-6">
+      <div class="skeleton w-16 rounded-full lg:max-2xl:rounded-xl lg:max-2xl:w-20 2xl:w-32 2xl:rounded aspect-square"/>
       <div class="h-6 w-2/3 skeleton lg:w-32"/>
       <div class="h-6 w-2/3 skeleton lg:w-32"/>
       <div class="h-6 w-2/3 skeleton lg:w-32"/>

@@ -11,7 +11,6 @@ const handleReport = async () => {
 </script>
 
 <template>
-
   <div class="p-12 flex items-center justify-center lg:justify-between bg-secondary-bg">
     <img class="-scale-x-100 max-lg:hidden w-1/4"
          src="https://assets-global.website-files.com/5f21d1ffffa8639e7606ea49/61521ee4091cf72530f99801_Untitled_Artwork%20495%20(1).png"
