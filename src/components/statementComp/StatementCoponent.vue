@@ -50,7 +50,7 @@ const rating = ref(null)
 <template>
   <div v-if="dataForSpecificPage" class="relative flex max-lg:flex-col gap-16  justify-center">
     <img class="lg:w-1/2 rounded-md object-cover  lg:rounded-3xl " :src="dataForSpecificPage?._photo" alt="">
-    <div class="flex flex-col lg:w-1/2 gap-4 lg:gap-10">
+    <div class="flex flex-col lg:text-left text-center lg:w-1/2 gap-4 lg:gap-10">
       <p class="text-xl lg:text-4xl  font-bold">{{ dataForSpecificPage?.title }}</p>
       <p class="lg:text-2xl font-medium">{{ dataForSpecificPage?.description }}</p>
       <div class="flex font-semibold text-3xl flex-col gap-2">
@@ -62,21 +62,23 @@ const rating = ref(null)
           <calendar class="max-lg:w-5"/>
           <p>{{ formatDate(dataForSpecificPage?.date_created) }}</p>
         </div>
+
         <div class="flex items-center gap-1.5 lg:gap-3">
           <eye class="w-5 lg:w-9"/>
           <p>{{ dataForSpecificPage?.views }}</p>
         </div>
+
         <div class="flex items-center gap-1">
           <p class="text-[#177B15]  font-bold">{{ dataForSpecificPage?.price }} {{ dataForSpecificPage?.currency }}</p>
           /
           <p>{{ dataForSpecificPage?.time_unit }}</p>
         </div>
       </div>
-      <div class="flex justify-between  lg:flex-row flex-col items-center ">
+      <div class="flex justify-between gap-10  lg:flex-row flex-col items-center ">
 
-        <div class="flex justify-between  items-center lg:w-1/2 gap-3">
+        <div class="flex justify-between  items-center lg:w-1/2 gap-5">
           <img class="w-20  h-20 rounded-full" :src="userForSpecificListing?.profile_pic" alt="">
-          <div class="flex gap-2 flex-col">
+          <div class="flex gap-5 flex-col">
 
             <div class="flex gap-2 items-center lg:text-2xl font-medium">
               <p>{{ userForSpecificListing?.first_name }}</p>
@@ -90,7 +92,7 @@ const rating = ref(null)
           </div>
         </div>
 
-        <div class="flex flex-col ml-24 text-white w-[40%] font-semibold text-lg gap-5">
+        <div class="flex flex-col  text-white font-semibold text-lg gap-5">
           <div
               class="flex gap-2 border-primary w-full bg-primary items-center border-2  justify-center py-1  rounded-md lg:rounded-xl">
             <phone class="max-lg:w-3"/>
@@ -104,7 +106,7 @@ const rating = ref(null)
           </div>
         </div>
       </div>
-      <div class="flex items-center justify-between">
+      <div class="lg:flex-row flex-col gap-3 flex items-center justify-between">
         <div class="rating rating-lg rating-half">
           <input type="radio" v-model="rating" name="rating-10" class="rating-hidden" />
           <input type="radio" v-model="rating" name="rating-10" class="mask mask-star-2 mask-half-1" />

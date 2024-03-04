@@ -26,6 +26,7 @@ export default function useListings() {
     const fetchCities = async () => {
         await axios.get('/listings/get_cities_with_districts').then((res) => {
             filterCities.value = res.data.cities;
+            console.log(filterCities.value)
         }).catch(err => console.log(err));
     };
 

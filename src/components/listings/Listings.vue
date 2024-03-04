@@ -56,11 +56,11 @@ onMounted(async () => {
 
       <div class="flex flex-col gap-1.5 lg:gap-2">
         <p class="font-bold text-sm lg:text-xl">უბანი</p>
-
-        <filter-dropdown :options="[...new Set(filterCities.find(city => city.city_name === filterCity)?.districts)]"
+        <filter-dropdown :options="[...new Set(filterCities.find(city => city.city_name === filterCity)?.districts)].map(item => item.district_name)"
                          v-model="filterDistrict"
 
         />
+
 
       </div>
 
