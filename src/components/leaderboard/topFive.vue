@@ -21,7 +21,7 @@
 
                 <router-link :to="`/user/listings/${teacher.id}`"
                              class="relative flex flex-col items-center justify-center">
-                  <img v-if="teacher?.profile_pic" class="hover:scale-105 w-24 h-24 object-cover rounded-full"
+                  <img v-if="teacher?.profile_pic" class="hover:scale-105 transition w-24 h-24 object-cover rounded-full"
                        :src="teacher.profile_pic" alt="">
                   <img v-else class="hover:scale-105 w-24 h-24 object-cover rounded-full"
                        src="/src/assets/images/default-teacher.png"

@@ -77,16 +77,16 @@ const isFavorite = (id) => {
 <template>
 
   <a  :href="`/listings/${data.id}`"
-     class="overflow-hidden max-w-96 h-[430px] border-l-4 pl-4 rounded-l-xl border-secondary-bg  group max-lg:text-sm flex flex-col  cursor-pointer transition-all">
+     class="shadow-xl overflow-hidden max-w-96 max-lg:text-sm  h-[420px]  flex flex-col pb-2 cursor-pointer rounded-t-xl">
     <img v-if="data._photo" :src="data._photo"
-         class="group-hover:scale-105 w-96 object-cover rounded-t-xl   h-1/2 transition-all" alt="course  icon"/>
+         class="hover:scale-105 w-96 object-cover h-1/2 transition" alt="course  icon"/>
 
 
     <img src="/src/assets/images/default-course.png"
-         class="hover:scale-105 w-full group-hover:rounded-none object-cover h-1/2 transition-all" v-else
+         class="hover:scale-105 w-full object-cover h-1/2 transition" v-else
          alt="default course image"/>
 
-    <div class="flex flex-col   px-3 ">
+    <div class="flex flex-col px-3 ">
       <div class="mt-4 mb-2 flex  justify-between  ">
         <p class="font-bold w-1/2 " v-text="data.title?.length > 40 ? data.title.slice(0, 40) + '...' : data.title"/>
 
@@ -97,7 +97,7 @@ const isFavorite = (id) => {
         <p class="font-bold text-price " v-text="`${data.price} ${data.currency} / ${data.time_unit}`"/>
         <div class="flex items-center gap-x-1.5 ">
           <img class="w-6 h-6" src="/src/assets/icons/leaderboard/star-icon.svg" alt="time icon">
-          <p v-text="data._score + '/5.00'"/>
+          <p v-text="data.average_listing_score ?? '0' + '/5'"/>
         </div>
       </div>
 
