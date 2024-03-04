@@ -2,7 +2,7 @@
 import {ref} from "vue"
 import Filter from "/src/components/listings/filter/Filter.vue"
 import AddPost from "../../components/modals/AddPost.vue"
-import TopFive from "../../components/leaderboard/topFive.vue";
+import TopFive from "../../components/leaderboard/TopTen.vue";
 import ListingsForMainPage from "../../components/listings/listingsForMainPage.vue";
 
 const showModal = ref(false)
