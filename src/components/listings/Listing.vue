@@ -77,13 +77,13 @@ const isFavorite = (id) => {
 <template>
 
   <a  :href="`/listings/${data.id}`"
-     class="overflow-hidden max-w-96 border-primary p-1 group max-lg:text-sm  h-[420px]  flex flex-col pb-10 border rounded-3xl cursor-pointer transition-all">
+     class="shadow-xl overflow-hidden max-w-96 max-lg:text-sm  h-[420px]  flex flex-col pb-2 cursor-pointer rounded-t-xl">
     <img v-if="data._photo" :src="data._photo"
-         class="group-hover:scale-105 w-96 object-cover rounded-t-xl   h-1/2 transition-all" alt="course  icon"/>
+         class="w-96 object-cover  h-1/2" alt="course  icon"/>
 
 
     <img src="/src/assets/images/default-course.png"
-         class="hover:scale-105 w-full group-hover:rounded-none object-cover h-1/2 transition-all" v-else
+         class="w-full object-cover h-1/2" v-else
          alt="default course image"/>
 
     <div class="flex flex-col px-3 ">
