@@ -79,11 +79,11 @@ const isFavorite = (id) => {
   <a  :href="`/listings/${data.id}`"
      class="shadow-xl overflow-hidden max-w-96 max-lg:text-sm  h-[420px]  flex flex-col pb-2 cursor-pointer rounded-t-xl">
     <img v-if="data._photo" :src="data._photo"
-         class="w-96 object-cover  h-1/2" alt="course  icon"/>
+         class="hover:scale-105 w-96 object-cover h-1/2 transition" alt="course  icon"/>
 
 
     <img src="/src/assets/images/default-course.png"
-         class="w-full object-cover h-1/2" v-else
+         class="hover:scale-105 w-full object-cover h-1/2 transition" v-else
          alt="default course image"/>
 
     <div class="flex flex-col px-3 ">
